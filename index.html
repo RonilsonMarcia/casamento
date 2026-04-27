@@ -1,138 +1,334 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ronilson & Márcia</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Casamento Ronilson & Márcia</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cinzel:wght@400;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-<style>
-body {
-    margin: 0;
-    font-family: 'Montserrat', sans-serif;
-    background: #f8f5f0;
-    color: #6b4f2c;
-    text-align: center;
-    overflow-x: hidden;
-}
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-.container {
-    padding: 40px 20px;
-    max-width: 700px;
-    margin: auto;
-    animation: fadeIn 2s ease;
-}
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: #f8f3ec;
+      color: #4a3324;
+      line-height: 1.6;
+    }
 
-@keyframes fadeIn {
-    from {opacity: 0; transform: translateY(20px);}
-    to {opacity: 1; transform: translateY(0);}
-}
+    .hero {
+      min-height: 100vh;
+      background: linear-gradient(rgba(255,255,255,0.75), rgba(248,243,236,0.95)),
+        url('https://images.unsplash.com/photo-1523438885200-e635ba2c371e?auto=format&fit=crop&w=1400&q=80');
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 30px;
+    }
 
-.nomes {
-    font-family: 'Great Vibes', cursive;
-    font-size: 50px;
-}
+    .card {
+      max-width: 820px;
+      background: rgba(255, 255, 255, 0.86);
+      padding: 45px 30px;
+      border-radius: 28px;
+      border: 1px solid #d6b574;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.12);
+    }
 
-.monograma {
-    font-family: 'Great Vibes', cursive;
-    font-size: 60px;
-}
+    .monograma {
+      font-family: 'Great Vibes', cursive;
+      font-size: 90px;
+      color: #b08a3c;
+      line-height: 1;
+    }
 
-.timer {
-    font-size: 20px;
-    margin-top: 20px;
-    font-weight: bold;
-}
+    .subtitulo {
+      font-family: 'Cinzel', serif;
+      letter-spacing: 3px;
+      font-size: 14px;
+      margin-top: 15px;
+      color: #7a5a2e;
+    }
 
-.botao {
-    margin-top: 20px;
-}
+    h1 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 72px;
+      color: #8a652b;
+      margin: 20px 0 10px;
+      font-weight: normal;
+    }
 
-.botao a {
-    background: #c8a46b;
-    color: white;
-    padding: 12px 25px;
-    text-decoration: none;
-    border-radius: 25px;
-    display: inline-block;
-    margin: 5px;
-}
-</style>
+    .data {
+      font-family: 'Cinzel', serif;
+      font-size: 24px;
+      color: #4a3324;
+      margin: 20px 0;
+    }
+
+    .frase {
+      font-size: 17px;
+      max-width: 620px;
+      margin: 0 auto 25px;
+    }
+
+    .btn {
+      display: inline-block;
+      margin: 10px;
+      padding: 14px 24px;
+      border-radius: 30px;
+      background: #b08a3c;
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      background: #8a652b;
+      transform: scale(1.04);
+    }
+
+    section {
+      padding: 70px 25px;
+      text-align: center;
+    }
+
+    .titulo {
+      font-family: 'Great Vibes', cursive;
+      font-size: 55px;
+      color: #8a652b;
+      margin-bottom: 20px;
+    }
+
+    .box {
+      max-width: 850px;
+      margin: 25px auto;
+      background: white;
+      padding: 35px 25px;
+      border-radius: 24px;
+      box-shadow: 0 12px 35px rgba(0,0,0,0.08);
+      border: 1px solid #ead8b7;
+    }
+
+    .box h3 {
+      font-family: 'Cinzel', serif;
+      color: #7a5a2e;
+      margin-bottom: 12px;
+      font-size: 22px;
+    }
+
+    .nomes {
+      font-family: 'Cinzel', serif;
+      font-size: 18px;
+      margin-bottom: 12px;
+    }
+
+    .endereco {
+      margin: 12px 0 20px;
+      font-size: 16px;
+    }
+
+    .contador {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+      margin-top: 25px;
+    }
+
+    .tempo {
+      background: #fff;
+      border: 1px solid #d6b574;
+      border-radius: 18px;
+      padding: 18px;
+      width: 105px;
+    }
+
+    .tempo span {
+      display: block;
+      font-size: 30px;
+      font-weight: bold;
+      color: #8a652b;
+    }
+
+    .audio-box {
+      position: fixed;
+      bottom: 18px;
+      right: 18px;
+      background: #b08a3c;
+      color: white;
+      padding: 12px 18px;
+      border-radius: 30px;
+      cursor: pointer;
+      font-size: 14px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+      z-index: 99;
+    }
+
+    footer {
+      padding: 35px 20px;
+      text-align: center;
+      background: #4a3324;
+      color: #fff;
+    }
+
+    footer .assinatura {
+      font-family: 'Great Vibes', cursive;
+      font-size: 38px;
+      color: #d6b574;
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 52px;
+      }
+
+      .monograma {
+        font-size: 75px;
+      }
+
+      .titulo {
+        font-size: 44px;
+      }
+
+      .card {
+        padding: 35px 20px;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-<!-- 🎵 Música -->
-<audio autoplay loop>
-  <source src="https://www.bensound.com/bensound-music/bensound-romantic.mp3" type="audio/mp3">
-</audio>
+  <audio id="musica" loop>
+    <source src="musica.mp3" type="audio/mpeg">
+  </audio>
 
-<div class="container">
+  <div class="audio-box" onclick="tocarMusica()">
+    🎵 Tocar música
+  </div>
 
-<p>“Acima de tudo, porém, revistam-se do amor, que é o elo perfeito.”<br>Colossenses 3:14</p>
+  <section class="hero">
+    <div class="card">
+      <div class="monograma">R&M</div>
+      <div class="subtitulo">CONVITE DE CASAMENTO</div>
 
-<p>Com a bênção de Deus e de seus pais</p>
+      <h1>Ronilson & Márcia</h1>
 
-<p>
-Raimundo Nonato Taveira da Silva<br>
-Elena Cavalcante da Silva<br><br>
-José Alcir Ribeiro Lima<br>
-Angela Maria Neri Neonel
-</p>
+      <p class="frase">
+        Com alegria no coração, convidamos você para celebrar conosco
+        este momento especial de amor, fé e união.
+      </p>
 
-<div class="monograma">RM</div>
+      <div class="data">30 de outubro de 2026 • 19h</div>
 
-<div class="nomes">Ronilson & Márcia</div>
+      <a class="btn" href="#cerimonia">Ver cerimônia</a>
+      <a class="btn" href="#recepcao">Ver recepção</a>
+    </div>
+  </section>
 
-<p>Convidam para a celebração de seu casamento</p>
+  <section>
+    <h2 class="titulo">Nossos Nomes</h2>
+    <div class="box">
+      <p class="nomes">
+        Ronilson Cavalcante da Silva<br>
+        &
+        <br>Márcia Layse Neri Lima
+      </p>
+      <p>
+        “Assim, eles já não são dois, mas sim uma só carne.
+        Portanto, o que Deus uniu, ninguém separe.”
+      </p>
+      <p><strong>Mateus 19:6</strong></p>
+    </div>
+  </section>
 
-<p>
-📅 30 de outubro de 2026<br>
-⏰ 19h<br><br>
+  <section>
+    <h2 class="titulo">Contagem Regressiva</h2>
+    <div class="contador">
+      <div class="tempo"><span id="dias">00</span>Dias</div>
+      <div class="tempo"><span id="horas">00</span>Horas</div>
+      <div class="tempo"><span id="minutos">00</span>Min</div>
+      <div class="tempo"><span id="segundos">00</span>Seg</div>
+    </div>
+  </section>
 
-📍 Igreja de Nossa Senhora do Perpétuo Socorro<br>
-Av. Leonardo Malcher, 541 – Aparecida<br>
-Manaus – AM
-</p>
+  <section id="cerimonia">
+    <h2 class="titulo">Cerimônia Religiosa</h2>
+    <div class="box">
+      <h3>Capela Católica Nossa Senhora do Perpétuo Socorro</h3>
+      <p class="endereco">
+        Av. Leonardo Malcher, 541 - Aparecida, Manaus - AM
+      </p>
+      <p><strong>Horário:</strong> 19h</p>
+      <a class="btn" target="_blank" href="https://maps.app.goo.gl/6k88jM35cc1eeQFNA">
+        Abrir localização da igreja
+      </a>
+    </div>
+  </section>
 
-<!-- ⏳ CONTAGEM REGRESSIVA -->
-<div class="timer" id="contador"></div>
+  <section id="recepcao">
+    <h2 class="titulo">Recepção</h2>
+    <div class="box">
+      <h3>Comes e Bebes</h3>
+      <p class="endereco">
+        Após a cerimônia, esperamos você para celebrarmos juntos
+        com alegria, carinho e boas lembranças.
+      </p>
+      <a class="btn" target="_blank" href="https://maps.app.goo.gl/dXFb7f6kUVwwfTLG7">
+        Abrir localização da recepção
+      </a>
+    </div>
+  </section>
 
-<!-- 📍 BOTÕES -->
-<div class="botao">
-<a href="https://wa.me/5592SEUNUMERO">Confirmar Presença</a>
-<a href="https://www.google.com/maps?q=Igreja+Nossa+Senhora+do+Perpétuo+Socorro+Manaus" target="_blank">Ver Localização</a>
-</div>
+  <section>
+    <h2 class="titulo">Confirme sua Presença</h2>
+    <div class="box">
+      <p>
+        Sua presença tornará este dia ainda mais especial.
+      </p>
+      <a class="btn" target="_blank" href="https://wa.me/5592999999999?text=Confirmo%20minha%20presen%C3%A7a%20no%20casamento%20de%20Ronilson%20e%20M%C3%A1rcia">
+        Confirmar pelo WhatsApp
+      </a>
+    </div>
+  </section>
 
-<p style="margin-top:30px;">
-“Juntos, vamos criar memórias inesquecíveis e celebrar o amor e a felicidade.”
-</p>
+  <footer>
+    <p class="assinatura">Ronilson & Márcia</p>
+    <p>30 de outubro de 2026</p>
+  </footer>
 
-</div>
+  <script>
+    const dataCasamento = new Date("Oct 30, 2026 19:00:00").getTime();
 
-<script>
-// CONTADOR
-var dataCasamento = new Date("Oct 30, 2026 19:00:00").getTime();
+    setInterval(() => {
+      const agora = new Date().getTime();
+      const distancia = dataCasamento - agora;
 
-var x = setInterval(function() {
-    var agora = new Date().getTime();
-    var distancia = dataCasamento - agora;
+      const dias = Math.floor(distancia / (1000 * 60 * 60 * 24));
+      const horas = Math.floor((distancia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutos = Math.floor((distancia % (1000 * 60 * 60)) / (1000 * 60));
+      const segundos = Math.floor((distancia % (1000 * 60)) / 1000);
 
-    var dias = Math.floor(distancia / (1000 * 60 * 60 * 24));
-    var horas = Math.floor((distancia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    var minutos = Math.floor((distancia % (1000 * 60 * 60)) / (1000 * 60));
-    var segundos = Math.floor((distancia % (1000 * 60)) / 1000);
+      document.getElementById("dias").innerHTML = dias;
+      document.getElementById("horas").innerHTML = horas;
+      document.getElementById("minutos").innerHTML = minutos;
+      document.getElementById("segundos").innerHTML = segundos;
+    }, 1000);
 
-    document.getElementById("contador").innerHTML =
-    "Faltam " + dias + " dias " + horas + "h " + minutos + "m " + segundos + "s";
-
-    if (distancia < 0) {
-        clearInterval(x);
-        document.getElementById("contador").innerHTML = "Chegou o grande dia! 💍";
+    function tocarMusica() {
+      const musica = document.getElementById("musica");
+      musica.play();
     }
-}, 1000);
-</script>
+  </script>
 
 </body>
 </html>
