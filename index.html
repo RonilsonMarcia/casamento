@@ -11,14 +11,12 @@
 :root{--gold:#b08a3c;--dark:#4a3324}
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
-
 body{
   font-family:'Montserrat',sans-serif;
   background:linear-gradient(135deg,#fffaf0,#f5ead7,#fff8ea);
   color:var(--dark);
   overflow-x:hidden;
 }
-
 body::before{
   content:"";
   position:fixed;
@@ -28,20 +26,9 @@ body::before{
   animation:bgMove 15s linear infinite;
   z-index:-1;
 }
+@keyframes bgMove{from{background-position:0 0}to{background-position:150px 150px}}
 
-@keyframes bgMove{
-  from{background-position:0 0}
-  to{background-position:150px 150px}
-}
-
-.hero{
-  min-height:100vh;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  padding:20px;
-}
-
+.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:20px}
 .card{
   width:100%;
   max-width:1000px;
@@ -52,16 +39,8 @@ body::before{
   text-align:center;
   border:1px solid rgba(176,138,60,.35);
 }
-
-.logos{
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  gap:22px;
-}
-
+.logos{display:flex;flex-direction:column;align-items:center;gap:22px}
 .logo1{width:170px;max-width:70%}
-
 .logo2{
   width:280px;
   max-width:90%;
@@ -69,7 +48,6 @@ body::before{
   mix-blend-mode:multiply;
   filter:drop-shadow(0 10px 20px rgba(0,0,0,.2)) brightness(1.05) contrast(1.08);
 }
-
 .nomes{
   font-family:'Alex Brush',cursive;
   font-size:clamp(42px, 8vw, 88px);
@@ -81,19 +59,8 @@ body::before{
   font-weight:400;
   line-height:1.1;
 }
-
-.frase{
-  font-size:15px;
-  margin:10px auto 20px;
-  max-width:600px;
-}
-
-.data{
-  font-family:'Cinzel',serif;
-  font-weight:700;
-  margin-bottom:15px;
-}
-
+.frase{font-size:15px;margin:10px auto 20px;max-width:600px}
+.data{font-family:'Cinzel',serif;font-weight:700;margin-bottom:15px}
 .btn{
   display:block;
   width:100%;
@@ -108,12 +75,7 @@ body::before{
   cursor:pointer;
   box-shadow:0 8px 20px rgba(138,101,43,.25);
 }
-
-section{
-  padding:40px 15px;
-  text-align:center;
-}
-
+section{padding:40px 15px;text-align:center}
 .titulo{
   font-family:'Alex Brush',cursive;
   font-size:42px;
@@ -121,7 +83,6 @@ section{
   font-weight:400;
   margin-bottom:15px;
 }
-
 .box{
   max-width:700px;
   margin:auto;
@@ -131,7 +92,6 @@ section{
   border:1px solid rgba(176,138,60,.25);
   box-shadow:0 5px 20px rgba(0,0,0,.1);
 }
-
 .input-campo{
   width:100%;
   padding:12px;
@@ -141,7 +101,6 @@ section{
   text-align:center;
   font-size:16px;
 }
-
 .textarea-campo{
   width:100%;
   height:150px;
@@ -151,14 +110,7 @@ section{
   border:1px solid #ccc;
   font-size:13px;
 }
-
-.contador{
-  display:flex;
-  justify-content:center;
-  gap:10px;
-  flex-wrap:wrap;
-}
-
+.contador{display:flex;justify-content:center;gap:10px;flex-wrap:wrap}
 .tempo{
   width:72px;
   padding:10px;
@@ -166,14 +118,7 @@ section{
   border-radius:12px;
   border:1px solid rgba(176,138,60,.35);
 }
-
-.tempo span{
-  display:block;
-  font-size:22px;
-  font-weight:bold;
-  color:var(--gold);
-}
-
+.tempo span{display:block;font-size:22px;font-weight:bold;color:var(--gold)}
 .audio{
   position:fixed;
   bottom:15px;
@@ -186,19 +131,8 @@ section{
   z-index:99;
   box-shadow:0 8px 20px rgba(0,0,0,.25);
 }
-
-footer{
-  background:var(--dark);
-  color:#fff;
-  padding:32px 15px;
-  text-align:center;
-}
-
-footer .assinatura{
-  font-family:'Alex Brush',cursive;
-  font-size:42px;
-  color:#d6b574;
-}
+footer{background:var(--dark);color:#fff;padding:32px 15px;text-align:center}
+footer .assinatura{font-family:'Alex Brush',cursive;font-size:42px;color:#d6b574}
 
 @media(min-width:768px){
   .card{padding:45px}
@@ -209,22 +143,14 @@ footer .assinatura{
   .tempo{width:95px;padding:16px 10px}
   .tempo span{font-size:30px}
 }
-
 @media(min-width:1024px){
-  .card{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:36px;
-    align-items:center;
-    text-align:left;
-  }
+  .card{display:grid;grid-template-columns:1fr 1fr;gap:36px;align-items:center;text-align:left}
   .left{text-align:center}
   .right{text-align:left}
   .frase{margin-left:0}
   .logo1{width:240px}
   .logo2{width:390px}
 }
-
 @media(max-width:600px){
   .card{padding:24px 18px}
   .logos{gap:18px}
@@ -296,7 +222,6 @@ footer .assinatura{
 
 <section id="presentes">
   <h2 class="titulo">Lista de Presentes</h2>
-
   <div class="box">
     <p>Escolha a melhor forma de nos presentear.</p>
 
@@ -330,7 +255,7 @@ footer .assinatura{
   <h2 class="titulo">Confirme sua presença</h2>
 
   <div class="box">
-    <p>Primeiro confirme seu nome ou telefone na lista. Depois o sistema gera a quantidade de senhas.</p>
+    <p>Primeiro confirme seu nome ou telefone na lista. Depois o sistema gera suas senhas e envia para os noivos.</p>
 
     <input 
       type="text" 
@@ -339,12 +264,11 @@ footer .assinatura{
       placeholder="Digite seu nome ou telefone"
     >
 
-    <button class="btn" onclick="consultarConvite()">Consultar convite</button>
+    <button class="btn" onclick="consultarConvite()">Consultar e enviar confirmação</button>
 
     <div id="areaResultado" style="display:none;">
       <textarea id="resultadoConvite" class="textarea-campo" readonly></textarea>
-
-      <button class="btn" onclick="enviarWhatsApp()">Enviar confirmação pelo WhatsApp</button>
+      <button class="btn" onclick="enviarWhatsApp()">Enviar novamente pelo WhatsApp</button>
       <button class="btn" onclick="copiarConfirmacao()">Copiar confirmação</button>
     </div>
   </div>
@@ -356,6 +280,8 @@ footer .assinatura{
 </footer>
 
 <script>
+const numeroNoivos = "5592984236693";
+
 const convidados = [
   { nome: "ana silva", telefone: "92984000001", senhas: 1 },
   { nome: "bruno souza", telefone: "92984000002", senhas: 1 },
@@ -406,15 +332,14 @@ const convidados = [
   { nome: "casal felipe e camila", telefone: "92984000047", senhas: 2 },
   { nome: "familia almeida", telefone: "92984000048", senhas: 3 },
   { nome: "familia cavalcante", telefone: "92984000049", senhas: 3 },
-  { nome: "Marcos Cavalcante", telefone: "92986,8,3750", senhas: 3 }
+  { nome: "familia nascimento", telefone: "92984000050", senhas: 3 }
 ];
 
 let mensagemConfirmacao = "";
 let tocando = false;
 
 function normalizarTexto(texto){
-  return texto
-    .toLowerCase()
+  return texto.toLowerCase()
     .normalize("NFD")
     .replace(/[\u0300-\u036f]/g, "")
     .replace(/\s+/g, " ")
@@ -507,7 +432,7 @@ Entre em contato com os noivos para confirmar sua presença.`;
   let texto = `Confirmação de presença - Casamento Ronilson & Márcia
 Nome: ${formatarNome(convidado.nome)}
 Telefone: ${convidado.telefone}
-Você tem direito a ${convidado.senhas} senha(s).
+Quantidade de senhas: ${convidado.senhas}
 
 Senhas geradas:
 `;
@@ -523,6 +448,8 @@ Horário: 19h`;
   document.getElementById("resultadoConvite").value = texto;
   document.getElementById("areaResultado").style.display = "block";
   mensagemConfirmacao = texto;
+
+  enviarWhatsApp();
 }
 
 function gerarCodigoBase(nome, telefone){
@@ -548,7 +475,7 @@ function enviarWhatsApp(){
   }
 
   const mensagem = encodeURIComponent(mensagemConfirmacao);
-  window.open("https://wa.me/5592984236693?text=" + mensagem, "_blank");
+  window.open(`https://wa.me/${numeroNoivos}?text=${mensagem}`, "_blank");
 }
 
 function copiarConfirmacao(){
