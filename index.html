@@ -8,155 +8,89 @@
 <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cinzel:wght@400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
-:root{--gold:#b08a3c;--dark:#4a3324}
+:root{
+  --gold:#c9a24a;
+  --gold-light:#f4d27a;
+  --dark:#3f4d63;
+  --blue:#4f5f78;
+  --cream:#fffaf2;
+}
+
 *{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
 body{
   font-family:'Montserrat',sans-serif;
-  background:linear-gradient(135deg,#fffaf0,#f5ead7,#fff8ea);
+  background:linear-gradient(135deg,#d6dde6,#f7f1e8,#ffffff);
   color:var(--dark);
-  overflow-x:hidden;
 }
-body::before{
-  content:"";
-  position:fixed;
-  inset:0;
-  background-image:radial-gradient(circle, rgba(176,138,60,.18) 1px, transparent 1px);
-  background-size:30px 30px;
-  animation:bgMove 15s linear infinite;
-  z-index:-1;
-}
-@keyframes bgMove{from{background-position:0 0}to{background-position:150px 150px}}
 
-.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:20px}
+.hero{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+}
+
 .card{
+  max-width:900px;
   width:100%;
-  max-width:1000px;
   background:#fff;
+  border-radius:25px;
   padding:30px;
-  border-radius:30px;
-  box-shadow:0 20px 60px rgba(0,0,0,.15);
   text-align:center;
-  border:1px solid rgba(176,138,60,.35);
+  box-shadow:0 20px 60px rgba(0,0,0,.2);
 }
-.logos{display:flex;flex-direction:column;align-items:center;gap:22px}
-.logo1{width:170px;max-width:70%}
-.logo2{
-  width:280px;
-  max-width:90%;
-  background:transparent;
-  mix-blend-mode:multiply;
-  filter:drop-shadow(0 10px 20px rgba(0,0,0,.2)) brightness(1.05) contrast(1.08);
-}
+
+.logo2{width:260px;margin-bottom:20px}
+
 .nomes{
   font-family:'Alex Brush',cursive;
-  font-size:clamp(42px, 8vw, 88px);
-  background:linear-gradient(45deg,#d4af37,#b08a3c,#ffd700);
+  font-size:clamp(38px, 7vw, 70px);
+  background:linear-gradient(45deg,#8a6424,#c9a24a,#f4d27a);
   -webkit-background-clip:text;
   -webkit-text-fill-color:transparent;
-  margin:18px 0 10px;
   white-space:nowrap;
-  font-weight:400;
-  line-height:1.1;
 }
-.frase{font-size:15px;margin:10px auto 20px;max-width:600px}
-.data{font-family:'Cinzel',serif;font-weight:700;margin-bottom:15px}
+
 .btn{
   display:block;
-  width:100%;
-  margin:8px 0;
-  padding:14px;
+  margin:10px 0;
+  padding:12px;
   border-radius:30px;
-  background:linear-gradient(135deg,#b08a3c,#8a652b);
-  color:#fff;
+  background:var(--blue);
+  color:#f4d27a;
   text-decoration:none;
-  font-weight:bold;
   border:none;
   cursor:pointer;
-  box-shadow:0 8px 20px rgba(138,101,43,.25);
 }
-section{padding:40px 15px;text-align:center}
-.titulo{
-  font-family:'Alex Brush',cursive;
-  font-size:42px;
-  color:var(--gold);
-  font-weight:400;
-  margin-bottom:15px;
-}
+
+section{padding:40px 20px;text-align:center}
 .box{
-  max-width:700px;
-  margin:auto;
   background:#fff;
-  padding:22px;
-  border-radius:22px;
-  border:1px solid rgba(176,138,60,.25);
+  padding:20px;
+  border-radius:20px;
   box-shadow:0 5px 20px rgba(0,0,0,.1);
 }
-.input-campo{
-  width:100%;
-  padding:12px;
-  border-radius:10px;
-  border:1px solid #ccc;
-  margin-top:12px;
-  text-align:center;
-  font-size:16px;
-}
-.textarea-campo{
-  width:100%;
-  height:150px;
-  margin-top:10px;
-  padding:10px;
-  border-radius:10px;
-  border:1px solid #ccc;
-  font-size:13px;
-}
-.contador{display:flex;justify-content:center;gap:10px;flex-wrap:wrap}
-.tempo{
-  width:72px;
-  padding:10px;
-  background:#fff;
-  border-radius:12px;
-  border:1px solid rgba(176,138,60,.35);
-}
-.tempo span{display:block;font-size:22px;font-weight:bold;color:var(--gold)}
-.audio{
-  position:fixed;
-  bottom:15px;
-  right:15px;
-  background:var(--gold);
-  color:#fff;
-  padding:10px 15px;
-  border-radius:20px;
-  cursor:pointer;
-  z-index:99;
-  box-shadow:0 8px 20px rgba(0,0,0,.25);
-}
-footer{background:var(--dark);color:#fff;padding:32px 15px;text-align:center}
-footer .assinatura{font-family:'Alex Brush',cursive;font-size:42px;color:#d6b574}
 
-@media(min-width:768px){
-  .card{padding:45px}
-  .logo1{width:220px}
-  .logo2{width:340px}
-  .titulo{font-size:58px}
-  .btn{display:inline-block;width:auto;padding:12px 25px;margin:8px 5px}
-  .tempo{width:95px;padding:16px 10px}
-  .tempo span{font-size:30px}
+textarea,input{
+  width:100%;
+  padding:10px;
+  margin-top:10px;
+  border-radius:10px;
+  border:1px solid #ccc;
 }
-@media(min-width:1024px){
-  .card{display:grid;grid-template-columns:1fr 1fr;gap:36px;align-items:center;text-align:left}
-  .left{text-align:center}
-  .right{text-align:left}
-  .frase{margin-left:0}
-  .logo1{width:240px}
-  .logo2{width:390px}
+
+footer{
+  background:var(--blue);
+  color:#fff;
+  padding:30px;
+  text-align:center;
 }
-@media(max-width:600px){
-  .card{padding:24px 18px}
-  .logos{gap:18px}
-  .logo1{width:145px}
-  .logo2{width:245px}
-  .nomes{font-size:clamp(36px, 11vw, 46px)}
+
+footer .assinatura{
+  font-family:'Alex Brush',cursive;
+  font-size:40px;
+  color:#f4d27a;
 }
 </style>
 </head>
@@ -167,325 +101,88 @@ footer .assinatura{font-family:'Alex Brush',cursive;font-size:42px;color:#d6b574
   <source src="amor.mp3" type="audio/mpeg">
 </audio>
 
-<div class="audio" onclick="playMusic()">🎵 Música</div>
-
 <div class="hero">
   <div class="card">
-    <div class="left">
-      <div class="logos">
-        <img src="monograma.png" class="logo1" alt="Monograma">
-        <img src="rm1.png" class="logo2" alt="Ronilson e Márcia">
-      </div>
-    </div>
+    <img src="rm1.png" class="logo2">
+    <h1 class="nomes">Ronilson & Márcia</h1>
+    <p>30 de Outubro de 2026 • 19h</p>
 
-    <div class="right">
-      <h1 class="nomes">Ronilson & Márcia</h1>
-      <p class="frase">Com alegria no coração, convidamos você para celebrar conosco este momento especial.</p>
-      <div class="data">30 de Outubro de 2026 • 19h</div>
-
-      <a class="btn" href="#cerimonia">Cerimônia</a>
-      <a class="btn" href="#recepcao">Recepção</a>
-      <a class="btn" href="#presentes">Lista de Presentes</a>
-      <a class="btn" href="#presenca">Confirmar Presença</a>
-    </div>
+    <button class="btn" onclick="playMusic()">Tocar música</button>
   </div>
 </div>
 
-<section>
-  <h2 class="titulo">Contagem Regressiva</h2>
-  <div class="contador">
-    <div class="tempo"><span id="d">00</span>Dias</div>
-    <div class="tempo"><span id="h">00</span>Horas</div>
-    <div class="tempo"><span id="m">00</span>Min</div>
-    <div class="tempo"><span id="s">00</span>Seg</div>
-  </div>
-</section>
-
-<section id="cerimonia">
-  <h2 class="titulo">Cerimônia Religiosa</h2>
-  <div class="box">
-    <p><strong>Capela Nossa Senhora do Perpétuo Socorro</strong></p>
-    <p>Av. Leonardo Malcher, 541 - Aparecida, Manaus - AM</p>
-    <p><strong>Horário:</strong> 19h</p>
-    <a class="btn" target="_blank" href="https://maps.app.goo.gl/6k88jM35cc1eeQFNA">Ver localização</a>
-  </div>
-</section>
-
-<section id="recepcao">
-  <h2 class="titulo">Recepção</h2>
-  <div class="box">
-    <p><strong>Endereço:</strong></p>
-    <p>Av. Silves, 879 - Crespo, Manaus - AM, 69073-175</p>
-    <a class="btn" target="_blank" href="https://maps.app.goo.gl/dXFb7f6kUVwwfTLG7">Abrir localização</a>
-  </div>
-</section>
-
 <section id="presentes">
-  <h2 class="titulo">Lista de Presentes</h2>
+  <h2>Lista de Presentes</h2>
   <div class="box">
-    <p>Escolha a melhor forma de nos presentear.</p>
+    <button class="btn" onclick="mostrar('bemol')">Bemol</button>
+    <button class="btn" onclick="mostrar('dinamica')">Dinâmica</button>
+    <button class="btn" onclick="mostrar('pix')">PIX</button>
 
-    <button class="btn" onclick="mostrarOpcao('bemol')">Loja Bemol</button>
-    <button class="btn" onclick="mostrarOpcao('dinamica')">Loja Dinâmica</button>
-    <button class="btn" onclick="mostrarOpcao('pix')">PIX</button>
-
-    <div id="bemol" style="display:none; margin-top:15px;">
-      <p>Você pode escolher um presente diretamente na Bemol.</p>
-      <a class="btn" target="_blank" href="https://www.bemol.com.br/">Acessar Bemol</a>
-    </div>
-
-    <div id="dinamica" style="display:none; margin-top:15px;">
-      <p>Você pode escolher um presente diretamente na Dinâmica.</p>
-      <a class="btn" target="_blank" href="https://www.dinamica.com.br/">Acessar Dinâmica</a>
-    </div>
-
-    <div id="pix" style="display:none; margin-top:15px;">
-      <p>Se preferir, você pode contribuir via PIX.</p>
-      <p><strong>Chave PIX:</strong></p>
-      <p style="font-size:20px;color:#b08a3c;font-weight:bold;">92984236693</p>
-
-      <textarea id="pixCode" class="textarea-campo" readonly></textarea>
-
-      <button class="btn" onclick="copiarPix()">Copiar chave PIX</button>
+    <div id="pix" style="display:none">
+      <p>Chave PIX:</p>
+      <b>92984236693</b>
     </div>
   </div>
 </section>
 
 <section id="presenca">
-  <h2 class="titulo">Confirme sua presença</h2>
+  <h2>Confirmar Presença</h2>
 
   <div class="box">
-    <p>Primeiro confirme seu nome ou telefone na lista. Depois o sistema gera suas senhas e envia para os noivos.</p>
+    <input id="busca" placeholder="Digite seu nome ou telefone">
+    <button class="btn" onclick="consultar()">Consultar</button>
 
-    <input 
-      type="text" 
-      id="buscaConvidado" 
-      class="input-campo"
-      placeholder="Digite seu nome ou telefone"
-    >
-
-    <button class="btn" onclick="consultarConvite()">Consultar e enviar confirmação</button>
-
-    <div id="areaResultado" style="display:none;">
-      <textarea id="resultadoConvite" class="textarea-campo" readonly></textarea>
-      <button class="btn" onclick="enviarWhatsApp()">Enviar novamente pelo WhatsApp</button>
-      <button class="btn" onclick="copiarConfirmacao()">Copiar confirmação</button>
-    </div>
+    <textarea id="resultado"></textarea>
   </div>
 </section>
 
 <footer>
   <p class="assinatura">Ronilson & Márcia</p>
-  <p>30 de Outubro de 2026</p>
 </footer>
 
 <script>
-const numeroNoivos = "5592984236693";
+const numero = "5592984236693";
 
 const convidados = [
   { nome: "ana silva", telefone: "92984000001", senhas: 1 },
   { nome: "bruno souza", telefone: "92984000002", senhas: 1 },
-  { nome: "carla mendes", telefone: "92984000003", senhas: 1 },
-  { nome: "daniel rocha", telefone: "92984000004", senhas: 1 },
-  { nome: "eliane costa", telefone: "92984000005", senhas: 1 },
-  { nome: "fabio lima", telefone: "92984000006", senhas: 1 },
-  { nome: "gabriela santos", telefone: "92984000007", senhas: 1 },
-  { nome: "henrique alves", telefone: "92984000008", senhas: 1 },
-  { nome: "isabela nunes", telefone: "92984000009", senhas: 1 },
-  { nome: "julio pereira", telefone: "92984000010", senhas: 1 },
-  { nome: "karina oliveira", telefone: "92984000011", senhas: 1 },
-  { nome: "lucas barbosa", telefone: "92984000012", senhas: 1 },
-  { nome: "mariana dias", telefone: "92984000013", senhas: 1 },
-  { nome: "natalia ramos", telefone: "92984000014", senhas: 1 },
-  { nome: "otavio martins", telefone: "92984000015", senhas: 1 },
-  { nome: "patricia vieira", telefone: "92984000016", senhas: 1 },
-  { nome: "rafael castro", telefone: "92984000017", senhas: 1 },
-  { nome: "sabrina ferreira", telefone: "92984000018", senhas: 1 },
-  { nome: "thiago monteiro", telefone: "92984000019", senhas: 1 },
-  { nome: "vanessa araujo", telefone: "92984000020", senhas: 1 },
-  { nome: "william cardoso", telefone: "92984000021", senhas: 1 },
-  { nome: "aline teixeira", telefone: "92984000022", senhas: 1 },
-  { nome: "bianca freitas", telefone: "92984000023", senhas: 1 },
-  { nome: "caio moreira", telefone: "92984000024", senhas: 1 },
-  { nome: "debora campos", telefone: "92984000025", senhas: 1 },
-  { nome: "eduardo pinto", telefone: "92984000026", senhas: 1 },
-  { nome: "fernanda brito", telefone: "92984000027", senhas: 1 },
-  { nome: "gustavo reis", telefone: "92984000028", senhas: 1 },
-  { nome: "helena mota", telefone: "92984000029", senhas: 1 },
-  { nome: "igor machado", telefone: "92984000030", senhas: 1 },
-  { nome: "janaina cruz", telefone: "92984000031", senhas: 1 },
-  { nome: "leandro franco", telefone: "92984000032", senhas: 1 },
-  { nome: "monica assis", telefone: "92984000033", senhas: 1 },
-  { nome: "nelson correia", telefone: "92984000034", senhas: 1 },
-  { nome: "priscila moraes", telefone: "92984000035", senhas: 1 },
-  { nome: "ricardo sales", telefone: "92984000036", senhas: 1 },
-  { nome: "simone batista", telefone: "92984000037", senhas: 1 },
-  { nome: "tiago fonseca", telefone: "92984000038", senhas: 1 },
-  { nome: "valeria medeiros", telefone: "92984000039", senhas: 1 },
-  { nome: "yasmin carneiro", telefone: "92984000040", senhas: 1 },
-  { nome: "zeca andrade", telefone: "92984000041", senhas: 1 },
-  { nome: "Ronilson Cavalcante", telefone: "92986080375", senhas: 1 },
-  { nome: "roberto neves", telefone: "92984000043", senhas: 1 },
-  { nome: "casal paulo e renata", telefone: "92984000044", senhas: 2 },
-  { nome: "casal mario e juliana", telefone: "92984000045", senhas: 2 },
-  { nome: "casal andre e larissa", telefone: "92984000046", senhas: 2 },
-  { nome: "casal felipe e camila", telefone: "92984000047", senhas: 2 },
   { nome: "familia almeida", telefone: "92984000048", senhas: 3 },
-  { nome: "familia cavalcante", telefone: "92984000049", senhas: 3 },
-  { nome: "Márcia Layse", telefone: "92999783464", senhas: 3 }
+  { nome: "casal paulo", telefone: "92984000044", senhas: 2 }
 ];
 
-let mensagemConfirmacao = "";
-let tocando = false;
-
-function normalizarTexto(texto){
-  return texto.toLowerCase()
-    .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g, "")
-    .replace(/\s+/g, " ")
-    .trim();
-}
-
-function somenteNumeros(texto){
-  return texto.replace(/\D/g, "");
+function normalizar(t){
+  return t.toLowerCase().trim();
 }
 
 function playMusic(){
-  const musica = document.getElementById("musica");
-  const botao = document.querySelector(".audio");
-
-  if(!tocando){
-    musica.play();
-    botao.innerHTML = "⏸ Pausar";
-    tocando = true;
-  }else{
-    musica.pause();
-    botao.innerHTML = "🎵 Música";
-    tocando = false;
-  }
+  document.getElementById("musica").play();
 }
 
-const data = new Date("Oct 30, 2026 19:00:00").getTime();
+function mostrar(id){
+  document.getElementById("pix").style.display="none";
+  if(id==="pix") document.getElementById("pix").style.display="block";
+}
 
-setInterval(() => {
-  const now = new Date().getTime();
-  const diff = data - now;
+function consultar(){
+  const valor = document.getElementById("busca").value;
+  const nome = normalizar(valor);
 
-  if(diff <= 0){
-    document.getElementById("d").innerHTML = "00";
-    document.getElementById("h").innerHTML = "00";
-    document.getElementById("m").innerHTML = "00";
-    document.getElementById("s").innerHTML = "00";
+  const c = convidados.find(x => normalizar(x.nome)==nome || x.telefone==valor);
+
+  if(!c){
+    document.getElementById("resultado").value="Nome não encontrado";
     return;
   }
 
-  document.getElementById("d").innerHTML = Math.floor(diff / (1000 * 60 * 60 * 24));
-  document.getElementById("h").innerHTML = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-  document.getElementById("m").innerHTML = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-  document.getElementById("s").innerHTML = Math.floor((diff % (1000 * 60)) / 1000);
-}, 1000);
+  let msg = `Confirmação de presença\nNome: ${c.nome}\nSenhas:\n`;
 
-function mostrarOpcao(tipo){
-  document.getElementById("bemol").style.display = "none";
-  document.getElementById("dinamica").style.display = "none";
-  document.getElementById("pix").style.display = "none";
-  document.getElementById(tipo).style.display = "block";
-
-  if(tipo === "pix"){
-    document.getElementById("pixCode").value =
-`Presente de casamento - Ronilson & Márcia
-Chave PIX: 92984236693`;
-  }
-}
-
-function copiarPix(){
-  navigator.clipboard.writeText("92984236693");
-  alert("Chave PIX copiada!");
-}
-
-function consultarConvite(){
-  const buscaOriginal = document.getElementById("buscaConvidado").value;
-  const buscaNome = normalizarTexto(buscaOriginal);
-  const buscaTelefone = somenteNumeros(buscaOriginal);
-
-  if(!buscaNome && !buscaTelefone){
-    alert("Digite seu nome ou telefone.");
-    return;
+  for(let i=1;i<=c.senhas;i++){
+    msg += `Senha ${i}\n`;
   }
 
-  const convidado = convidados.find(c => 
-    normalizarTexto(c.nome) === buscaNome || c.telefone === buscaTelefone
-  );
+  document.getElementById("resultado").value = msg;
 
-  if(!convidado){
-    document.getElementById("resultadoConvite").value =
-`Nome ou telefone não encontrado.
-
-Entre em contato com os noivos para confirmar sua presença.`;
-    document.getElementById("areaResultado").style.display = "block";
-    mensagemConfirmacao = "";
-    return;
-  }
-
-  const base = gerarCodigoBase(convidado.nome, convidado.telefone);
-
-  let texto = `Confirmação de presença - Casamento Ronilson & Márcia
-Nome: ${formatarNome(convidado.nome)}
-Telefone: ${convidado.telefone}
-Quantidade de senhas: ${convidado.senhas}
-
-Senhas geradas:
-`;
-
-  for(let i = 1; i <= convidado.senhas; i++){
-    texto += `Senha ${i}: ${base}-${i}\n`;
-  }
-
-  texto += `
-Data: 30 de Outubro de 2026
-Horário: 19h`;
-
-  document.getElementById("resultadoConvite").value = texto;
-  document.getElementById("areaResultado").style.display = "block";
-  mensagemConfirmacao = texto;
-
-  enviarWhatsApp();
-}
-
-function gerarCodigoBase(nome, telefone){
-  const nomeBase = normalizarTexto(nome)
-    .replace(/[^a-z]/g, "")
-    .substring(0,3)
-    .toUpperCase();
-
-  const telBase = telefone.slice(-4);
-  return nomeBase + telBase;
-}
-
-function formatarNome(nome){
-  return nome.split(" ").map(p => 
-    p.charAt(0).toUpperCase() + p.slice(1)
-  ).join(" ");
-}
-
-function enviarWhatsApp(){
-  if(!mensagemConfirmacao){
-    alert("Consulte primeiro seu convite.");
-    return;
-  }
-
-  const mensagem = encodeURIComponent(mensagemConfirmacao);
-  window.open(`https://wa.me/${numeroNoivos}?text=${mensagem}`, "_blank");
-}
-
-function copiarConfirmacao(){
-  if(!mensagemConfirmacao){
-    alert("Consulte primeiro seu convite.");
-    return;
-  }
-
-  navigator.clipboard.writeText(mensagemConfirmacao);
-  alert("Confirmação copiada!");
+  window.open(`https://wa.me/${numero}?text=${encodeURIComponent(msg)}`);
 }
 </script>
 
