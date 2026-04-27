@@ -10,7 +10,6 @@
 <style>
 :root{
   --gold:#b08a3c;
-  --gold2:#ffd700;
   --dark:#4a3324;
 }
 
@@ -74,7 +73,9 @@ body::before{
 .logo2{
   width:280px;
   max-width:90%;
-  filter:drop-shadow(0 10px 20px rgba(0,0,0,.2));
+  background:transparent;
+  mix-blend-mode:multiply;
+  filter:drop-shadow(0 10px 20px rgba(0,0,0,.2)) brightness(1.05) contrast(1.08);
   animation:entrada2 1.5s ease;
 }
 
@@ -326,9 +327,21 @@ footer .assinatura{
 </footer>
 
 <script>
+let tocando = false;
+
 function playMusic(){
-  document.getElementById("musica").play();
-  document.querySelector(".audio").innerHTML = "Música tocando";
+  const musica = document.getElementById("musica");
+  const botao = document.querySelector(".audio");
+
+  if(!tocando){
+    musica.play();
+    botao.innerHTML = "⏸ Pausar";
+    tocando = true;
+  }else{
+    musica.pause();
+    botao.innerHTML = "🎵 Música";
+    tocando = false;
+  }
 }
 
 const data = new Date("Oct 30, 2026 19:00:00").getTime();
