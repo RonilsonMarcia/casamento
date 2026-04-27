@@ -4,34 +4,23 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Casamento Ronilson & Márcia</title>
+<title>Ronilson & Márcia</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cinzel:wght@400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
 :root{
   --gold:#b08a3c;
-  --gold-dark:#8a652b;
   --dark:#4a3324;
   --bg:#f8f3ec;
-  --white:#ffffff;
 }
 
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-}
-
-html{
-  scroll-behavior:smooth;
-}
+*{margin:0;padding:0;box-sizing:border-box}
 
 body{
   font-family:'Montserrat',sans-serif;
   background:var(--bg);
   color:var(--dark);
-  line-height:1.6;
 }
 
 /* TOPO */
@@ -41,122 +30,78 @@ body{
   align-items:center;
   justify-content:center;
   padding:20px;
-  background:
-    linear-gradient(rgba(255,255,255,.78), rgba(248,243,236,.95)),
-    url('https://images.unsplash.com/photo-1523438885200-e635ba2c371e?auto=format&fit=crop&w=1400&q=80');
-  background-size:cover;
-  background-position:center;
 }
 
 .card{
   width:100%;
   max-width:1100px;
-  background:rgba(255,255,255,.94);
-  padding:28px;
-  border-radius:28px;
+  background:#fff;
+  padding:25px;
+  border-radius:25px;
   border:1px solid #d6b574;
-  box-shadow:0 18px 55px rgba(0,0,0,.12);
+  box-shadow:0 15px 50px rgba(0,0,0,.1);
   text-align:center;
 }
 
-/* IMAGEM MONOGRAMA */
+/* LOGO */
 .logo{
-  width:150px;
-  max-width:80%;
+  width:220px;
   display:block;
-  margin:0 auto 10px;
+  margin:0 auto 15px;
 }
 
-/* MONOGRAMA E NOMES */
-.monograma{
-  font-family:'Alex Brush',cursive;
-  font-size:66px;
-  color:var(--gold);
-  line-height:1;
-}
-
-.subtitulo{
-  font-family:'Cinzel',serif;
-  font-size:13px;
-  letter-spacing:3px;
-  color:var(--gold-dark);
-  margin-top:10px;
-}
-
+/* NOME */
 h1{
   font-family:'Alex Brush',cursive;
-  font-size:52px;
-  font-weight:400;
+  font-size:55px;
   color:var(--gold);
-  letter-spacing:1px;
-  margin:16px 0 6px;
+  margin:10px 0;
 }
 
+/* TEXTO */
 .frase{
   font-size:15px;
-  max-width:560px;
-  margin:12px auto 20px;
+  margin:10px 0 20px;
 }
 
 .data{
-  font-family:'Cinzel',serif;
-  font-size:16px;
-  font-weight:700;
-  color:var(--dark);
-  margin-bottom:18px;
+  font-family:'Cinzel';
+  margin-bottom:15px;
 }
 
 /* BOTÕES */
 .btn{
   display:block;
   width:100%;
-  margin:8px 0;
-  padding:14px 18px;
-  border-radius:35px;
+  margin:6px 0;
+  padding:14px;
+  border-radius:30px;
   background:var(--gold);
   color:#fff;
   text-decoration:none;
-  font-weight:600;
-  transition:.3s;
-}
-
-.btn:hover{
-  background:var(--gold-dark);
-  transform:scale(1.03);
+  font-weight:bold;
 }
 
 /* SEÇÕES */
 section{
-  padding:48px 16px;
+  padding:40px 15px;
   text-align:center;
 }
 
 .titulo{
   font-family:'Alex Brush',cursive;
-  font-size:44px;
-  font-weight:400;
+  font-size:40px;
   color:var(--gold);
-  margin-bottom:18px;
+  margin-bottom:15px;
 }
 
 .box{
-  max-width:760px;
-  margin:0 auto;
-  background:var(--white);
-  padding:26px 20px;
-  border-radius:24px;
-  border:1px solid #ead8b7;
-  box-shadow:0 10px 30px rgba(0,0,0,.08);
-}
-
-.box h3{
-  font-family:'Cinzel',serif;
-  color:var(--gold-dark);
-  margin-bottom:10px;
-}
-
-.endereco{
-  margin:10px 0 18px;
+  max-width:700px;
+  margin:auto;
+  background:#fff;
+  padding:20px;
+  border-radius:20px;
+  box-shadow:0 5px 20px rgba(0,0,0,.1);
 }
 
 /* CONTADOR */
@@ -164,21 +109,19 @@ section{
   display:flex;
   justify-content:center;
   flex-wrap:wrap;
-  gap:10px;
+  gap:8px;
 }
 
 .tempo{
-  width:72px;
+  width:70px;
+  padding:10px;
+  border-radius:12px;
   background:#fff;
-  border:1px solid #d6b574;
-  border-radius:16px;
-  padding:12px 8px;
 }
 
 .tempo span{
-  display:block;
-  font-size:24px;
-  font-weight:700;
+  font-size:22px;
+  font-weight:bold;
   color:var(--gold);
 }
 
@@ -189,112 +132,29 @@ section{
   right:15px;
   background:var(--gold);
   color:#fff;
-  padding:11px 16px;
-  border-radius:30px;
+  padding:10px 15px;
+  border-radius:20px;
   cursor:pointer;
-  font-size:14px;
-  box-shadow:0 8px 24px rgba(0,0,0,.25);
-  z-index:99;
 }
 
-/* RODAPÉ */
-footer{
-  background:var(--dark);
-  color:#fff;
-  padding:32px 16px;
-  text-align:center;
-}
-
-footer .assinatura{
-  font-family:'Alex Brush',cursive;
-  font-size:42px;
-  color:#d6b574;
-}
-
-/* TABLET */
+/* RESPONSIVO */
 @media(min-width:768px){
-  .card{
-    padding:42px;
-  }
-
-  .logo{
-    width:210px;
-  }
-
-  .monograma{
-    font-size:88px;
-  }
-
-  h1{
-    font-size:76px;
-  }
-
-  .frase{
-    font-size:17px;
-  }
-
-  .data{
-    font-size:18px;
-  }
-
-  .btn{
-    display:inline-block;
-    width:auto;
-    padding:13px 28px;
-    margin:8px 5px;
-  }
-
-  .titulo{
-    font-size:58px;
-  }
-
-  .tempo{
-    width:95px;
-    padding:16px 10px;
-  }
-
-  .tempo span{
-    font-size:30px;
-  }
+.logo{width:300px}
+h1{font-size:70px}
+.btn{display:inline-block;width:auto;padding:12px 25px}
 }
 
-/* COMPUTADOR */
 @media(min-width:1024px){
-  .hero{
-    padding:45px;
-  }
-
-  .card{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:34px;
-    align-items:center;
-    text-align:left;
-  }
-
-  .left{
-    text-align:center;
-  }
-
-  .right{
-    text-align:left;
-  }
-
-  .logo{
-    width:250px;
-  }
-
-  .monograma{
-    font-size:105px;
-  }
-
-  h1{
-    font-size:88px;
-  }
-
-  .frase{
-    margin-left:0;
-  }
+.card{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:30px;
+  align-items:center;
+  text-align:left;
+}
+.left{text-align:center}
+.right{text-align:left}
+h1{font-size:80px}
 }
 </style>
 </head>
@@ -302,144 +162,112 @@ footer .assinatura{
 <body>
 
 <audio id="musica" loop>
-  <source src="musica.mp3" type="audio/mpeg">
+<source src="musica.mp3" type="audio/mpeg">
 </audio>
 
-<div class="audio" onclick="playMusic()">Tocar música</div>
+<div class="audio" onclick="playMusic()">🎵 Música</div>
 
+<!-- TOPO -->
 <div class="hero">
-  <div class="card">
+<div class="card">
 
-    <div class="left">
-      <img src="monograma.png" class="logo" alt="Monograma Ronilson e Márcia">
-      <div class="monograma">R&M</div>
-      <div class="subtitulo">CONVITE DE CASAMENTO</div>
-    </div>
-
-    <div class="right">
-      <h1>Ronilson & Márcia</h1>
-
-      <p class="frase">
-        Com alegria no coração, convidamos você para celebrar conosco
-        este momento especial de amor, fé e união.
-      </p>
-
-      <div class="data">30 de Outubro de 2026 • 19h</div>
-
-      <a class="btn" href="#cerimonia">Cerimônia Religiosa</a>
-      <a class="btn" href="#recepcao">Recepção</a>
-      <a class="btn" href="#presenca">Confirmar Presença</a>
-    </div>
-
-  </div>
+<div class="left">
+<img src="monograma.png" class="logo">
 </div>
 
-<section>
-  <h2 class="titulo">Contagem Regressiva</h2>
+<div class="right">
+<h1>Ronilson & Márcia</h1>
 
-  <div class="contador">
-    <div class="tempo"><span id="d">00</span>Dias</div>
-    <div class="tempo"><span id="h">00</span>Horas</div>
-    <div class="tempo"><span id="m">00</span>Min</div>
-    <div class="tempo"><span id="s">00</span>Seg</div>
-  </div>
+<p class="frase">
+Com alegria no coração, convidamos você para celebrar conosco este momento especial de amor e união.
+</p>
+
+<div class="data">30 de Outubro de 2026 • 19h</div>
+
+<a class="btn" href="#cerimonia">Cerimônia</a>
+<a class="btn" href="#recepcao">Recepção</a>
+<a class="btn" href="#presenca">Confirmar Presença</a>
+</div>
+
+</div>
+</div>
+
+<!-- CONTADOR -->
+<section>
+<h2 class="titulo">Contagem Regressiva</h2>
+
+<div class="contador">
+<div class="tempo"><span id="d">00</span>D</div>
+<div class="tempo"><span id="h">00</span>H</div>
+<div class="tempo"><span id="m">00</span>M</div>
+<div class="tempo"><span id="s">00</span>S</div>
+</div>
 </section>
 
-<section>
-  <h2 class="titulo">Nossos Nomes</h2>
-  <div class="box">
-    <h3>Ronilson Cavalcante da Silva</h3>
-    <p>&</p>
-    <h3>Márcia Layse Neri Lima</h3>
-    <p style="margin-top:18px;">
-      “Assim, eles já não são dois, mas sim uma só carne.
-      Portanto, o que Deus uniu, ninguém separe.”
-    </p>
-    <p><strong>Mateus 19:6</strong></p>
-  </div>
-</section>
-
+<!-- CERIMÔNIA -->
 <section id="cerimonia">
-  <h2 class="titulo">Cerimônia Religiosa</h2>
+<h2 class="titulo">Cerimônia</h2>
+<div class="box">
+<p>Capela Nossa Senhora do Perpétuo Socorro</p>
+<p>Av. Leonardo Malcher, 541 - Manaus</p>
 
-  <div class="box">
-    <h3>Capela Católica Nossa Senhora do Perpétuo Socorro</h3>
-    <p class="endereco">
-      Av. Leonardo Malcher, 541 - Aparecida, Manaus - AM
-    </p>
-    <p><strong>Horário:</strong> 19h</p>
-
-    <a class="btn" target="_blank" href="https://maps.app.goo.gl/6k88jM35cc1eeQFNA">
-      Abrir localização da igreja
-    </a>
-  </div>
+<a class="btn" target="_blank"
+href="https://maps.app.goo.gl/6k88jM35cc1eeQFNA">
+Ver localização
+</a>
+</div>
 </section>
 
+<!-- RECEPÇÃO -->
 <section id="recepcao">
-  <h2 class="titulo">Recepção</h2>
+<h2 class="titulo">Recepção</h2>
+<div class="box">
 
-  <div class="box">
-    <h3>Recepção — Comes e Bebes</h3>
-    <p class="endereco">
-      Após a cerimônia, esperamos você para celebrarmos juntos
-      com alegria, carinho e boas lembranças.
-    </p>
+<p><strong>Endereço:</strong></p>
+<p>Av. Silves, 879 - Crespo, Manaus - AM, 69073-175</p>
 
-    <a class="btn" target="_blank" href="https://maps.app.goo.gl/dXFb7f6kUVwwfTLG7">
-      Abrir localização da recepção
-    </a>
-  </div>
+<a class="btn" target="_blank"
+href="https://maps.app.goo.gl/dXFb7f6kUVwwfTLG7">
+Abrir localização
+</a>
+
+</div>
 </section>
 
+<!-- WHATS -->
 <section id="presenca">
-  <h2 class="titulo">Confirme sua Presença</h2>
+<h2 class="titulo">Confirme sua presença</h2>
 
-  <div class="box">
-    <p>Sua presença tornará este dia ainda mais especial.</p>
-
-    <a class="btn" target="_blank"
-       href="https://wa.me/5592984236693?text=Confirmo%20minha%20presen%C3%A7a%20no%20casamento%20de%20Ronilson%20e%20M%C3%A1rcia">
-      Confirmar pelo WhatsApp
-    </a>
-  </div>
+<div class="box">
+<a class="btn" target="_blank"
+href="https://wa.me/5592984236693?text=Confirmo%20presen%C3%A7a%20no%20casamento%20Ronilson%20e%20M%C3%A1rcia">
+Confirmar no WhatsApp
+</a>
+</div>
 </section>
-
-<footer>
-  <p class="assinatura">Ronilson & Márcia</p>
-  <p>30 de Outubro de 2026</p>
-</footer>
 
 <script>
 function playMusic(){
-  const musica = document.getElementById("musica");
-  musica.play();
-  document.querySelector(".audio").innerHTML = "Música tocando";
+document.getElementById("musica").play();
 }
 
-const dataCasamento = new Date("Oct 30, 2026 19:00:00").getTime();
+const data=new Date("Oct 30, 2026 19:00:00").getTime();
 
-setInterval(() => {
-  const agora = new Date().getTime();
-  const distancia = dataCasamento - agora;
+setInterval(()=>{
+let now=new Date().getTime();
+let diff=data-now;
 
-  if(distancia <= 0){
-    document.getElementById("d").innerHTML = "00";
-    document.getElementById("h").innerHTML = "00";
-    document.getElementById("m").innerHTML = "00";
-    document.getElementById("s").innerHTML = "00";
-    return;
-  }
+let d=Math.floor(diff/(1000*60*60*24));
+let h=Math.floor((diff%(1000*60*60*24))/(1000*60*60));
+let m=Math.floor((diff%(1000*60*60))/(1000*60));
+let s=Math.floor((diff%(1000*60))/1000);
 
-  const dias = Math.floor(distancia / (1000 * 60 * 60 * 24));
-  const horas = Math.floor((distancia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-  const minutos = Math.floor((distancia % (1000 * 60 * 60)) / (1000 * 60));
-  const segundos = Math.floor((distancia % (1000 * 60)) / 1000);
+document.getElementById("d").innerHTML=d;
+document.getElementById("h").innerHTML=h;
+document.getElementById("m").innerHTML=m;
+document.getElementById("s").innerHTML=s;
 
-  document.getElementById("d").innerHTML = dias;
-  document.getElementById("h").innerHTML = horas;
-  document.getElementById("m").innerHTML = minutos;
-  document.getElementById("s").innerHTML = segundos;
-}, 1000);
+},1000);
 </script>
 
 </body>
