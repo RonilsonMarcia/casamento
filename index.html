@@ -10,12 +10,20 @@
 <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
 
 <style>
+:root{
+  --gold:#b08a3c;
+  --dark:#4a3324;
+  --bg:#f8f3ec;
+}
+
 *{margin:0;padding:0;box-sizing:border-box}
+
+html{scroll-behavior:smooth}
 
 body{
   font-family:'Montserrat',sans-serif;
-  background:#f8f3ec;
-  color:#4a3324;
+  background:var(--bg);
+  color:var(--dark);
 }
 
 /* HERO */
@@ -25,58 +33,57 @@ body{
   align-items:center;
   justify-content:center;
   padding:20px;
-  text-align:center;
 }
 
 .card{
   width:100%;
-  max-width:600px;
+  max-width:1100px;
   background:#fff;
-  padding:30px 20px;
+  padding:25px;
   border-radius:25px;
   border:1px solid #d6b574;
-  box-shadow:0 10px 40px rgba(0,0,0,.1);
+  box-shadow:0 15px 50px rgba(0,0,0,.1);
+  text-align:center;
 }
 
 /* STL */
 model-viewer{
-  width:180px;
-  height:180px;
+  width:160px;
+  height:160px;
   margin:0 auto 10px;
 }
 
 /* TEXTOS */
 .monograma{
   font-family:'Great Vibes';
-  font-size:60px;
-  color:#b08a3c;
+  font-size:55px;
+  color:var(--gold);
 }
 
 h1{
   font-family:'Great Vibes';
-  font-size:50px;
-  color:#8a652b;
+  font-size:40px;
   margin:10px 0;
-}
-
-.data{
-  font-family:'Cinzel';
-  margin:15px 0;
 }
 
 .frase{
   font-size:14px;
-  margin-bottom:20px;
+  margin:10px 0 20px;
+}
+
+.data{
+  font-family:'Cinzel';
+  margin-bottom:15px;
 }
 
 /* BOTÕES */
 .btn{
   display:block;
   width:100%;
-  margin:8px 0;
+  margin:6px 0;
   padding:14px;
   border-radius:30px;
-  background:#b08a3c;
+  background:var(--gold);
   color:#fff;
   text-decoration:none;
   font-weight:bold;
@@ -90,16 +97,16 @@ section{
 
 .titulo{
   font-family:'Great Vibes';
-  font-size:40px;
-  margin-bottom:20px;
+  font-size:32px;
+  margin-bottom:15px;
 }
 
 .box{
+  max-width:700px;
+  margin:auto;
   background:#fff;
   padding:20px;
   border-radius:20px;
-  margin:auto;
-  max-width:600px;
   box-shadow:0 5px 20px rgba(0,0,0,.1);
 }
 
@@ -108,44 +115,95 @@ section{
   display:flex;
   justify-content:center;
   flex-wrap:wrap;
-  gap:10px;
+  gap:8px;
 }
 
 .tempo{
-  background:#fff;
+  width:65px;
   padding:10px;
-  border-radius:15px;
-  width:70px;
+  border-radius:12px;
+  background:#fff;
 }
 
 .tempo span{
-  font-size:22px;
+  font-size:20px;
   font-weight:bold;
-  color:#8a652b;
+  color:var(--gold);
 }
 
-/* BOTÃO MÚSICA */
+/* MÚSICA */
 .audio{
   position:fixed;
   bottom:15px;
   right:15px;
-  background:#b08a3c;
+  background:var(--gold);
   color:#fff;
   padding:10px 15px;
   border-radius:20px;
   cursor:pointer;
 }
 
-/* DESKTOP */
+/* ===================== */
+/* TABLET (>=768px) */
+/* ===================== */
 @media(min-width:768px){
 
 .card{
-  padding:50px;
+  padding:40px;
 }
 
 model-viewer{
-  width:250px;
-  height:250px;
+  width:220px;
+  height:220px;
+}
+
+h1{
+  font-size:60px;
+}
+
+.monograma{
+  font-size:75px;
+}
+
+.frase{
+  font-size:16px;
+}
+
+.btn{
+  display:inline-block;
+  width:auto;
+  padding:12px 25px;
+}
+
+.titulo{
+  font-size:45px;
+}
+
+}
+
+/* ===================== */
+/* DESKTOP (>=1024px) */
+/* ===================== */
+@media(min-width:1024px){
+
+.hero{
+  padding:40px;
+}
+
+.card{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  align-items:center;
+  gap:30px;
+  text-align:left;
+}
+
+.left{
+  text-align:center;
+}
+
+.right{
+  text-align:left;
 }
 
 h1{
@@ -153,13 +211,11 @@ h1{
 }
 
 .monograma{
-  font-size:80px;
+  font-size:90px;
 }
 
-.btn{
-  display:inline-block;
-  width:auto;
-  padding:12px 25px;
+.frase{
+  font-size:18px;
 }
 
 }
@@ -172,27 +228,30 @@ h1{
 <source src="musica.mp3" type="audio/mpeg">
 </audio>
 
-<div class="audio" onclick="tocar()">🎵 Música</div>
+<div class="audio" onclick="playMusic()">🎵 Música</div>
 
-<!-- TOPO -->
+<!-- HERO -->
 <div class="hero">
 <div class="card">
 
+<div class="left">
 <model-viewer src="monograma.stl" auto-rotate camera-controls></model-viewer>
-
 <div class="monograma">R&M</div>
+</div>
 
+<div class="right">
 <h1>Ronilson & Márcia</h1>
 
 <p class="frase">
-Convidamos você para celebrar conosco este momento especial.
+Convidamos você para celebrar conosco este momento especial de amor e união.
 </p>
 
-<div class="data">30/10/2026 • 19h</div>
+<div class="data">30 de Outubro de 2026 • 19h</div>
 
 <a class="btn" href="#cerimonia">Cerimônia</a>
 <a class="btn" href="#recepcao">Recepção</a>
 <a class="btn" href="#presenca">Confirmar Presença</a>
+</div>
 
 </div>
 </div>
@@ -200,6 +259,7 @@ Convidamos você para celebrar conosco este momento especial.
 <!-- CONTADOR -->
 <section>
 <h2 class="titulo">Faltam</h2>
+
 <div class="contador">
 <div class="tempo"><span id="d">00</span>D</div>
 <div class="tempo"><span id="h">00</span>H</div>
@@ -213,11 +273,11 @@ Convidamos você para celebrar conosco este momento especial.
 <h2 class="titulo">Cerimônia</h2>
 <div class="box">
 <p>Capela Nossa Senhora do Perpétuo Socorro</p>
-<p>Av. Leonardo Malcher - Manaus</p>
+<p>Av. Leonardo Malcher, Manaus</p>
 
 <a class="btn" target="_blank"
 href="https://maps.app.goo.gl/6k88jM35cc1eeQFNA">
-Ver no mapa
+Ver localização
 </a>
 </div>
 </section>
@@ -226,34 +286,30 @@ Ver no mapa
 <section id="recepcao">
 <h2 class="titulo">Recepção</h2>
 <div class="box">
-
-<p>Após a cerimônia teremos recepção</p>
+<p>Após a cerimônia teremos recepção especial.</p>
 
 <a class="btn" target="_blank"
 href="https://maps.app.goo.gl/dXFb7f6kUVwwfTLG7">
 Ver local
 </a>
-
 </div>
 </section>
 
-<!-- WHATS -->
+<!-- WHATSAPP -->
 <section id="presenca">
 <h2 class="titulo">Confirme sua presença</h2>
 
 <div class="box">
-
 <a class="btn" target="_blank"
 href="https://wa.me/5592984236693?text=Confirmo%20presen%C3%A7a%20no%20casamento%20Ronilson%20e%20M%C3%A1rcia">
 Confirmar no WhatsApp
 </a>
-
 </div>
 </section>
 
 <script>
 
-function tocar(){
+function playMusic(){
 document.getElementById("musica").play();
 }
 
