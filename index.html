@@ -7,8 +7,6 @@
 
 <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cinzel:wght@400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
 
-<script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
-
 <style>
 :root{
   --gold:#b08a3c;
@@ -17,8 +15,6 @@
 }
 
 *{margin:0;padding:0;box-sizing:border-box}
-
-html{scroll-behavior:smooth}
 
 body{
   font-family:'Montserrat',sans-serif;
@@ -46,10 +42,10 @@ body{
   text-align:center;
 }
 
-/* STL */
-model-viewer{
-  width:160px;
-  height:160px;
+/* LOGO */
+.logo{
+  width:130px;
+  display:block;
   margin:0 auto 10px;
 }
 
@@ -143,99 +139,51 @@ section{
   cursor:pointer;
 }
 
-/* ===================== */
-/* TABLET (>=768px) */
-/* ===================== */
+/* TABLET */
 @media(min-width:768px){
-
-.card{
-  padding:40px;
+.card{padding:40px}
+h1{font-size:60px}
+.monograma{font-size:75px}
+.btn{display:inline-block;width:auto;padding:12px 25px}
+.titulo{font-size:45px}
+.logo{width:180px}
 }
 
-model-viewer{
-  width:220px;
-  height:220px;
-}
-
-h1{
-  font-size:60px;
-}
-
-.monograma{
-  font-size:75px;
-}
-
-.frase{
-  font-size:16px;
-}
-
-.btn{
-  display:inline-block;
-  width:auto;
-  padding:12px 25px;
-}
-
-.titulo{
-  font-size:45px;
-}
-
-}
-
-/* ===================== */
-/* DESKTOP (>=1024px) */
-/* ===================== */
+/* DESKTOP */
 @media(min-width:1024px){
-
-.hero{
-  padding:40px;
-}
-
 .card{
   display:grid;
   grid-template-columns:1fr 1fr;
-  align-items:center;
   gap:30px;
+  align-items:center;
   text-align:left;
 }
 
-.left{
-  text-align:center;
-}
+.left{text-align:center}
+.right{text-align:left}
 
-.right{
-  text-align:left;
-}
-
-h1{
-  font-size:70px;
-}
-
-.monograma{
-  font-size:90px;
-}
-
-.frase{
-  font-size:18px;
-}
-
+h1{font-size:70px}
+.monograma{font-size:90px}
+.logo{width:220px}
 }
 </style>
 </head>
 
 <body>
 
+<!-- Música (opcional) -->
 <audio id="musica" loop>
 <source src="musica.mp3" type="audio/mpeg">
 </audio>
 
 <div class="audio" onclick="playMusic()">🎵 Música</div>
 
-<!-- HERO -->
+<!-- TOPO -->
 <div class="hero">
 <div class="card">
 
 <div class="left">
-<model-viewer src="monograma.png" auto-rotate camera-controls></model-viewer>
+<img src="monograma.png" class="logo">
 <div class="monograma">R&M</div>
 </div>
 
@@ -308,7 +256,6 @@ Confirmar no WhatsApp
 </section>
 
 <script>
-
 function playMusic(){
 document.getElementById("musica").play();
 }
@@ -330,7 +277,6 @@ document.getElementById("m").innerHTML=m;
 document.getElementById("s").innerHTML=s;
 
 },1000);
-
 </script>
 
 </body>
