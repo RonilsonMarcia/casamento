@@ -6,233 +6,95 @@
 <title>Ronilson & Márcia</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cinzel:wght@400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/qrcodejs/qrcode.min.js"></script>
 
 <style>
-:root{
-  --gold:#b08a3c;
-  --dark:#4a3324;
-}
-
+:root{--gold:#b08a3c;--dark:#4a3324}
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
-
 body{
   font-family:'Montserrat',sans-serif;
   background:linear-gradient(135deg,#fffaf0,#f5ead7,#fff8ea);
   color:var(--dark);
   overflow-x:hidden;
 }
-
 body::before{
-  content:"";
-  position:fixed;
-  inset:0;
+  content:"";position:fixed;inset:0;
   background-image:radial-gradient(circle, rgba(176,138,60,.18) 1px, transparent 1px);
-  background-size:30px 30px;
-  animation:bgMove 15s linear infinite;
-  z-index:-1;
+  background-size:30px 30px;animation:bgMove 15s linear infinite;z-index:-1;
 }
-
-@keyframes bgMove{
-  from{background-position:0 0}
-  to{background-position:150px 150px}
-}
-
-.hero{
-  min-height:100vh;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  padding:20px;
-}
-
+@keyframes bgMove{from{background-position:0 0}to{background-position:150px 150px}}
+.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:20px}
 .card{
-  width:100%;
-  max-width:1000px;
-  background:#fff;
-  padding:30px;
-  border-radius:30px;
-  box-shadow:0 20px 60px rgba(0,0,0,.15);
-  text-align:center;
+  width:100%;max-width:1000px;background:#fff;padding:30px;border-radius:30px;
+  box-shadow:0 20px 60px rgba(0,0,0,.15);text-align:center;
   border:1px solid rgba(176,138,60,.35);
 }
-
-.logos{
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  gap:22px;
-}
-
-.logo1{
-  width:170px;
-  max-width:70%;
-  animation:entrada1 1.2s ease;
-}
-
+.logos{display:flex;flex-direction:column;align-items:center;gap:22px}
+.logo1{width:170px;max-width:70%;animation:entrada1 1.2s ease}
 .logo2{
-  width:280px;
-  max-width:90%;
-  background:transparent;
-  mix-blend-mode:multiply;
+  width:280px;max-width:90%;background:transparent;mix-blend-mode:multiply;
   filter:drop-shadow(0 10px 20px rgba(0,0,0,.2)) brightness(1.05) contrast(1.08);
   animation:entrada2 1.5s ease;
 }
-
-@keyframes entrada1{
-  from{opacity:0; transform:translateY(-20px) scale(.9)}
-  to{opacity:1; transform:translateY(0) scale(1)}
-}
-
-@keyframes entrada2{
-  from{opacity:0; transform:translateY(20px) scale(.85)}
-  to{opacity:1; transform:translateY(0) scale(1)}
-}
-
+@keyframes entrada1{from{opacity:0;transform:translateY(-20px) scale(.9)}to{opacity:1;transform:translateY(0) scale(1)}}
+@keyframes entrada2{from{opacity:0;transform:translateY(20px) scale(.85)}to{opacity:1;transform:translateY(0) scale(1)}}
 .nomes{
-  font-family:'Alex Brush',cursive;
-  font-size:60px;
+  font-family:'Alex Brush',cursive;font-size:60px;
   background:linear-gradient(45deg,#d4af37,#b08a3c,#ffd700);
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
-  margin:18px 0 10px;
-  white-space:nowrap;
-  font-weight:400;
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  margin:18px 0 10px;white-space:nowrap;font-weight:400;
 }
-
-.frase{
-  font-size:15px;
-  margin:10px auto 20px;
-  max-width:600px;
-}
-
-.data{
-  font-family:'Cinzel',serif;
-  font-weight:700;
-  margin-bottom:15px;
-}
-
+.frase{font-size:15px;margin:10px auto 20px;max-width:600px}
+.data{font-family:'Cinzel',serif;font-weight:700;margin-bottom:15px}
 .btn{
-  display:block;
-  width:100%;
-  margin:8px 0;
-  padding:14px;
-  border-radius:30px;
+  display:block;width:100%;margin:8px 0;padding:14px;border-radius:30px;
   background:linear-gradient(135deg,#b08a3c,#8a652b);
-  color:#fff;
-  text-decoration:none;
-  font-weight:bold;
-  box-shadow:0 8px 20px rgba(138,101,43,.25);
+  color:#fff;text-decoration:none;font-weight:bold;
+  box-shadow:0 8px 20px rgba(138,101,43,.25);border:none;cursor:pointer;
 }
-
-section{
-  padding:40px 15px;
-  text-align:center;
-}
-
+section{padding:40px 15px;text-align:center}
 .titulo{
-  font-family:'Alex Brush',cursive;
-  font-size:42px;
-  color:var(--gold);
-  font-weight:400;
-  margin-bottom:15px;
+  font-family:'Alex Brush',cursive;font-size:42px;color:var(--gold);
+  font-weight:400;margin-bottom:15px;
 }
-
 .box{
-  max-width:700px;
-  margin:auto;
-  background:#fff;
-  padding:22px;
-  border-radius:22px;
-  border:1px solid rgba(176,138,60,.25);
-  box-shadow:0 5px 20px rgba(0,0,0,.1);
+  max-width:700px;margin:auto;background:#fff;padding:22px;border-radius:22px;
+  border:1px solid rgba(176,138,60,.25);box-shadow:0 5px 20px rgba(0,0,0,.1);
 }
-
-.contador{
-  display:flex;
-  justify-content:center;
-  gap:10px;
-  flex-wrap:wrap;
-}
-
-.tempo{
-  width:72px;
-  padding:10px;
-  background:#fff;
-  border-radius:12px;
-  border:1px solid rgba(176,138,60,.35);
-}
-
-.tempo span{
-  display:block;
-  font-size:22px;
-  font-weight:bold;
-  color:var(--gold);
-}
-
+.contador{display:flex;justify-content:center;gap:10px;flex-wrap:wrap}
+.tempo{width:72px;padding:10px;background:#fff;border-radius:12px;border:1px solid rgba(176,138,60,.35)}
+.tempo span{display:block;font-size:22px;font-weight:bold;color:var(--gold)}
 .audio{
-  position:fixed;
-  bottom:15px;
-  right:15px;
-  background:var(--gold);
-  color:#fff;
-  padding:10px 15px;
-  border-radius:20px;
-  cursor:pointer;
-  z-index:99;
+  position:fixed;bottom:15px;right:15px;background:var(--gold);color:#fff;
+  padding:10px 15px;border-radius:20px;cursor:pointer;z-index:99;
   box-shadow:0 8px 20px rgba(0,0,0,.25);
 }
-
-footer{
-  background:var(--dark);
-  color:#fff;
-  padding:32px 15px;
-  text-align:center;
+.pix-input{
+  width:100%;padding:14px;border:1px solid #d6b574;border-radius:14px;
+  margin:10px 0;font-size:16px;text-align:center;
 }
-
-footer .assinatura{
-  font-family:'Alex Brush',cursive;
-  font-size:42px;
-  color:#d6b574;
+#qrcode{display:flex;justify-content:center;margin:20px auto}
+.pix-code{
+  width:100%;height:90px;padding:10px;border:1px solid #d6b574;
+  border-radius:12px;font-size:13px;margin-top:10px;
 }
-
+footer{background:var(--dark);color:#fff;padding:32px 15px;text-align:center}
+footer .assinatura{font-family:'Alex Brush',cursive;font-size:42px;color:#d6b574}
 @media(min-width:768px){
-  .card{padding:45px}
-  .logo1{width:220px}
-  .logo2{width:340px}
-  .nomes{font-size:80px}
-  .titulo{font-size:58px}
+  .card{padding:45px}.logo1{width:220px}.logo2{width:340px}
+  .nomes{font-size:80px}.titulo{font-size:58px}
   .btn{display:inline-block;width:auto;padding:12px 25px;margin:8px 5px}
-  .tempo{width:95px;padding:16px 10px}
-  .tempo span{font-size:30px}
+  .tempo{width:95px;padding:16px 10px}.tempo span{font-size:30px}
 }
-
 @media(min-width:1024px){
-  .card{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:36px;
-    align-items:center;
-    text-align:left;
-  }
-
-  .left{text-align:center}
-  .right{text-align:left}
-  .frase{margin-left:0}
-  .logo1{width:240px}
-  .logo2{width:390px}
-  .nomes{font-size:88px}
+  .card{display:grid;grid-template-columns:1fr 1fr;gap:36px;align-items:center;text-align:left}
+  .left{text-align:center}.right{text-align:left}.frase{margin-left:0}
+  .logo1{width:240px}.logo2{width:390px}.nomes{font-size:88px}
 }
-
 @media(max-width:600px){
-  .card{padding:24px 18px}
-  .logos{gap:18px}
-  .logo1{width:145px}
-  .logo2{width:245px}
-  .nomes{
-    font-size:42px;
-    white-space:nowrap;
-  }
+  .card{padding:24px 18px}.logos{gap:18px}.logo1{width:145px}.logo2{width:245px}
+  .nomes{font-size:42px;white-space:nowrap}
 }
 </style>
 </head>
@@ -247,7 +109,6 @@ footer .assinatura{
 
 <div class="hero">
   <div class="card">
-
     <div class="left">
       <div class="logos">
         <img src="monograma.png" class="logo1" alt="Monograma">
@@ -257,24 +118,19 @@ footer .assinatura{
 
     <div class="right">
       <h1 class="nomes">Ronilson & Márcia</h1>
-
-      <p class="frase">
-        Com alegria no coração, convidamos você para celebrar conosco este momento especial.
-      </p>
-
+      <p class="frase">Com alegria no coração, convidamos você para celebrar conosco este momento especial.</p>
       <div class="data">30 de Outubro de 2026 • 19h</div>
 
       <a class="btn" href="#cerimonia">Cerimônia</a>
       <a class="btn" href="#recepcao">Recepção</a>
+      <a class="btn" href="#presentes">Lista de Presentes</a>
       <a class="btn" href="#presenca">Confirmar Presença</a>
     </div>
-
   </div>
 </div>
 
 <section>
   <h2 class="titulo">Contagem Regressiva</h2>
-
   <div class="contador">
     <div class="tempo"><span id="d">00</span>Dias</div>
     <div class="tempo"><span id="h">00</span>Horas</div>
@@ -289,10 +145,7 @@ footer .assinatura{
     <p><strong>Capela Nossa Senhora do Perpétuo Socorro</strong></p>
     <p>Av. Leonardo Malcher, 541 - Aparecida, Manaus - AM</p>
     <p><strong>Horário:</strong> 19h</p>
-
-    <a class="btn" target="_blank" href="https://maps.app.goo.gl/6k88jM35cc1eeQFNA">
-      Ver localização
-    </a>
+    <a class="btn" target="_blank" href="https://maps.app.goo.gl/6k88jM35cc1eeQFNA">Ver localização</a>
   </div>
 </section>
 
@@ -301,19 +154,31 @@ footer .assinatura{
   <div class="box">
     <p><strong>Endereço:</strong></p>
     <p>Av. Silves, 879 - Crespo, Manaus - AM, 69073-175</p>
+    <a class="btn" target="_blank" href="https://maps.app.goo.gl/dXFb7f6kUVwwfTLG7">Abrir localização</a>
+  </div>
+</section>
 
-    <a class="btn" target="_blank" href="https://maps.app.goo.gl/dXFb7f6kUVwwfTLG7">
-      Abrir localização
-    </a>
+<section id="presentes">
+  <h2 class="titulo">Lista de Presentes</h2>
+  <div class="box">
+    <p>Para nos presentear, você pode enviar um PIX.</p>
+    <p><strong>Valor mínimo sugerido: R$ 250,00</strong></p>
+    <p><strong>Chave PIX:</strong> 92984236693</p>
+
+    <input class="pix-input" id="valorPix" type="number" value="250" min="250" step="10">
+    <button class="btn" onclick="gerarPix()">Gerar QR Code PIX</button>
+
+    <div id="qrcode"></div>
+
+    <textarea id="pixCopiaCola" class="pix-code" readonly></textarea>
+    <button class="btn" onclick="copiarPix()">Copiar código PIX</button>
   </div>
 </section>
 
 <section id="presenca">
   <h2 class="titulo">Confirme sua presença</h2>
-
   <div class="box">
     <p>Sua presença tornará este dia ainda mais especial.</p>
-
     <a class="btn" target="_blank"
        href="https://wa.me/5592984236693?text=Confirmo%20presen%C3%A7a%20no%20casamento%20Ronilson%20e%20M%C3%A1rcia">
       Confirmar no WhatsApp
@@ -363,6 +228,87 @@ setInterval(() => {
   document.getElementById("m").innerHTML = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
   document.getElementById("s").innerHTML = Math.floor((diff % (1000 * 60)) / 1000);
 }, 1000);
+
+function formatTLV(id, value){
+  const length = value.length.toString().padStart(2, "0");
+  return id + length + value;
+}
+
+function crc16(payload){
+  let polinomio = 0x1021;
+  let resultado = 0xFFFF;
+
+  for(let i = 0; i < payload.length; i++){
+    resultado ^= payload.charCodeAt(i) << 8;
+    for(let j = 0; j < 8; j++){
+      if((resultado & 0x8000) !== 0){
+        resultado = (resultado << 1) ^ polinomio;
+      }else{
+        resultado <<= 1;
+      }
+      resultado &= 0xFFFF;
+    }
+  }
+
+  return resultado.toString(16).toUpperCase().padStart(4, "0");
+}
+
+function gerarPayloadPix(valor){
+  const chavePix = "92984236693";
+  const nome = "RONILSON E MARCIA";
+  const cidade = "MANAUS";
+  const txid = "CASAMENTO";
+
+  const merchantAccount =
+    formatTLV("00", "br.gov.bcb.pix") +
+    formatTLV("01", chavePix);
+
+  let payload =
+    formatTLV("00", "01") +
+    formatTLV("26", merchantAccount) +
+    formatTLV("52", "0000") +
+    formatTLV("53", "986") +
+    formatTLV("54", valor.toFixed(2)) +
+    formatTLV("58", "BR") +
+    formatTLV("59", nome.substring(0,25)) +
+    formatTLV("60", cidade.substring(0,15)) +
+    formatTLV("62", formatTLV("05", txid));
+
+  payload += "6304";
+  payload += crc16(payload);
+
+  return payload;
+}
+
+function gerarPix(){
+  let valor = parseFloat(document.getElementById("valorPix").value);
+
+  if(isNaN(valor) || valor < 250){
+    alert("O valor mínimo é R$ 250,00");
+    valor = 250;
+    document.getElementById("valorPix").value = 250;
+  }
+
+  const payload = gerarPayloadPix(valor);
+  document.getElementById("pixCopiaCola").value = payload;
+
+  document.getElementById("qrcode").innerHTML = "";
+  new QRCode(document.getElementById("qrcode"), {
+    text: payload,
+    width: 220,
+    height: 220
+  });
+}
+
+function copiarPix(){
+  const campo = document.getElementById("pixCopiaCola");
+  campo.select();
+  campo.setSelectionRange(0, 99999);
+  document.execCommand("copy");
+  alert("Código PIX copiado!");
+}
+
+gerarPix();
 </script>
 
 </body>
