@@ -3,40 +3,53 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Edvaldo & Ana</title>
+<title>Ronilson & Márcia</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cinzel:wght@400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
 :root{
-  --gold:#d4af37;
-  --gold-light:#f7e27b;
-  --gold-dark:#8c6b1f;
-  --green:#1f4d3a;
-  --green-light:#2f6b52;
+  --gold:#c9a24a;
+  --gold-light:#f4d27a;
+  --dark:#3f4d63;
+  --blue:#4f5f78;
+  --cream:#fffaf2;
 }
 
+*{margin:0;padding:0;box-sizing:border-box}
 body{
   font-family:'Montserrat',sans-serif;
-  background:linear-gradient(135deg,#dce8e2,#ffffff);
-  color:var(--green);
+  background:linear-gradient(135deg,#d6dde6,#f7f1e8,#ffffff);
+  color:var(--dark);
+}
+
+.hero{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
 }
 
 .card{
   max-width:900px;
-  margin:auto;
-  padding:30px;
+  width:100%;
   background:#fff;
-  border-radius:20px;
+  border-radius:25px;
+  padding:30px;
   text-align:center;
+  box-shadow:0 20px 60px rgba(0,0,0,.2);
 }
 
+.logo2{width:260px;margin-bottom:20px}
+
 .nomes{
-  font-family:'Alex Brush';
-  font-size:60px;
-  background:linear-gradient(45deg,#8c6b1f,#d4af37,#f7e27b);
+  font-family:'Alex Brush',cursive;
+  font-size:clamp(38px, 7vw, 70px);
+  background:linear-gradient(45deg,#8a6424,#c9a24a,#f4d27a);
   -webkit-background-clip:text;
   -webkit-text-fill-color:transparent;
+  white-space:nowrap;
 }
 
 .btn{
@@ -44,109 +57,133 @@ body{
   margin:10px 0;
   padding:12px;
   border-radius:30px;
-  background:var(--green);
-  color:var(--gold-light);
+  background:var(--blue);
+  color:#f4d27a;
+  text-decoration:none;
   border:none;
   cursor:pointer;
 }
 
+section{padding:40px 20px;text-align:center}
 .box{
   background:#fff;
   padding:20px;
   border-radius:20px;
+  box-shadow:0 5px 20px rgba(0,0,0,.1);
 }
 
 textarea,input{
   width:100%;
-  margin-top:10px;
   padding:10px;
+  margin-top:10px;
+  border-radius:10px;
+  border:1px solid #ccc;
 }
 
 footer{
-  text-align:center;
-  padding:20px;
-  background:var(--green);
+  background:var(--blue);
   color:#fff;
+  padding:30px;
+  text-align:center;
+}
+
+footer .assinatura{
+  font-family:'Alex Brush',cursive;
+  font-size:40px;
+  color:#f4d27a;
 }
 </style>
 </head>
 
 <body>
 
-<div class="card">
-  <h1 class="nomes">Edvaldo & Ana</h1>
-  <p>Casamento às 19h</p>
+<audio id="musica" loop>
+  <source src="amor.mp3" type="audio/mpeg">
+</audio>
+
+<div class="hero">
+  <div class="card">
+    <img src="rm1.png" class="logo2">
+    <h1 class="nomes">Ronilson & Márcia</h1>
+    <p>30 de Outubro de 2026 • 19h</p>
+
+    <button class="btn" onclick="playMusic()">Tocar música</button>
+  </div>
 </div>
 
 <section id="presentes">
   <h2>Lista de Presentes</h2>
-
   <div class="box">
-
-    <button class="btn" onclick="mostrarOpcao('bemol')">Bemol</button>
-    <button class="btn" onclick="mostrarOpcao('dinamica')">Dinâmica</button>
-    <button class="btn" onclick="mostrarOpcao('pix')">PIX</button>
-
-    <div id="bemol" style="display:none">
-      <a class="btn" target="_blank"
-      href="https://www.bemol.com.br/lp/marcia%26ronilson">
-      Ver lista Bemol
-      </a>
-    </div>
-
-    <div id="dinamica" style="display:none">
-      <a class="btn" target="_blank"
-      href="https://www.dinamicautil.com.br/index.php?route=listapresente/edit&id_lista=60034">
-      Ver lista Dinâmica
-      </a>
-    </div>
+    <button class="btn" onclick="mostrar('bemol')">Bemol</button>
+    <button class="btn" onclick="mostrar('dinamica')">Dinâmica</button>
+    <button class="btn" onclick="mostrar('pix')">PIX</button>
 
     <div id="pix" style="display:none">
       <p>Chave PIX:</p>
-      <b>993293049</b>
+      <b>92984236693</b>
     </div>
-
   </div>
 </section>
 
-<section>
-<h2>Contagem</h2>
-<p id="tempo"></p>
+<section id="presenca">
+  <h2>Confirmar Presença</h2>
+
+  <div class="box">
+    <input id="busca" placeholder="Digite seu nome ou telefone">
+    <button class="btn" onclick="consultar()">Consultar</button>
+
+    <textarea id="resultado"></textarea>
+  </div>
 </section>
 
 <footer>
-  Edvaldo & Ana
+  <p class="assinatura">Ronilson & Márcia</p>
 </footer>
 
 <script>
+const numero = "5592984236693";
 
-function mostrarOpcao(tipo){
-  document.getElementById("bemol").style.display="none";
-  document.getElementById("dinamica").style.display="none";
-  document.getElementById("pix").style.display="none";
-  document.getElementById(tipo).style.display="block";
+const convidados = [
+  { nome: "ana silva", telefone: "92984000001", senhas: 1 },
+  { nome: "bruno souza", telefone: "92984000002", senhas: 1 },
+  { nome: "familia almeida", telefone: "92984000048", senhas: 3 },
+  { nome: "casal paulo", telefone: "92984000044", senhas: 2 }
+];
+
+function normalizar(t){
+  return t.toLowerCase().trim();
 }
 
-// CONTAGEM CORRIGIDA
-const data = new Date(2026,9,30,19,0,0).getTime();
+function playMusic(){
+  document.getElementById("musica").play();
+}
 
-setInterval(()=>{
-  const now = new Date().getTime();
-  const diff = data - now;
+function mostrar(id){
+  document.getElementById("pix").style.display="none";
+  if(id==="pix") document.getElementById("pix").style.display="block";
+}
 
-  if(diff <= 0){
-    document.getElementById("tempo").innerHTML="Chegou o grande dia!";
+function consultar(){
+  const valor = document.getElementById("busca").value;
+  const nome = normalizar(valor);
+
+  const c = convidados.find(x => normalizar(x.nome)==nome || x.telefone==valor);
+
+  if(!c){
+    document.getElementById("resultado").value="Nome não encontrado";
     return;
   }
 
-  const dias = Math.floor(diff/(1000*60*60*24));
-  const horas = Math.floor((diff/(1000*60*60))%24);
-  const minutos = Math.floor((diff/(1000*60))%60);
+  let msg = `Confirmação de presença\nNome: ${c.nome}\nSenhas:\n`;
 
-  document.getElementById("tempo").innerHTML =
-  dias+" dias "+horas+"h "+minutos+"min";
-},1000);
+  for(let i=1;i<=c.senhas;i++){
+    msg += `Senha ${i}\n`;
+  }
 
+  document.getElementById("resultado").value = msg;
+
+  window.open(`https://wa.me/${numero}?text=${encodeURIComponent(msg)}`);
+}
 </script>
 
 </body>
