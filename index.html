@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ronilson & Márcia</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300&display=swap" rel="stylesheet">
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    background: #f8f5f0;
+    color: #6b4f2c;
+    text-align: center;
+    overflow-x: hidden;
+}
+
+.container {
+    padding: 40px 20px;
+    max-width: 700px;
+    margin: auto;
+    animation: fadeIn 2s ease;
+}
+
+@keyframes fadeIn {
+    from {opacity: 0; transform: translateY(20px);}
+    to {opacity: 1; transform: translateY(0);}
+}
+
+.nomes {
+    font-family: 'Great Vibes', cursive;
+    font-size: 50px;
+}
+
+.monograma {
+    font-family: 'Great Vibes', cursive;
+    font-size: 60px;
+}
+
+.timer {
+    font-size: 20px;
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+.botao {
+    margin-top: 20px;
+}
+
+.botao a {
+    background: #c8a46b;
+    color: white;
+    padding: 12px 25px;
+    text-decoration: none;
+    border-radius: 25px;
+    display: inline-block;
+    margin: 5px;
+}
+</style>
+</head>
+
+<body>
+
+<!-- 🎵 Música -->
+<audio autoplay loop>
+  <source src="https://www.bensound.com/bensound-music/bensound-romantic.mp3" type="audio/mp3">
+</audio>
+
+<div class="container">
+
+<p>“Acima de tudo, porém, revistam-se do amor, que é o elo perfeito.”<br>Colossenses 3:14</p>
+
+<p>Com a bênção de Deus e de seus pais</p>
+
+<p>
+Raimundo Nonato Taveira da Silva<br>
+Elena Cavalcante da Silva<br><br>
+José Alcir Ribeiro Lima<br>
+Angela Maria Neri Neonel
+</p>
+
+<div class="monograma">RM</div>
+
+<div class="nomes">Ronilson & Márcia</div>
+
+<p>Convidam para a celebração de seu casamento</p>
+
+<p>
+📅 30 de outubro de 2026<br>
+⏰ 19h<br><br>
+
+📍 Igreja de Nossa Senhora do Perpétuo Socorro<br>
+Av. Leonardo Malcher, 541 – Aparecida<br>
+Manaus – AM
+</p>
+
+<!-- ⏳ CONTAGEM REGRESSIVA -->
+<div class="timer" id="contador"></div>
+
+<!-- 📍 BOTÕES -->
+<div class="botao">
+<a href="https://wa.me/5592SEUNUMERO">Confirmar Presença</a>
+<a href="https://www.google.com/maps?q=Igreja+Nossa+Senhora+do+Perpétuo+Socorro+Manaus" target="_blank">Ver Localização</a>
+</div>
+
+<p style="margin-top:30px;">
+“Juntos, vamos criar memórias inesquecíveis e celebrar o amor e a felicidade.”
+</p>
+
+</div>
+
+<script>
+// CONTADOR
+var dataCasamento = new Date("Oct 30, 2026 19:00:00").getTime();
+
+var x = setInterval(function() {
+    var agora = new Date().getTime();
+    var distancia = dataCasamento - agora;
+
+    var dias = Math.floor(distancia / (1000 * 60 * 60 * 24));
+    var horas = Math.floor((distancia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    var minutos = Math.floor((distancia % (1000 * 60 * 60)) / (1000 * 60));
+    var segundos = Math.floor((distancia % (1000 * 60)) / 1000);
+
+    document.getElementById("contador").innerHTML =
+    "Faltam " + dias + " dias " + horas + "h " + minutos + "m " + segundos + "s";
+
+    if (distancia < 0) {
+        clearInterval(x);
+        document.getElementById("contador").innerHTML = "Chegou o grande dia! 💍";
+    }
+}, 1000);
+</script>
+
+</body>
+</html>
