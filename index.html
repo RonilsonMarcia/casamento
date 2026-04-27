@@ -143,6 +143,26 @@ section{
   box-shadow:0 5px 20px rgba(63,77,99,.15);
 }
 
+.input-campo{
+  width:100%;
+  padding:12px;
+  border-radius:10px;
+  border:1px solid var(--gold);
+  margin-top:12px;
+  text-align:center;
+  font-size:16px;
+}
+
+.textarea-campo{
+  width:100%;
+  height:150px;
+  margin-top:10px;
+  padding:10px;
+  border-radius:10px;
+  border:1px solid var(--gold);
+  font-size:13px;
+}
+
 .contador{
   display:flex;
   justify-content:center;
@@ -256,7 +276,7 @@ footer .assinatura{
       <a class="btn" href="#cerimonia">Cerimônia</a>
       <a class="btn" href="#recepcao">Recepção</a>
       <a class="btn" href="#presentes">Lista de Presentes</a>
-      <a class="btn" href="#presenca">Confirmar Presença</a>
+      <a class="btn" href="#presenca">Consultar Senhas</a>
     </div>
   </div>
 </div>
@@ -277,7 +297,10 @@ footer .assinatura{
     <p><strong>Capela Nossa Senhora do Perpétuo Socorro</strong></p>
     <p>Av. Leonardo Malcher, 541 - Aparecida, Manaus - AM</p>
     <p><strong>Horário:</strong> 19h</p>
-    <a class="btn" target="_blank" href="https://maps.app.goo.gl/6k88jM35cc1eeQFNA">Ver localização</a>
+
+    <a class="btn" target="_blank" href="https://maps.app.goo.gl/6k88jM35cc1eeQFNA">
+      Ver localização
+    </a>
   </div>
 </section>
 
@@ -286,7 +309,10 @@ footer .assinatura{
   <div class="box">
     <p><strong>BEER DANCE</strong></p>
     <p>Av. Ramos Ferreira, 1648 - Centro, Manaus - AM, 69020-010</p>
-    <a class="btn" target="_blank" href="https://maps.app.goo.gl/1npDzzRkS8GCxfjW8">Abrir localização</a>
+
+    <a class="btn" target="_blank" href="https://maps.app.goo.gl/iXigGFA4DZK2rKfg9">
+      Abrir localização
+    </a>
   </div>
 </section>
 
@@ -319,14 +345,19 @@ footer .assinatura{
 </section>
 
 <section id="presenca">
-  <h2 class="titulo">Confirme sua presença</h2>
+  <h2 class="titulo">Consultar Senhas</h2>
   <div class="box">
-    <p>Confirme sua presença pelo WhatsApp.</p>
+    <p>Digite seu nome ou telefone para consultar sua quantidade de senhas.</p>
 
-    <a class="btn" target="_blank"
-       href="https://wa.me/5592984236693?text=Confirmo%20presen%C3%A7a%20no%20casamento%20Ronilson%20e%20M%C3%A1rcia">
-      Confirmar pelo WhatsApp
-    </a>
+    <input type="text" id="buscaConvidado" class="input-campo" placeholder="Digite seu nome ou telefone">
+
+    <button class="btn" onclick="consultarConvite()">Consultar e enviar confirmação</button>
+
+    <div id="areaResultado" style="display:none;">
+      <textarea id="resultadoConvite" class="textarea-campo" readonly></textarea>
+      <button class="btn" onclick="enviarWhatsApp()">Enviar novamente pelo WhatsApp</button>
+      <button class="btn" onclick="copiarConfirmacao()">Copiar confirmação</button>
+    </div>
   </div>
 </section>
 
@@ -337,6 +368,61 @@ footer .assinatura{
 
 <script>
 let tocando = false;
+let mensagemConfirmacao = "";
+const numeroNoivos = "5592984236693";
+
+const convidados = [
+  { nome: "ana silva", telefone: "92984000001", senhas: 1 },
+  { nome: "bruno souza", telefone: "92984000002", senhas: 1 },
+  { nome: "carla mendes", telefone: "92984000003", senhas: 1 },
+  { nome: "daniel rocha", telefone: "92984000004", senhas: 1 },
+  { nome: "eliane costa", telefone: "92984000005", senhas: 1 },
+  { nome: "fabio lima", telefone: "92984000006", senhas: 1 },
+  { nome: "gabriela santos", telefone: "92984000007", senhas: 1 },
+  { nome: "henrique alves", telefone: "92984000008", senhas: 1 },
+  { nome: "isabela nunes", telefone: "92984000009", senhas: 1 },
+  { nome: "julio pereira", telefone: "92984000010", senhas: 1 },
+  { nome: "karina oliveira", telefone: "92984000011", senhas: 1 },
+  { nome: "lucas barbosa", telefone: "92984000012", senhas: 1 },
+  { nome: "mariana dias", telefone: "92984000013", senhas: 1 },
+  { nome: "natalia ramos", telefone: "92984000014", senhas: 1 },
+  { nome: "otavio martins", telefone: "92984000015", senhas: 1 },
+  { nome: "patricia vieira", telefone: "92984000016", senhas: 1 },
+  { nome: "rafael castro", telefone: "92984000017", senhas: 1 },
+  { nome: "sabrina ferreira", telefone: "92984000018", senhas: 1 },
+  { nome: "thiago monteiro", telefone: "92984000019", senhas: 1 },
+  { nome: "vanessa araujo", telefone: "92984000020", senhas: 1 },
+  { nome: "william cardoso", telefone: "92984000021", senhas: 1 },
+  { nome: "aline teixeira", telefone: "92984000022", senhas: 1 },
+  { nome: "bianca freitas", telefone: "92984000023", senhas: 1 },
+  { nome: "caio moreira", telefone: "92984000024", senhas: 1 },
+  { nome: "debora campos", telefone: "92984000025", senhas: 1 },
+  { nome: "eduardo pinto", telefone: "92984000026", senhas: 1 },
+  { nome: "fernanda brito", telefone: "92984000027", senhas: 1 },
+  { nome: "gustavo reis", telefone: "92984000028", senhas: 1 },
+  { nome: "helena mota", telefone: "92984000029", senhas: 1 },
+  { nome: "igor machado", telefone: "92984000030", senhas: 1 },
+  { nome: "janaina cruz", telefone: "92984000031", senhas: 1 },
+  { nome: "leandro franco", telefone: "92984000032", senhas: 1 },
+  { nome: "monica assis", telefone: "92984000033", senhas: 1 },
+  { nome: "nelson correia", telefone: "92984000034", senhas: 1 },
+  { nome: "priscila moraes", telefone: "92984000035", senhas: 1 },
+  { nome: "ricardo sales", telefone: "92984000036", senhas: 1 },
+  { nome: "simone batista", telefone: "92984000037", senhas: 1 },
+  { nome: "tiago fonseca", telefone: "92984000038", senhas: 1 },
+  { nome: "valeria medeiros", telefone: "92984000039", senhas: 1 },
+  { nome: "yasmin carneiro", telefone: "92984000040", senhas: 1 },
+  { nome: "zeca andrade", telefone: "92984000041", senhas: 1 },
+  { nome: "amanda lopes", telefone: "92984000042", senhas: 1 },
+  { nome: "roberto neves", telefone: "92984000043", senhas: 1 },
+  { nome: "casal paulo e renata", telefone: "92984000044", senhas: 2 },
+  { nome: "casal mario e juliana", telefone: "92984000045", senhas: 2 },
+  { nome: "casal andre e larissa", telefone: "92984000046", senhas: 2 },
+  { nome: "casal felipe e camila", telefone: "92984000047", senhas: 2 },
+  { nome: "familia almeida", telefone: "92984000048", senhas: 3 },
+  { nome: "familia cavalcante", telefone: "92984000049", senhas: 3 },
+  { nome: "familia nascimento", telefone: "92984000050", senhas: 3 }
+];
 
 function playMusic(){
   const musica = document.getElementById("musica");
@@ -386,6 +472,99 @@ function mostrarPix(){
 function copiarPix(){
   navigator.clipboard.writeText("92984236693");
   alert("Chave PIX copiada!");
+}
+
+function normalizarTexto(texto){
+  return texto.toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+function somenteNumeros(texto){
+  return texto.replace(/\D/g, "");
+}
+
+function consultarConvite(){
+  const buscaOriginal = document.getElementById("buscaConvidado").value;
+  const buscaNome = normalizarTexto(buscaOriginal);
+  const buscaTelefone = somenteNumeros(buscaOriginal);
+
+  if(!buscaNome && !buscaTelefone){
+    alert("Digite seu nome ou telefone.");
+    return;
+  }
+
+  const convidado = convidados.find(c =>
+    normalizarTexto(c.nome) === buscaNome || c.telefone === buscaTelefone
+  );
+
+  if(!convidado){
+    document.getElementById("resultadoConvite").value =
+`Nome ou telefone não encontrado.
+
+Entre em contato com os noivos para confirmar sua presença.`;
+    document.getElementById("areaResultado").style.display = "block";
+    mensagemConfirmacao = "";
+    return;
+  }
+
+  const base = gerarCodigoBase(convidado.nome, convidado.telefone);
+
+  let texto = `Confirmação de presença - Casamento Ronilson & Márcia
+Nome: ${formatarNome(convidado.nome)}
+Telefone: ${convidado.telefone}
+Quantidade de senhas: ${convidado.senhas}
+
+Senhas geradas:
+`;
+
+  for(let i = 1; i <= convidado.senhas; i++){
+    texto += `Senha ${i}: ${base}-${i}\n`;
+  }
+
+  document.getElementById("resultadoConvite").value = texto;
+  document.getElementById("areaResultado").style.display = "block";
+  mensagemConfirmacao = texto;
+
+  enviarWhatsApp();
+}
+
+function gerarCodigoBase(nome, telefone){
+  const nomeBase = normalizarTexto(nome)
+    .replace(/[^a-z]/g, "")
+    .substring(0,3)
+    .toUpperCase();
+
+  const telBase = telefone.slice(-4);
+  return nomeBase + telBase;
+}
+
+function formatarNome(nome){
+  return nome.split(" ").map(p =>
+    p.charAt(0).toUpperCase() + p.slice(1)
+  ).join(" ");
+}
+
+function enviarWhatsApp(){
+  if(!mensagemConfirmacao){
+    alert("Consulte primeiro seu convite.");
+    return;
+  }
+
+  const mensagem = encodeURIComponent(mensagemConfirmacao);
+  window.open(`https://wa.me/${numeroNoivos}?text=${mensagem}`, "_blank");
+}
+
+function copiarConfirmacao(){
+  if(!mensagemConfirmacao){
+    alert("Consulte primeiro seu convite.");
+    return;
+  }
+
+  navigator.clipboard.writeText(mensagemConfirmacao);
+  alert("Confirmação copiada!");
 }
 </script>
 
