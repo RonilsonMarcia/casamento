@@ -3,24 +3,43 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ronilson & Márcia</title>
+<title>Edvaldo & Ana</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cinzel:wght@400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
 :root{
-  --gold:#c9a24a;
-  --gold-light:#f4d27a;
-  --dark:#3f4d63;
-  --blue:#4f5f78;
-  --cream:#fffaf2;
+  --gold:#d4af37;
+  --gold-light:#f7e27b;
+  --gold-dark:#8c6b1f;
+  --green:#1f4d3a;
+  --green-light:#2f6b52;
+  --cream:#f9f6ef;
 }
 
 *{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+
 body{
   font-family:'Montserrat',sans-serif;
-  background:linear-gradient(135deg,#d6dde6,#f7f1e8,#ffffff);
-  color:var(--dark);
+  background:linear-gradient(135deg,#dce8e2,#f9f6ef,#ffffff);
+  color:var(--green);
+  overflow-x:hidden;
+}
+
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  background-image:radial-gradient(circle, rgba(212,175,55,.18) 1px, transparent 1px);
+  background-size:30px 30px;
+  animation:bgMove 15s linear infinite;
+  z-index:-1;
+}
+
+@keyframes bgMove{
+  from{background-position:0 0}
+  to{background-position:150px 150px}
 }
 
 .hero{
@@ -32,65 +51,178 @@ body{
 }
 
 .card{
-  max-width:900px;
   width:100%;
-  background:#fff;
-  border-radius:25px;
+  max-width:1000px;
+  background:linear-gradient(180deg,#ffffff,#f4efe6);
   padding:30px;
+  border-radius:30px;
+  box-shadow:0 20px 60px rgba(31,77,58,.25);
   text-align:center;
-  box-shadow:0 20px 60px rgba(0,0,0,.2);
+  border:1px solid rgba(212,175,55,.45);
 }
 
-.logo2{width:260px;margin-bottom:20px}
+.logos{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:22px;
+}
+
+.logo1{width:170px;max-width:70%}
+
+.logo2{
+  width:280px;
+  max-width:90%;
+  background:transparent;
+  mix-blend-mode:multiply;
+  filter:drop-shadow(0 10px 20px rgba(0,0,0,.2)) brightness(1.05) contrast(1.08);
+}
 
 .nomes{
   font-family:'Alex Brush',cursive;
-  font-size:clamp(38px, 7vw, 70px);
-  background:linear-gradient(45deg,#8a6424,#c9a24a,#f4d27a);
+  font-size:clamp(42px, 8vw, 88px);
+  background:linear-gradient(45deg,#8c6b1f,#d4af37,#f7e27b,#d4af37);
   -webkit-background-clip:text;
   -webkit-text-fill-color:transparent;
+  margin:18px 0 10px;
   white-space:nowrap;
+  font-weight:400;
+  line-height:1.1;
 }
 
-.btn{
+.frase{
+  font-size:15px;
+  margin:10px auto 20px;
+  max-width:600px;
+}
+
+.data{
+  font-family:'Cinzel',serif;
+  font-weight:700;
+  margin-bottom:15px;
+  color:var(--gold-dark);
+}
+
+.btn, button{
   display:block;
-  margin:10px 0;
-  padding:12px;
-  border-radius:30px;
-  background:var(--blue);
-  color:#f4d27a;
-  text-decoration:none;
-  border:none;
-  cursor:pointer;
-}
-
-section{padding:40px 20px;text-align:center}
-.box{
-  background:#fff;
-  padding:20px;
-  border-radius:20px;
-  box-shadow:0 5px 20px rgba(0,0,0,.1);
-}
-
-textarea,input{
   width:100%;
+  margin:8px 0;
+  padding:14px;
+  border-radius:30px;
+  background:linear-gradient(135deg,#1f4d3a,#2f6b52);
+  color:var(--gold-light);
+  text-decoration:none;
+  font-weight:bold;
+  border:1px solid rgba(247,226,123,.7);
+  cursor:pointer;
+  box-shadow:0 8px 20px rgba(31,77,58,.25);
+  font-family:'Montserrat',sans-serif;
+  font-size:15px;
+}
+
+section{
+  padding:40px 15px;
+  text-align:center;
+}
+
+.titulo{
+  font-family:'Alex Brush',cursive;
+  font-size:42px;
+  color:var(--gold);
+  font-weight:400;
+  margin-bottom:15px;
+}
+
+.box{
+  max-width:700px;
+  margin:auto;
+  background:linear-gradient(180deg,#ffffff,#f4efe6);
+  padding:22px;
+  border-radius:22px;
+  border:1px solid rgba(212,175,55,.35);
+  box-shadow:0 5px 20px rgba(31,77,58,.15);
+}
+
+.contador{
+  display:flex;
+  justify-content:center;
+  gap:10px;
+  flex-wrap:wrap;
+}
+
+.tempo{
+  width:72px;
   padding:10px;
-  margin-top:10px;
-  border-radius:10px;
-  border:1px solid #ccc;
+  background:#f4efe6;
+  border-radius:12px;
+  border:1px solid rgba(212,175,55,.5);
+}
+
+.tempo span{
+  display:block;
+  font-size:22px;
+  font-weight:bold;
+  color:var(--gold-dark);
+}
+
+.audio{
+  position:fixed;
+  bottom:15px;
+  right:15px;
+  background:linear-gradient(135deg,#1f4d3a,#2f6b52);
+  color:var(--gold-light);
+  padding:10px 15px;
+  border-radius:20px;
+  cursor:pointer;
+  z-index:99;
+  border:1px solid rgba(247,226,123,.7);
+  box-shadow:0 8px 20px rgba(0,0,0,.25);
 }
 
 footer{
-  background:var(--blue);
+  background:var(--green);
   color:#fff;
-  padding:30px;
+  padding:32px 15px;
   text-align:center;
 }
 
 footer .assinatura{
   font-family:'Alex Brush',cursive;
-  font-size:40px;
-  color:#f4d27a;
+  font-size:42px;
+  color:var(--gold-light);
+}
+
+@media(min-width:768px){
+  .card{padding:45px}
+  .logo1{width:220px}
+  .logo2{width:340px}
+  .titulo{font-size:58px}
+  .btn, button{display:inline-block;width:auto;padding:12px 25px;margin:8px 5px}
+  .tempo{width:95px;padding:16px 10px}
+  .tempo span{font-size:30px}
+}
+
+@media(min-width:1024px){
+  .card{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:36px;
+    align-items:center;
+    text-align:left;
+  }
+  .left{text-align:center}
+  .right{text-align:left}
+  .frase{margin-left:0}
+  .logo1{width:240px}
+  .logo2{width:390px}
+}
+
+@media(max-width:600px){
+  .card{padding:24px 18px}
+  .logos{gap:18px}
+  .logo1{width:145px}
+  .logo2{width:245px}
+  .nomes{font-size:clamp(36px, 11vw, 46px)}
 }
 </style>
 </head>
@@ -101,88 +233,152 @@ footer .assinatura{
   <source src="amor.mp3" type="audio/mpeg">
 </audio>
 
+<div class="audio" onclick="playMusic()">🎵 Música</div>
+
 <div class="hero">
   <div class="card">
-    <img src="rm1.png" class="logo2">
-    <h1 class="nomes">Ronilson & Márcia</h1>
-    <p>30 de Outubro de 2026 • 19h</p>
+    <div class="left">
+      <div class="logos">
+        <img src="monograma.png" class="logo1" alt="Monograma">
+        <img src="rm1.png" class="logo2" alt="Edvaldo e Ana">
+      </div>
+    </div>
 
-    <button class="btn" onclick="playMusic()">Tocar música</button>
+    <div class="right">
+      <h1 class="nomes">Edvaldo & Ana</h1>
+
+      <p class="frase">
+        Com alegria no coração, convidamos você para celebrar conosco este momento especial.
+      </p>
+
+      <div class="data">19h</div>
+
+      <a class="btn" href="#cerimonia">Cerimônia</a>
+      <a class="btn" href="#recepcao">Recepção</a>
+      <a class="btn" href="#presentes">Lista de Presentes</a>
+    </div>
   </div>
 </div>
 
-<section id="presentes">
-  <h2>Lista de Presentes</h2>
-  <div class="box">
-    <button class="btn" onclick="mostrar('bemol')">Bemol</button>
-    <button class="btn" onclick="mostrar('dinamica')">Dinâmica</button>
-    <button class="btn" onclick="mostrar('pix')">PIX</button>
+<section>
+  <h2 class="titulo">Contagem Regressiva</h2>
+  <div class="contador">
+    <div class="tempo"><span id="d">00</span>Dias</div>
+    <div class="tempo"><span id="h">00</span>Horas</div>
+    <div class="tempo"><span id="m">00</span>Min</div>
+    <div class="tempo"><span id="s">00</span>Seg</div>
+  </div>
+</section>
 
-    <div id="pix" style="display:none">
-      <p>Chave PIX:</p>
-      <b>92984236693</b>
+<section id="cerimonia">
+  <h2 class="titulo">Cerimônia Religiosa</h2>
+  <div class="box">
+    <p><strong>Igreja de São Jorge</strong></p>
+    <p>R. Emílio Ruas, 311 - São Jorge, Manaus - AM, 69033-440</p>
+    <p><strong>Horário:</strong> 19h</p>
+
+    <a class="btn" target="_blank" href="https://maps.app.goo.gl/MzMsnWYaQoSTDGcs5">
+      Ver localização
+    </a>
+  </div>
+</section>
+
+<section id="recepcao">
+  <h2 class="titulo">Recepção</h2>
+  <div class="box">
+    <p><strong>BEER DANCE</strong></p>
+    <p>Av. Ramos Ferreira, 1648 - Centro, Manaus - AM, 69020-010</p>
+
+    <a class="btn" target="_blank" href="https://maps.app.goo.gl/1npDzzRkS8GCxfjW8">
+      Abrir localização
+    </a>
+  </div>
+</section>
+
+<section id="presentes">
+  <h2 class="titulo">Lista de Presentes</h2>
+
+  <div class="box">
+    <p>Escolha a melhor forma de nos presentear.</p>
+
+    <button onclick="window.open('https://www.bemol.com.br/lp/marcia%26ronilson', '_blank')">
+      Ver Lista Bemol
+    </button>
+
+    <button onclick="window.open('https://www.dinamicautil.com.br/index.php?route=listapresente/edit&id_lista=60034', '_blank')">
+      Ver Lista Dinâmica
+    </button>
+
+    <button onclick="mostrarPix()">
+      PIX
+    </button>
+
+    <div id="pix" style="display:none; margin-top:15px;">
+      <p>Se preferir, você pode contribuir via PIX.</p>
+      <p><strong>Chave PIX:</strong></p>
+      <p style="font-size:20px;color:#d4af37;font-weight:bold;">993293049</p>
+
+      <button onclick="copiarPix()">Copiar chave PIX</button>
     </div>
   </div>
 </section>
 
-<section id="presenca">
-  <h2>Confirmar Presença</h2>
-
-  <div class="box">
-    <input id="busca" placeholder="Digite seu nome ou telefone">
-    <button class="btn" onclick="consultar()">Consultar</button>
-
-    <textarea id="resultado"></textarea>
-  </div>
-</section>
-
 <footer>
-  <p class="assinatura">Ronilson & Márcia</p>
+  <p class="assinatura">Edvaldo & Ana</p>
+  <p>Cerimônia às 19h</p>
 </footer>
 
 <script>
-const numero = "5592984236693";
-
-const convidados = [
-  { nome: "ana silva", telefone: "92984000001", senhas: 1 },
-  { nome: "bruno souza", telefone: "92984000002", senhas: 1 },
-  { nome: "familia almeida", telefone: "92984000048", senhas: 3 },
-  { nome: "casal paulo", telefone: "92984000044", senhas: 2 }
-];
-
-function normalizar(t){
-  return t.toLowerCase().trim();
-}
+let tocando = false;
 
 function playMusic(){
-  document.getElementById("musica").play();
+  const musica = document.getElementById("musica");
+  const botao = document.querySelector(".audio");
+
+  if(!tocando){
+    musica.play();
+    botao.innerHTML = "⏸ Pausar";
+    tocando = true;
+  }else{
+    musica.pause();
+    botao.innerHTML = "🎵 Música";
+    tocando = false;
+  }
 }
 
-function mostrar(id){
-  document.getElementById("pix").style.display="none";
-  if(id==="pix") document.getElementById("pix").style.display="block";
-}
+const data = new Date(2026, 9, 30, 19, 0, 0).getTime();
 
-function consultar(){
-  const valor = document.getElementById("busca").value;
-  const nome = normalizar(valor);
+setInterval(() => {
+  const now = new Date().getTime();
+  const diff = data - now;
 
-  const c = convidados.find(x => normalizar(x.nome)==nome || x.telefone==valor);
-
-  if(!c){
-    document.getElementById("resultado").value="Nome não encontrado";
+  if(diff <= 0){
+    document.getElementById("d").innerHTML = "00";
+    document.getElementById("h").innerHTML = "00";
+    document.getElementById("m").innerHTML = "00";
+    document.getElementById("s").innerHTML = "00";
     return;
   }
 
-  let msg = `Confirmação de presença\nNome: ${c.nome}\nSenhas:\n`;
+  const dias = Math.floor(diff / (1000 * 60 * 60 * 24));
+  const horas = Math.floor((diff / (1000 * 60 * 60)) % 24);
+  const minutos = Math.floor((diff / (1000 * 60)) % 60);
+  const segundos = Math.floor((diff / 1000) % 60);
 
-  for(let i=1;i<=c.senhas;i++){
-    msg += `Senha ${i}\n`;
-  }
+  document.getElementById("d").innerHTML = String(dias).padStart(2, "0");
+  document.getElementById("h").innerHTML = String(horas).padStart(2, "0");
+  document.getElementById("m").innerHTML = String(minutos).padStart(2, "0");
+  document.getElementById("s").innerHTML = String(segundos).padStart(2, "0");
+}, 1000);
 
-  document.getElementById("resultado").value = msg;
+function mostrarPix(){
+  const pix = document.getElementById("pix");
+  pix.style.display = pix.style.display === "none" ? "block" : "none";
+}
 
-  window.open(`https://wa.me/${numero}?text=${encodeURIComponent(msg)}`);
+function copiarPix(){
+  navigator.clipboard.writeText("993293049");
+  alert("Chave PIX copiada!");
 }
 </script>
 
