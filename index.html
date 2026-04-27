@@ -463,11 +463,21 @@ setInterval(() => {
   document.getElementById("s").innerHTML = Math.floor((diff % (1000 * 60)) / 1000);
 }, 1000);
 
-function mostrarOpcao(tipo){
-  document.getElementById("bemol").style.display = "none";
-  document.getElementById("dinamica").style.display = "none";
-  document.getElementById("pix").style.display = "none";
-  document.getElementById(tipo).style.display = "block";
+function mostrarOpcao(tipo) {
+  const opcoes = ["bemol", "dinamica", "pix"];
+
+  opcoes.forEach(id => {
+    const elemento = document.getElementById(id);
+    if (elemento) {
+      elemento.style.display = "none";
+    }
+  });
+
+  const selecionado = document.getElementById(tipo);
+  if (selecionado) {
+    selecionado.style.display = "block";
+  }
+}
 
   if(tipo === "pix"){
     document.getElementById("pixCode").value =
