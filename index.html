@@ -11,230 +11,85 @@
 :root{--gold:#b08a3c;--dark:#4a3324}
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
-
 body{
   font-family:'Montserrat',sans-serif;
   background:linear-gradient(135deg,#fffaf0,#f5ead7,#fff8ea);
   color:var(--dark);
   overflow-x:hidden;
 }
-
 body::before{
-  content:"";
-  position:fixed;
-  inset:0;
+  content:"";position:fixed;inset:0;
   background-image:radial-gradient(circle, rgba(176,138,60,.18) 1px, transparent 1px);
-  background-size:30px 30px;
-  animation:bgMove 15s linear infinite;
-  z-index:-1;
+  background-size:30px 30px;animation:bgMove 15s linear infinite;z-index:-1;
 }
+@keyframes bgMove{from{background-position:0 0}to{background-position:150px 150px}}
 
-@keyframes bgMove{
-  from{background-position:0 0}
-  to{background-position:150px 150px}
-}
-
-.hero{
-  min-height:100vh;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  padding:20px;
-}
-
+.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:20px}
 .card{
-  width:100%;
-  max-width:1000px;
-  background:#fff;
-  padding:30px;
-  border-radius:30px;
-  box-shadow:0 20px 60px rgba(0,0,0,.15);
-  text-align:center;
-  border:1px solid rgba(176,138,60,.35);
+  width:100%;max-width:1000px;background:#fff;padding:30px;border-radius:30px;
+  box-shadow:0 20px 60px rgba(0,0,0,.15);text-align:center;border:1px solid rgba(176,138,60,.35);
 }
-
-.logos{
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  gap:22px;
-}
-
-.logo1{
-  width:170px;
-  max-width:70%;
-}
-
+.logos{display:flex;flex-direction:column;align-items:center;gap:22px}
+.logo1{width:170px;max-width:70%}
 .logo2{
-  width:280px;
-  max-width:90%;
-  background:transparent;
-  mix-blend-mode:multiply;
+  width:280px;max-width:90%;background:transparent;mix-blend-mode:multiply;
   filter:drop-shadow(0 10px 20px rgba(0,0,0,.2)) brightness(1.05) contrast(1.08);
 }
-
 .nomes{
-  font-family:'Alex Brush',cursive;
-  font-size:60px;
+  font-family:'Alex Brush',cursive;font-size:60px;
   background:linear-gradient(45deg,#d4af37,#b08a3c,#ffd700);
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
-  margin:18px 0 10px;
-  white-space:nowrap;
-  font-weight:400;
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  margin:18px 0 10px;white-space:nowrap;font-weight:400;
 }
-
-.frase{
-  font-size:15px;
-  margin:10px auto 20px;
-  max-width:600px;
-}
-
-.data{
-  font-family:'Cinzel',serif;
-  font-weight:700;
-  margin-bottom:15px;
-}
-
+.frase{font-size:15px;margin:10px auto 20px;max-width:600px}
+.data{font-family:'Cinzel',serif;font-weight:700;margin-bottom:15px}
 .btn{
-  display:block;
-  width:100%;
-  margin:8px 0;
-  padding:14px;
-  border-radius:30px;
+  display:block;width:100%;margin:8px 0;padding:14px;border-radius:30px;
   background:linear-gradient(135deg,#b08a3c,#8a652b);
-  color:#fff;
-  text-decoration:none;
-  font-weight:bold;
-  border:none;
-  cursor:pointer;
+  color:#fff;text-decoration:none;font-weight:bold;border:none;cursor:pointer;
   box-shadow:0 8px 20px rgba(138,101,43,.25);
 }
-
-section{
-  padding:40px 15px;
-  text-align:center;
-}
-
+section{padding:40px 15px;text-align:center}
 .titulo{
-  font-family:'Alex Brush',cursive;
-  font-size:42px;
-  color:var(--gold);
-  font-weight:400;
-  margin-bottom:15px;
+  font-family:'Alex Brush',cursive;font-size:42px;color:var(--gold);
+  font-weight:400;margin-bottom:15px;
 }
-
 .box{
-  max-width:700px;
-  margin:auto;
-  background:#fff;
-  padding:22px;
-  border-radius:22px;
-  border:1px solid rgba(176,138,60,.25);
-  box-shadow:0 5px 20px rgba(0,0,0,.1);
+  max-width:700px;margin:auto;background:#fff;padding:22px;border-radius:22px;
+  border:1px solid rgba(176,138,60,.25);box-shadow:0 5px 20px rgba(0,0,0,.1);
 }
-
-.contador{
-  display:flex;
-  justify-content:center;
-  gap:10px;
-  flex-wrap:wrap;
-}
-
-.tempo{
-  width:72px;
-  padding:10px;
-  background:#fff;
-  border-radius:12px;
-  border:1px solid rgba(176,138,60,.35);
-}
-
-.tempo span{
-  display:block;
-  font-size:22px;
-  font-weight:bold;
-  color:var(--gold);
-}
-
+.contador{display:flex;justify-content:center;gap:10px;flex-wrap:wrap}
+.tempo{width:72px;padding:10px;background:#fff;border-radius:12px;border:1px solid rgba(176,138,60,.35)}
+.tempo span{display:block;font-size:22px;font-weight:bold;color:var(--gold)}
 .audio{
-  position:fixed;
-  bottom:15px;
-  right:15px;
-  background:var(--gold);
-  color:#fff;
-  padding:10px 15px;
-  border-radius:20px;
-  cursor:pointer;
-  z-index:99;
+  position:fixed;bottom:15px;right:15px;background:var(--gold);color:#fff;
+  padding:10px 15px;border-radius:20px;cursor:pointer;z-index:99;
   box-shadow:0 8px 20px rgba(0,0,0,.25);
 }
-
 .input-pix{
-  width:100%;
-  padding:12px;
-  border-radius:10px;
-  border:1px solid #ccc;
-  margin-top:12px;
-  text-align:center;
-  font-size:16px;
+  width:100%;padding:12px;border-radius:10px;border:1px solid #ccc;
+  margin-top:12px;text-align:center;font-size:16px;
 }
-
 .pix-textarea{
-  width:100%;
-  height:95px;
-  margin-top:10px;
-  padding:10px;
-  border-radius:10px;
-  border:1px solid #ccc;
-  font-size:13px;
+  width:100%;height:90px;margin-top:10px;padding:10px;border-radius:10px;
+  border:1px solid #ccc;font-size:13px;
 }
-
-footer{
-  background:var(--dark);
-  color:#fff;
-  padding:32px 15px;
-  text-align:center;
-}
-
-footer .assinatura{
-  font-family:'Alex Brush',cursive;
-  font-size:42px;
-  color:#d6b574;
-}
+footer{background:var(--dark);color:#fff;padding:32px 15px;text-align:center}
+footer .assinatura{font-family:'Alex Brush',cursive;font-size:42px;color:#d6b574}
 
 @media(min-width:768px){
-  .card{padding:45px}
-  .logo1{width:220px}
-  .logo2{width:340px}
-  .nomes{font-size:80px}
-  .titulo{font-size:58px}
+  .card{padding:45px}.logo1{width:220px}.logo2{width:340px}
+  .nomes{font-size:80px}.titulo{font-size:58px}
   .btn{display:inline-block;width:auto;padding:12px 25px;margin:8px 5px}
-  .tempo{width:95px;padding:16px 10px}
-  .tempo span{font-size:30px}
+  .tempo{width:95px;padding:16px 10px}.tempo span{font-size:30px}
 }
-
 @media(min-width:1024px){
-  .card{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:36px;
-    align-items:center;
-    text-align:left;
-  }
-
-  .left{text-align:center}
-  .right{text-align:left}
-  .frase{margin-left:0}
-  .logo1{width:240px}
-  .logo2{width:390px}
-  .nomes{font-size:88px}
+  .card{display:grid;grid-template-columns:1fr 1fr;gap:36px;align-items:center;text-align:left}
+  .left{text-align:center}.right{text-align:left}.frase{margin-left:0}
+  .logo1{width:240px}.logo2{width:390px}.nomes{font-size:88px}
 }
-
 @media(max-width:600px){
-  .card{padding:24px 18px}
-  .logos{gap:18px}
-  .logo1{width:145px}
-  .logo2{width:245px}
+  .card{padding:24px 18px}.logos{gap:18px}.logo1{width:145px}.logo2{width:245px}
   .nomes{font-size:42px;white-space:nowrap}
 }
 </style>
@@ -250,7 +105,6 @@ footer .assinatura{
 
 <div class="hero">
   <div class="card">
-
     <div class="left">
       <div class="logos">
         <img src="monograma.png" class="logo1" alt="Monograma">
@@ -272,13 +126,11 @@ footer .assinatura{
       <a class="btn" href="#presentes">Lista de Presentes</a>
       <a class="btn" href="#presenca">Confirmar Presença</a>
     </div>
-
   </div>
 </div>
 
 <section>
   <h2 class="titulo">Contagem Regressiva</h2>
-
   <div class="contador">
     <div class="tempo"><span id="d">00</span>Dias</div>
     <div class="tempo"><span id="h">00</span>Horas</div>
@@ -316,22 +168,30 @@ footer .assinatura{
   <h2 class="titulo">Lista de Presentes</h2>
 
   <div class="box">
-    <p>Se desejar nos presentear, escolha qualquer valor e gere as informações do PIX.</p>
+    <p>Escolha a melhor forma de nos presentear.</p>
 
-    <input 
-      type="number" 
-      id="valorPix" 
-      class="input-pix"
-      placeholder="Digite o valor do presente"
-    >
+    <button class="btn" onclick="mostrarOpcao('bemol')">Loja Bemol</button>
+    <button class="btn" onclick="mostrarOpcao('dinamica')">Loja Dinâmica</button>
+    <button class="btn" onclick="mostrarOpcao('pix')">PIX</button>
 
-    <button class="btn" onclick="gerarPix()">
-      Gerar PIX
-    </button>
+    <div id="bemol" style="display:none; margin-top:15px;">
+      <p>Você pode escolher um presente diretamente na Bemol.</p>
+      <a class="btn" target="_blank" href="https://www.bemol.com.br/">
+        Acessar Bemol
+      </a>
+    </div>
 
-    <div id="areaPix" style="display:none; margin-top:15px;">
+    <div id="dinamica" style="display:none; margin-top:15px;">
+      <p>Você pode escolher um presente diretamente na Dinâmica.</p>
+      <a class="btn" target="_blank" href="https://www.dinamica.com.br/">
+        Acessar Dinâmica
+      </a>
+    </div>
+
+    <div id="pix" style="display:none; margin-top:15px;">
+      <p>Se preferir, você pode contribuir via PIX.</p>
+
       <p><strong>Chave PIX:</strong></p>
-
       <p style="font-size:20px;color:#b08a3c;font-weight:bold;">
         92984236693
       </p>
@@ -339,7 +199,7 @@ footer .assinatura{
       <textarea id="pixCode" class="pix-textarea" readonly></textarea>
 
       <button class="btn" onclick="copiarPix()">
-        Copiar para colar no banco
+        Copiar chave PIX
       </button>
     </div>
   </div>
@@ -401,29 +261,22 @@ setInterval(() => {
   document.getElementById("s").innerHTML = Math.floor((diff % (1000 * 60)) / 1000);
 }, 1000);
 
-function gerarPix(){
-  const valor = document.getElementById("valorPix").value;
+function mostrarOpcao(tipo){
+  document.getElementById("bemol").style.display = "none";
+  document.getElementById("dinamica").style.display = "none";
+  document.getElementById("pix").style.display = "none";
+  document.getElementById(tipo).style.display = "block";
 
-  if(!valor || valor <= 0){
-    alert("Digite um valor válido.");
-    return;
-  }
-
-  const mensagem =
+  if(tipo === "pix"){
+    document.getElementById("pixCode").value =
 `Presente de casamento - Ronilson & Márcia
-Valor: R$ ${valor}
 Chave PIX: 92984236693`;
-
-  document.getElementById("pixCode").value = mensagem;
-  document.getElementById("areaPix").style.display = "block";
+  }
 }
 
 function copiarPix(){
-  const campo = document.getElementById("pixCode");
-  campo.select();
-  campo.setSelectionRange(0, 99999);
-  document.execCommand("copy");
-  alert("Informações do PIX copiadas!");
+  navigator.clipboard.writeText("92984236693");
+  alert("Chave PIX copiada!");
 }
 </script>
 
