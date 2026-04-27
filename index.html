@@ -3,18 +3,18 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Edvaldo & Ana</title>
+<title>Ronilson & Márcia</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cinzel:wght@400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
 :root{
-  --gold:#d4af37;
-  --gold-light:#f7e27b;
-  --gold-dark:#8c6b1f;
-  --green:#1f4d3a;
-  --green-light:#2f6b52;
-  --cream:#f9f6ef;
+  --gold:#c9a24a;
+  --gold-light:#f4d27a;
+  --gold-dark:#8a6424;
+  --dark:#3f4d63;
+  --blue:#4f5f78;
+  --cream:#fffaf2;
 }
 
 *{margin:0;padding:0;box-sizing:border-box}
@@ -22,8 +22,8 @@ html{scroll-behavior:smooth}
 
 body{
   font-family:'Montserrat',sans-serif;
-  background:linear-gradient(135deg,#dce8e2,#f9f6ef,#ffffff);
-  color:var(--green);
+  background:linear-gradient(135deg,#d6dde6,#f7f1e8,#ffffff);
+  color:var(--dark);
   overflow-x:hidden;
 }
 
@@ -31,7 +31,7 @@ body::before{
   content:"";
   position:fixed;
   inset:0;
-  background-image:radial-gradient(circle, rgba(212,175,55,.18) 1px, transparent 1px);
+  background-image:radial-gradient(circle, rgba(201,162,74,.18) 1px, transparent 1px);
   background-size:30px 30px;
   animation:bgMove 15s linear infinite;
   z-index:-1;
@@ -53,12 +53,12 @@ body::before{
 .card{
   width:100%;
   max-width:1000px;
-  background:linear-gradient(180deg,#ffffff,#f4efe6);
+  background:linear-gradient(180deg,#ffffff,#fff8ec);
   padding:30px;
   border-radius:30px;
-  box-shadow:0 20px 60px rgba(31,77,58,.25);
+  box-shadow:0 20px 60px rgba(63,77,99,.25);
   text-align:center;
-  border:1px solid rgba(212,175,55,.45);
+  border:1px solid rgba(201,162,74,.45);
 }
 
 .logos{
@@ -81,7 +81,7 @@ body::before{
 .nomes{
   font-family:'Alex Brush',cursive;
   font-size:clamp(42px, 8vw, 88px);
-  background:linear-gradient(45deg,#8c6b1f,#d4af37,#f7e27b,#d4af37);
+  background:linear-gradient(45deg,#8a6424,#c9a24a,#f4d27a,#c9a24a);
   -webkit-background-clip:text;
   -webkit-text-fill-color:transparent;
   margin:18px 0 10px;
@@ -109,13 +109,13 @@ body::before{
   margin:8px 0;
   padding:14px;
   border-radius:30px;
-  background:linear-gradient(135deg,#1f4d3a,#2f6b52);
-  color:var(--gold-light);
+  background:linear-gradient(135deg,#4f5f78,#3f4d63);
+  color:#f4d27a;
   text-decoration:none;
   font-weight:bold;
-  border:1px solid rgba(247,226,123,.7);
+  border:1px solid rgba(244,210,122,.7);
   cursor:pointer;
-  box-shadow:0 8px 20px rgba(31,77,58,.25);
+  box-shadow:0 8px 20px rgba(63,77,99,.25);
   font-family:'Montserrat',sans-serif;
   font-size:15px;
 }
@@ -136,11 +136,11 @@ section{
 .box{
   max-width:700px;
   margin:auto;
-  background:linear-gradient(180deg,#ffffff,#f4efe6);
+  background:linear-gradient(180deg,#ffffff,#fff8ec);
   padding:22px;
   border-radius:22px;
-  border:1px solid rgba(212,175,55,.35);
-  box-shadow:0 5px 20px rgba(31,77,58,.15);
+  border:1px solid rgba(201,162,74,.35);
+  box-shadow:0 5px 20px rgba(63,77,99,.15);
 }
 
 .contador{
@@ -153,9 +153,9 @@ section{
 .tempo{
   width:72px;
   padding:10px;
-  background:#f4efe6;
+  background:#fff8ec;
   border-radius:12px;
-  border:1px solid rgba(212,175,55,.5);
+  border:1px solid rgba(201,162,74,.5);
 }
 
 .tempo span{
@@ -169,18 +169,18 @@ section{
   position:fixed;
   bottom:15px;
   right:15px;
-  background:linear-gradient(135deg,#1f4d3a,#2f6b52);
-  color:var(--gold-light);
+  background:linear-gradient(135deg,#4f5f78,#3f4d63);
+  color:#f4d27a;
   padding:10px 15px;
   border-radius:20px;
   cursor:pointer;
   z-index:99;
-  border:1px solid rgba(247,226,123,.7);
+  border:1px solid rgba(244,210,122,.7);
   box-shadow:0 8px 20px rgba(0,0,0,.25);
 }
 
 footer{
-  background:var(--green);
+  background:var(--blue);
   color:#fff;
   padding:32px 15px;
   text-align:center;
@@ -189,7 +189,7 @@ footer{
 footer .assinatura{
   font-family:'Alex Brush',cursive;
   font-size:42px;
-  color:var(--gold-light);
+  color:#f4d27a;
 }
 
 @media(min-width:768px){
@@ -240,22 +240,23 @@ footer .assinatura{
     <div class="left">
       <div class="logos">
         <img src="monograma.png" class="logo1" alt="Monograma">
-        <img src="rm1.png" class="logo2" alt="Edvaldo e Ana">
+        <img src="rm1.png" class="logo2" alt="Ronilson e Márcia">
       </div>
     </div>
 
     <div class="right">
-      <h1 class="nomes">Edvaldo & Ana</h1>
+      <h1 class="nomes">Ronilson & Márcia</h1>
 
       <p class="frase">
         Com alegria no coração, convidamos você para celebrar conosco este momento especial.
       </p>
 
-      <div class="data">19h</div>
+      <div class="data">30 de Outubro de 2026 • 19h</div>
 
       <a class="btn" href="#cerimonia">Cerimônia</a>
       <a class="btn" href="#recepcao">Recepção</a>
       <a class="btn" href="#presentes">Lista de Presentes</a>
+      <a class="btn" href="#presenca">Confirmar Presença</a>
     </div>
   </div>
 </div>
@@ -273,13 +274,10 @@ footer .assinatura{
 <section id="cerimonia">
   <h2 class="titulo">Cerimônia Religiosa</h2>
   <div class="box">
-    <p><strong>Igreja de São Jorge</strong></p>
-    <p>R. Emílio Ruas, 311 - São Jorge, Manaus - AM, 69033-440</p>
+    <p><strong>Capela Nossa Senhora do Perpétuo Socorro</strong></p>
+    <p>Av. Leonardo Malcher, 541 - Aparecida, Manaus - AM</p>
     <p><strong>Horário:</strong> 19h</p>
-
-    <a class="btn" target="_blank" href="https://maps.app.goo.gl/MzMsnWYaQoSTDGcs5">
-      Ver localização
-    </a>
+    <a class="btn" target="_blank" href="https://maps.app.goo.gl/6k88jM35cc1eeQFNA">Ver localização</a>
   </div>
 </section>
 
@@ -288,10 +286,7 @@ footer .assinatura{
   <div class="box">
     <p><strong>BEER DANCE</strong></p>
     <p>Av. Ramos Ferreira, 1648 - Centro, Manaus - AM, 69020-010</p>
-
-    <a class="btn" target="_blank" href="https://maps.app.goo.gl/1npDzzRkS8GCxfjW8">
-      Abrir localização
-    </a>
+    <a class="btn" target="_blank" href="https://maps.app.goo.gl/1npDzzRkS8GCxfjW8">Abrir localização</a>
   </div>
 </section>
 
@@ -316,16 +311,28 @@ footer .assinatura{
     <div id="pix" style="display:none; margin-top:15px;">
       <p>Se preferir, você pode contribuir via PIX.</p>
       <p><strong>Chave PIX:</strong></p>
-      <p style="font-size:20px;color:#d4af37;font-weight:bold;">993293049</p>
+      <p style="font-size:20px;color:#c9a24a;font-weight:bold;">92984236693</p>
 
       <button onclick="copiarPix()">Copiar chave PIX</button>
     </div>
   </div>
 </section>
 
+<section id="presenca">
+  <h2 class="titulo">Confirme sua presença</h2>
+  <div class="box">
+    <p>Confirme sua presença pelo WhatsApp.</p>
+
+    <a class="btn" target="_blank"
+       href="https://wa.me/5592984236693?text=Confirmo%20presen%C3%A7a%20no%20casamento%20Ronilson%20e%20M%C3%A1rcia">
+      Confirmar pelo WhatsApp
+    </a>
+  </div>
+</section>
+
 <footer>
-  <p class="assinatura">Edvaldo & Ana</p>
-  <p>Cerimônia às 19h</p>
+  <p class="assinatura">Ronilson & Márcia</p>
+  <p>30 de Outubro de 2026</p>
 </footer>
 
 <script>
@@ -377,7 +384,7 @@ function mostrarPix(){
 }
 
 function copiarPix(){
-  navigator.clipboard.writeText("993293049");
+  navigator.clipboard.writeText("92984236693");
   alert("Chave PIX copiada!");
 }
 </script>
