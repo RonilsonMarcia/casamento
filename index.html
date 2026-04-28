@@ -4,257 +4,163 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Ronilson & Márcia</title>
+<title>Convite Especial</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Alex+Brush&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display&display=swap" rel="stylesheet">
 
 <style>
-
-:root{
-  --gold:#c9a24a;
-  --gold-light:#f4d27a;
-  --dark:#1c1c1c;
-}
-
-/* RESET */
-*{margin:0;padding:0;box-sizing:border-box}
-
 body{
-  font-family:'Alex Brush',cursive;
-  background:#000;
-  overflow-x:hidden;
-}
-
-/* ===== PRIMEIRA TELA ===== */
-#inicio{
-  height:100vh;
+  margin:0;
+  background:#0f1a2b;
+  font-family:'Playfair Display', serif;
   display:flex;
-  justify-content:center;
   align-items:center;
-  background:linear-gradient(135deg,#d6dde6,#f7f1e8,#ffffff);
+  justify-content:center;
+  height:100vh;
+  color:#333;
 }
 
-.card{
+/* CARD PRINCIPAL */
+.convite{
+  width:320px;
+  height:580px;
+  background:#fff;
+  border-radius:25px;
+  overflow:hidden;
+  position:relative;
+  box-shadow:0 20px 50px rgba(0,0,0,.4);
+}
+
+/* TOPO */
+.topo{
   text-align:center;
+  padding:20px;
 }
 
-.card img{
-  width:200px;
-  max-width:80%;
-  margin-bottom:20px;
+.monograma{
+  font-size:40px;
+  color:#0f1a2b;
+  font-weight:bold;
 }
 
-.nomes{
-  font-size:clamp(40px,8vw,80px);
-  color:var(--gold);
-  text-shadow:0 2px 10px rgba(0,0,0,.3);
-}
-
-.data{
-  font-size:clamp(22px,4vw,28px);
-  color:#8a6424;
+.titulo{
+  font-size:14px;
+  letter-spacing:2px;
   margin-top:10px;
 }
 
-button{
-  margin-top:20px;
-  padding:14px 30px;
-  border-radius:30px;
-  background:linear-gradient(135deg,#4f5f78,#3f4d63);
-  color:#f4d27a;
-  border:none;
+/* ENVELOPE */
+.envelope{
+  position:relative;
+  width:100%;
+  height:220px;
+  background:#0f1a2b;
   cursor:pointer;
-  font-size:18px;
+  overflow:hidden;
 }
 
-/* ===== SEGUNDA TELA ===== */
-#site{
-  display:none;
-  min-height:100vh;
-  background:url('fotoigreja.jpeg') center/cover no-repeat;
-  position:relative;
-}
-
-/* overlay escuro */
-#site::before{
-  content:"";
+/* TAMPA */
+.tampa{
   position:absolute;
-  inset:0;
-  background:rgba(0,0,0,0.6);
+  width:100%;
+  height:100%;
+  background:#142845;
+  clip-path:polygon(0 0, 100% 0, 50% 100%);
+  transform-origin:top;
+  transition:1s;
+  z-index:2;
 }
 
-/* conteúdo */
-.conteudo{
-  position:relative;
-  z-index:2;
-  padding:30px 20px;
+/* ABRIR */
+.envelope.aberto .tampa{
+  transform:rotateX(180deg);
+}
+
+/* TEXTO */
+.texto{
+  position:absolute;
+  bottom:20px;
+  width:100%;
   text-align:center;
   color:#fff;
+  font-size:13px;
 }
 
-/* nomes */
-.titulo{
-  font-size:clamp(40px,8vw,70px);
-  color:var(--gold-light);
-  margin-bottom:10px;
-}
-
-/* texto */
-.texto{
-  font-size:clamp(18px,3vw,22px);
-  max-width:600px;
-  margin:auto;
-}
-
-/* botões */
-.btn{
-  display:block;
-  width:100%;
-  max-width:320px;
-  margin:12px auto;
-  padding:14px;
-  border-radius:30px;
-  background:linear-gradient(135deg,#4f5f78,#3f4d63);
-  color:#f4d27a;
-  text-decoration:none;
-  font-size:18px;
-}
-
-/* caixa */
-.box{
-  background:rgba(0,0,0,0.6);
+/* CONTEÚDO */
+.conteudo{
   padding:20px;
-  border-radius:20px;
-  margin-top:20px;
-}
-
-/* input */
-input{
-  width:100%;
-  padding:12px;
-  border-radius:10px;
-  border:none;
   text-align:center;
+  opacity:0;
+  transition:1s;
+}
+
+.envelope.aberto ~ .conteudo{
+  opacity:1;
+}
+
+/* NOMES */
+.nomes{
+  font-family:'Great Vibes', cursive;
+  font-size:36px;
+  color:#000;
   margin-top:10px;
-  font-size:16px;
 }
 
-/* textarea */
-textarea{
-  width:100%;
-  height:150px;
+/* DATA */
+.data{
   margin-top:10px;
-  border-radius:10px;
-  padding:10px;
+  font-size:14px;
+  letter-spacing:1px;
 }
 
-/* RESPONSIVO */
-@media(min-width:768px){
-  .btn{
-    width:auto;
-    padding:12px 25px;
-  }
+/* BOTÃO */
+button{
+  margin-top:15px;
+  padding:10px 20px;
+  border:none;
+  border-radius:20px;
+  background:#0f1a2b;
+  color:#fff;
+  cursor:pointer;
 }
-
 </style>
 </head>
 
 <body>
 
-<!-- PRIMEIRA TELA -->
-<div id="inicio">
-  <div class="card">
-    <img src="rm1.png">
-    <div class="nomes">Ronilson & Márcia</div>
-    <div class="data">30 de Outubro de 2026 • 19h</div>
-    <button onclick="abrir()">Abrir Convite</button>
-  </div>
-</div>
+<div class="convite">
 
-<!-- SEGUNDA TELA -->
-<div id="site">
+  <div class="topo">
+    <div class="monograma">JC</div>
+    <div class="titulo">CONVITE ESPECIAL DE CASAMENTO</div>
+  </div>
+
+  <div class="envelope" onclick="abrirEnvelope()" id="env">
+    <div class="tampa"></div>
+    <div class="texto">CLIQUE NO ENVELOPE</div>
+  </div>
 
   <div class="conteudo">
+    <div class="nomes">Ronilson & Márcia</div>
+    <div class="data">30 Outubro 2026 • 19h</div>
 
-    <div class="titulo">Ronilson & Márcia</div>
-
-    <p class="texto">
-      Com alegria no coração, convidamos você para celebrar este momento único conosco.
-    </p>
-
-    <a class="btn" href="#cerimonia">Cerimônia</a>
-    <a class="btn" href="#recepcao">Recepção</a>
-    <a class="btn" href="#presentes">Lista de Presentes</a>
-    <a class="btn" href="#presenca">Consultar Senhas</a>
-
-    <!-- CERIMÔNIA -->
-    <div id="cerimonia" class="box">
-      <p>Capela Nossa Senhora do Perpétuo Socorro</p>
-      <p>Av. Leonardo Malcher, 541 - Manaus</p>
-      <a class="btn" target="_blank" href="https://maps.app.goo.gl/6k88jM35cc1eeQFNA">Ver Local</a>
-    </div>
-
-    <!-- RECEPÇÃO -->
-    <div id="recepcao" class="box">
-      <p>Innovare Festas e Eventos</p>
-      <p>Av. Silves, 879 - Manaus</p>
-      <a class="btn" target="_blank" href="https://maps.app.goo.gl/dXFb7f6kUVwwfTLG7">Abrir Localização</a>
-    </div>
-
-    <!-- PRESENTES -->
-    <div id="presentes" class="box">
-      <p>Lista de Presentes</p>
-
-      <a class="btn" target="_blank" href="https://www.bemol.com.br/lp/marcia%26ronilson">
-        Lista Bemol
-      </a>
-
-      <a class="btn" target="_blank" href="https://www.dinamicautil.com.br/index.php?route=listapresente/edit&id_lista=60034">
-        Lista Dinâmica
-      </a>
-
-      <div style="margin-top:10px;">PIX: 92984236693</div>
-    </div>
-
-    <!-- PRESENÇA -->
-    <div id="presenca" class="box">
-
-      <p>Digite seu nome para confirmar presença</p>
-
-      <input type="text" id="nome">
-
-      <button class="btn" onclick="confirmar()">Confirmar</button>
-
-      <textarea id="msg"></textarea>
-
-    </div>
-
+    <button onclick="confirmar()">Confirmar Presença</button>
   </div>
 
 </div>
 
 <script>
 
-function abrir(){
-  document.getElementById("inicio").style.display="none";
-  document.getElementById("site").style.display="block";
+function abrirEnvelope(){
+  document.getElementById("env").classList.toggle("aberto");
 }
 
-const lista = [
-"Elena","Raimundo","Ronald","Ângela","William","Ana Rita",
-"Edvaldo","Maria","Júnior","Margareth e Brenda","Anilson"
-];
-
 function confirmar(){
-  const nome = document.getElementById("nome").value;
+  const msg = encodeURIComponent(
+`Confirmo minha presença no casamento 💛`
+  );
 
-  const texto = `Confirmo presença no casamento de Ronilson & Márcia\nNome: ${nome}`;
-
-  document.getElementById("msg").value = texto;
-
-  const url = "https://wa.me/5592984236693?text=" + encodeURIComponent(texto);
-
-  window.open(url);
+  window.open("https://wa.me/5592984236693?text="+msg);
 }
 
 </script>
