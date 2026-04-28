@@ -10,10 +10,9 @@
 
 <style>
 
-/* ===== CORES ===== */
+/* ===== VARIÁVEIS ===== */
 :root{
   --gold:#c9a24a;
-  --gold-light:#f4d27a;
   --dark:#3f4d63;
   --blue:#4f5f78;
 }
@@ -23,12 +22,51 @@
 
 body{
   font-family:'Montserrat',sans-serif;
-  background:linear-gradient(135deg,#d6dde6,#f7f1e8,#ffffff);
+  background:linear-gradient(135deg,#e6edf5,#fff,#f7f1e8);
+  overflow-x:hidden;
+}
+
+/* ===== FUNDO PREMIUM (PARTÍCULAS) ===== */
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  background-image:radial-gradient(circle, rgba(201,162,74,.25) 1px, transparent 1px);
+  background-size:40px 40px;
+  animation:bgMove 20s linear infinite;
+  z-index:-1;
+}
+
+@keyframes bgMove{
+  from{background-position:0 0}
+  to{background-position:200px 200px}
+}
+
+/* ===== BOTÕES ===== */
+.btn, button{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:230px;
+  height:48px;
+  margin:8px;
+  border-radius:30px;
+  background:linear-gradient(135deg,#4f5f78,#3f4d63);
+  color:#f4d27a;
+  border:1px solid rgba(244,210,122,.7);
+  cursor:pointer;
+  font-weight:bold;
+  transition:.3s;
+}
+
+.btn:hover, button:hover{
+  transform:scale(1.05);
+  box-shadow:0 10px 25px rgba(0,0,0,.25);
 }
 
 /* ===== ENVELOPE ===== */
 #tela-envelope{
-  min-height:100vh;
+  height:100vh;
   display:flex;
   align-items:center;
   justify-content:center;
@@ -40,27 +78,22 @@ body{
   background:#fff;
   border-radius:25px;
   overflow:hidden;
-  box-shadow:0 20px 50px rgba(0,0,0,.3);
+  box-shadow:0 20px 60px rgba(0,0,0,.3);
+  animation:fadeUp 1s;
 }
 
-.topo{
-  text-align:center;
-  padding:25px;
+@keyframes fadeUp{
+  from{opacity:0; transform:translateY(40px)}
+  to{opacity:1}
 }
 
-.img-monograma{
-  width:90px;
-}
+.topo{text-align:center;padding:25px}
 
-.titulo{
-  font-family:'Cinzel';
-  font-size:12px;
-  letter-spacing:2px;
-}
+.img-monograma{width:90px}
 
 .envelope{
   height:220px;
-  background:linear-gradient(135deg,#4f5f78,#3f4d63);
+  background:#4f5f78;
   position:relative;
   cursor:pointer;
 }
@@ -87,154 +120,86 @@ body{
 }
 
 .nomes-preview{
-  text-align:center;
-  padding:20px;
   font-family:'Alex Brush';
-  font-size:30px;
+  text-align:center;
+  font-size:32px;
   color:var(--gold);
+  padding:20px;
 }
 
 /* ===== SITE ===== */
 #site{display:none}
 
+/* HERO */
 .hero{
-  padding:20px;
+  min-height:100vh;
   display:flex;
+  align-items:center;
   justify-content:center;
+  padding:20px;
 }
 
 .card{
   max-width:900px;
   width:100%;
   background:#fff;
-  padding:30px;
+  padding:40px;
   border-radius:30px;
   text-align:center;
   box-shadow:0 20px 60px rgba(0,0,0,.2);
+  animation:fadeUp 1s;
 }
 
 .nomes{
   font-family:'Alex Brush';
-  font-size:60px;
+  font-size:clamp(40px,8vw,80px);
   color:var(--gold);
 }
 
-/* DATA */
-.data-box{
-  margin:20px 0;
+/* DATA PREMIUM */
+.dia{font-size:80px;font-weight:bold;color:#8a6424}
+.mes{font-family:'Cinzel';font-size:22px}
+.hora{font-size:16px}
+
+/* SEÇÕES */
+section{
+  padding:50px 20px;
+  text-align:center;
 }
 
-.dia{
-  font-size:80px;
-  font-weight:bold;
-  color:var(--dark);
+.box{
+  max-width:600px;
+  margin:auto;
+  background:#fff;
+  padding:25px;
+  border-radius:20px;
+  box-shadow:0 10px 30px rgba(0,0,0,.1);
 }
 
-.mes{
-  font-family:'Cinzel';
-  font-size:18px;
-  color:var(--gold);
-}
-
-.hora{
-  margin-top:5px;
-  font-weight:bold;
-}
-
-/* BOTÕES PADRÃO */
-.btn{
-  display:block;
-  margin:10px auto;
-  padding:14px;
-  border-radius:30px;
-  background:linear-gradient(135deg,#4f5f78,#3f4d63);
-  color:#f4d27a;
-  text-decoration:none;
-  border:none;
-  cursor:pointer;
-}
-
-/* ===== BOTÕES LUXO ===== */
-.botoes-presentes{
-  display:flex;
-  flex-direction:column;
-  gap:14px;
-  margin-top:20px;
-}
-
-.btn-luxo{
-  position:relative;
-  height:55px;
+/* INPUT */
+.input-campo{
   width:100%;
-  border-radius:40px;
-  border:1px solid rgba(201,162,74,.6);
-  background:linear-gradient(135deg, rgba(255,255,255,.15), rgba(255,255,255,.05));
-  backdrop-filter:blur(10px);
-  color:#c9a24a;
-  font-weight:600;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  cursor:pointer;
-  overflow:hidden;
-  transition:.4s;
-}
-
-.btn-luxo span{z-index:2}
-
-.btn-luxo::before{
-  content:"";
-  position:absolute;
-  width:200%;
-  height:100%;
-  left:-100%;
-  background:linear-gradient(120deg, transparent, rgba(244,210,122,.6), transparent);
-  transition:.6s;
-}
-
-.btn-luxo:hover{
-  transform:translateY(-3px) scale(1.02);
-  box-shadow:0 15px 35px rgba(0,0,0,.25);
-  color:#f4d27a;
-}
-
-.btn-luxo:hover::before{left:100%}
-
-.btn-luxo:active{transform:scale(.98)}
-
-@media(min-width:768px){
-  .botoes-presentes{flex-direction:row;justify-content:center;flex-wrap:wrap;}
-  .btn-luxo{width:220px;}
-}
-
-/* INPUTS */
-.input-campo, .textarea-campo{
-  width:100%;
-  margin-top:10px;
   padding:12px;
   border-radius:10px;
-  border:1px solid var(--gold);
-}
-
-/* BOX */
-section{padding:30px 15px;text-align:center}
-.box{
-  background:#fff;
-  padding:20px;
-  border-radius:20px;
+  border:1px solid #ccc;
   margin-top:10px;
 }
 
 /* AUDIO */
 .audio{
   position:fixed;
-  bottom:15px;
-  right:15px;
-  background:#3f4d63;
+  bottom:20px;
+  right:20px;
+  background:#4f5f78;
   color:#fff;
-  padding:10px 15px;
-  border-radius:20px;
+  padding:12px;
+  border-radius:50px;
   cursor:pointer;
+}
+
+/* MOBILE */
+@media(max-width:600px){
+  .btn,button{width:100%}
 }
 
 </style>
@@ -243,158 +208,121 @@ section{padding:30px 15px;text-align:center}
 <body>
 
 <audio id="musica" loop>
-<source src="amor.mp3" type="audio/mpeg">
+  <source src="amor.mp3">
 </audio>
 
-<div class="audio" onclick="playMusic()">🎵 Música</div>
+<div class="audio" onclick="toggleMusic()">🎵</div>
 
 <!-- ENVELOPE -->
 <div id="tela-envelope">
-<div class="convite">
-<div class="topo">
-<img src="rm1.png" class="img-monograma">
-<div class="titulo">CONVITE ESPECIAL DE CASAMENTO</div>
-</div>
+  <div class="convite">
+    <div class="topo">
+      <img src="rm1.png" class="img-monograma">
+    </div>
 
-<div class="envelope" onclick="abrir()" id="env">
-<div class="tampa"></div>
-<div class="texto">CLIQUE NO ENVELOPE</div>
-</div>
+    <div class="envelope" onclick="abrir()" id="env">
+      <div class="tampa"></div>
+      <div class="texto">Clique para abrir</div>
+    </div>
 
-<div class="nomes-preview">Ronilson & Márcia</div>
-</div>
+    <div class="nomes-preview">Ronilson & Márcia</div>
+  </div>
 </div>
 
 <!-- SITE -->
 <div id="site">
 
 <div class="hero">
-<div class="card">
+  <div class="card">
 
-<img src="rm1.png" style="width:150px">
+    <img src="rm1.png" width="160">
 
-<h1 class="nomes">Ronilson & Márcia</h1>
+    <h1 class="nomes">Ronilson & Márcia</h1>
 
-<div class="data-box">
-<div class="dia">30</div>
-<div class="mes">Outubro 2026</div>
-<div class="hora">19 horas</div>
+    <div class="dia">30</div>
+    <div class="mes">Outubro 2026</div>
+    <div class="hora">às 19 horas</div>
+
+    <button onclick="confirmar()">Confirmar Presença</button>
+
+    <div>
+      <a class="btn" href="#cerimonia">Cerimônia</a>
+      <a class="btn" href="#recepcao">Recepção</a>
+      <a class="btn" href="#presentes">Presentes</a>
+      <a class="btn" href="#presenca">Senhas</a>
+    </div>
+
+  </div>
 </div>
 
-<button class="btn" onclick="confirmar()">Confirmar Presença</button>
-<a class="btn" href="#presenca">Consultar Senhas</a>
-
-</div>
-</div>
-
-<!-- PRESENTES -->
-<section>
-<h2>Lista de Presentes</h2>
-
-<div class="box">
-
-<div class="botoes-presentes">
-
-<button class="btn-luxo" onclick="window.open('https://www.bemol.com.br/lp/marcia%26ronilson')">
-<span>🎁 Lista Bemol</span>
-</button>
-
-<button class="btn-luxo" onclick="window.open('https://www.dinamicautil.com.br/index.php?route=listapresente/edit&id_lista=60034')">
-<span>💎 Lista Dinâmica</span>
-</button>
-
-<button class="btn-luxo" onclick="mostrarPix()">
-<span>💰 PIX</span>
-</button>
-
-</div>
-
-<div id="pix" style="display:none;margin-top:15px;">
-<p><strong>Chave PIX:</strong></p>
-<p style="font-size:18px;color:#c9a24a;">92984236693</p>
-</div>
-
-</div>
+<section id="cerimonia">
+  <div class="box">
+    <h2>💒 Cerimônia</h2>
+    <p>Capela Nossa Senhora do Perpétuo Socorro</p>
+    <a class="btn" target="_blank" href="https://maps.app.goo.gl/6k88jM35cc1eeQFNA">Ver localização</a>
+  </div>
 </section>
 
-<!-- CONSULTA -->
+<section id="recepcao">
+  <div class="box">
+    <h2>🎉 Recepção</h2>
+    <p>Innovare Festas e Eventos</p>
+    <p>Av. Silves, 879 - Crespo</p>
+    <a class="btn" target="_blank" href="https://maps.app.goo.gl/dXFb7f6kUVwwfTLG7">Abrir localização</a>
+  </div>
+</section>
+
+<section id="presentes">
+  <div class="box">
+    <h2>🎁 Presentes</h2>
+    <button onclick="window.open('https://www.bemol.com.br/lp/marcia%26ronilson')">Lista Bemol</button>
+    <button onclick="window.open('https://www.dinamicautil.com.br/index.php?route=listapresente/edit&id_lista=60034')">Lista Dinâmica</button>
+  </div>
+</section>
+
 <section id="presenca">
-<h2>Consultar Senhas</h2>
+  <div class="box">
+    <h2>📋 Consultar Senhas</h2>
 
-<div class="box">
-<input type="text" id="buscaConvidado" class="input-campo" placeholder="Digite seu nome ou telefone">
+    <input id="busca" class="input-campo" placeholder="Digite nome ou telefone">
 
-<button class="btn" onclick="consultarConvite()">Consultar</button>
+    <button onclick="consultar()">Consultar</button>
 
-<div id="areaResultado" style="display:none;">
-<textarea id="resultadoConvite" class="textarea-campo" readonly></textarea>
+    <textarea id="resultado" style="width:100%;height:120px;margin-top:10px"></textarea>
 
-<button class="btn" onclick="enviarWhatsApp()">Enviar WhatsApp</button>
-<button class="btn" onclick="copiarConfirmacao()">Copiar</button>
-</div>
-</div>
+  </div>
 </section>
 
 </div>
 
 <script>
 
-let tocando=false;
-function playMusic(){
-const m=document.getElementById("musica");
-tocando?m.pause():m.play();
-tocando=!tocando;
-}
-
 function abrir(){
-document.getElementById("env").classList.add("aberto");
-setTimeout(()=>{
-document.getElementById("tela-envelope").style.display="none";
-document.getElementById("site").style.display="block";
-},1000);
+  document.getElementById("env").classList.add("aberto");
+  setTimeout(()=>{
+    document.getElementById("tela-envelope").style.display="none";
+    document.getElementById("site").style.display="block";
+  },1000);
 }
 
 function confirmar(){
-window.open("https://wa.me/5592984236693?text=Confirmo presença 💛");
+  window.open("https://wa.me/5592984236693");
 }
 
-function mostrarPix(){
-const p=document.getElementById("pix");
-p.style.display=p.style.display==="none"?"block":"none";
+function toggleMusic(){
+  const m=document.getElementById("musica");
+  m.paused?m.play():m.pause();
 }
 
-/* CONVIDADOS */
 const convidados=[
-{nome:"ana silva",telefone:"92984000001",senhas:1},
-{nome:"bruno souza",telefone:"92984000002",senhas:1}
+  {nome:"ana",tel:"92984000001"},
+  {nome:"bruno",tel:"92984000002"}
 ];
 
-let mensagem="";
-
-function consultarConvite(){
-const busca=document.getElementById("buscaConvidado").value.toLowerCase();
-const c=convidados.find(x=>x.nome===busca||x.telefone===busca);
-
-if(!c){alert("Não encontrado");return;}
-
-let texto=`Nome: ${c.nome}\nSenhas: ${c.senhas}\n`;
-
-for(let i=1;i<=c.senhas;i++){
-texto+=`Senha ${i}: ${c.telefone.slice(-4)}-${i}\n`;
-}
-
-document.getElementById("resultadoConvite").value=texto;
-document.getElementById("areaResultado").style.display="block";
-mensagem=texto;
-}
-
-function enviarWhatsApp(){
-window.open("https://wa.me/5592984236693?text="+encodeURIComponent(mensagem));
-}
-
-function copiarConfirmacao(){
-navigator.clipboard.writeText(mensagem);
-alert("Copiado!");
+function consultar(){
+  const v=document.getElementById("busca").value.toLowerCase();
+  const r=convidados.find(c=>c.nome===v||c.tel===v);
+  document.getElementById("resultado").value=r?"Confirmado ✅":"Não encontrado ❌";
 }
 
 </script>
