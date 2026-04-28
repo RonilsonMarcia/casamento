@@ -10,185 +10,150 @@
 
 <style>
 
-/* ===== CORES ===== */
 :root{
   --gold:#c9a24a;
   --gold-light:#f4d27a;
-  --blue:#4f5f78;
-  --dark:#2c3b52;
+  --dark:#1c1c1c;
 }
 
 /* RESET */
 *{margin:0;padding:0;box-sizing:border-box}
 
-/* FONTE GLOBAL */
-body, button, input, textarea, a, p, div, span{
-  font-family:'Alex Brush', cursive;
-}
-
 body{
-  background:linear-gradient(135deg,#eef2f7,#fdf7ee);
+  font-family:'Alex Brush',cursive;
+  background:#000;
+  overflow-x:hidden;
 }
 
-/* ===== ENVELOPE ===== */
-#tela-envelope{
+/* ===== PRIMEIRA TELA ===== */
+#inicio{
   height:100vh;
   display:flex;
   justify-content:center;
   align-items:center;
+  background:linear-gradient(135deg,#d6dde6,#f7f1e8,#ffffff);
 }
 
-.convite{
-  width:90%;
-  max-width:360px;
-  background:#fff;
-  border-radius:25px;
-  box-shadow:0 20px 60px rgba(0,0,0,.3);
+.card{
   text-align:center;
 }
 
-.envelope{
-  height:200px;
-  background:linear-gradient(135deg,var(--blue),var(--dark));
-  cursor:pointer;
-  position:relative;
+.card img{
+  width:200px;
+  max-width:80%;
+  margin-bottom:20px;
 }
 
-.tampa{
-  position:absolute;
-  width:100%;
-  height:100%;
-  background:#1f2b3f;
-  clip-path:polygon(0 0, 100% 0, 50% 100%);
-  transition:1s;
-}
-
-.envelope.aberto .tampa{
-  transform:rotateX(180deg);
-}
-
-.texto{
-  position:absolute;
-  bottom:15px;
-  width:100%;
-  color:#fff;
-}
-
-/* ===== SITE ===== */
-#site{display:none}
-
-/* HERO COM IMAGEM */
-.hero{
-  min-height:100vh;
-  background:
-  linear-gradient(rgba(0,0,0,.5),rgba(0,0,0,.5)),
-  url('fotoigreja.jpeg') center/cover no-repeat;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  color:#fff;
-  padding:20px;
-}
-
-.hero-box{
-  max-width:700px;
-}
-
-/* DOURADO */
-.dourado{
-  background:linear-gradient(45deg,#8a6424,#c9a24a,#f4d27a);
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
-}
-
-/* NOMES */
 .nomes{
-  font-size:clamp(40px,8vw,70px);
+  font-size:clamp(40px,8vw,80px);
+  color:var(--gold);
+  text-shadow:0 2px 10px rgba(0,0,0,.3);
 }
 
 .data{
-  margin-top:15px;
-  font-size:22px;
+  font-size:clamp(22px,4vw,28px);
+  color:#8a6424;
+  margin-top:10px;
 }
 
-.dia{
-  font-size:70px;
-}
-
-/* MENU */
-.menu{
-  margin-top:30px;
-  display:flex;
-  flex-wrap:wrap;
-  justify-content:center;
-  gap:10px;
-}
-
-.btn{
-  padding:12px 25px;
-  border:1px solid var(--gold-light);
-  color:var(--gold-light);
-  text-decoration:none;
-  transition:.3s;
-}
-
-.btn:hover{
-  background:var(--gold-light);
-  color:#000;
-}
-
-/* SEÇÕES */
-section{
-  padding:50px 20px;
-  text-align:center;
-  background:#fff;
-}
-
-.titulo{
-  font-size:28px;
-  margin-bottom:20px;
-  color:var(--gold);
-}
-
-.box{
-  max-width:600px;
-  margin:auto;
+button{
+  margin-top:20px;
+  padding:14px 30px;
+  border-radius:30px;
+  background:linear-gradient(135deg,#4f5f78,#3f4d63);
+  color:#f4d27a;
+  border:none;
+  cursor:pointer;
   font-size:18px;
 }
 
-/* INPUT */
+/* ===== SEGUNDA TELA ===== */
+#site{
+  display:none;
+  min-height:100vh;
+  background:url('fotoigreja.jpeg') center/cover no-repeat;
+  position:relative;
+}
+
+/* overlay escuro */
+#site::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,0.6);
+}
+
+/* conteúdo */
+.conteudo{
+  position:relative;
+  z-index:2;
+  padding:30px 20px;
+  text-align:center;
+  color:#fff;
+}
+
+/* nomes */
+.titulo{
+  font-size:clamp(40px,8vw,70px);
+  color:var(--gold-light);
+  margin-bottom:10px;
+}
+
+/* texto */
+.texto{
+  font-size:clamp(18px,3vw,22px);
+  max-width:600px;
+  margin:auto;
+}
+
+/* botões */
+.btn{
+  display:block;
+  width:100%;
+  max-width:320px;
+  margin:12px auto;
+  padding:14px;
+  border-radius:30px;
+  background:linear-gradient(135deg,#4f5f78,#3f4d63);
+  color:#f4d27a;
+  text-decoration:none;
+  font-size:18px;
+}
+
+/* caixa */
+.box{
+  background:rgba(0,0,0,0.6);
+  padding:20px;
+  border-radius:20px;
+  margin-top:20px;
+}
+
+/* input */
 input{
   width:100%;
   padding:12px;
-  border:1px solid var(--gold);
-  margin-top:10px;
-}
-
-/* BOTÃO */
-button{
-  width:100%;
-  padding:12px;
-  margin-top:10px;
-  background:var(--blue);
-  color:#fff;
+  border-radius:10px;
   border:none;
+  text-align:center;
+  margin-top:10px;
+  font-size:16px;
 }
 
-/* AUDIO */
-.audio{
-  position:fixed;
-  bottom:20px;
-  right:20px;
-  background:var(--blue);
-  color:#fff;
+/* textarea */
+textarea{
+  width:100%;
+  height:150px;
+  margin-top:10px;
+  border-radius:10px;
   padding:10px;
-  cursor:pointer;
 }
 
 /* RESPONSIVO */
 @media(min-width:768px){
-  .btn{padding:14px 30px}
+  .btn{
+    width:auto;
+    padding:12px 25px;
+  }
 }
 
 </style>
@@ -196,134 +161,100 @@ button{
 
 <body>
 
-<audio id="musica" loop>
-<source src="amor.mp3" type="audio/mpeg">
-</audio>
-
-<div class="audio" onclick="playMusic()">Música</div>
-
-<!-- ENVELOPE -->
-<div id="tela-envelope">
-  <div class="convite">
-    <div class="envelope" onclick="abrir()" id="env">
-      <div class="tampa"></div>
-      <div class="texto">Abrir Convite</div>
-    </div>
-    <div style="padding:20px" class="dourado">
-      Ronilson & Márcia
-    </div>
+<!-- PRIMEIRA TELA -->
+<div id="inicio">
+  <div class="card">
+    <img src="rm1.png">
+    <div class="nomes">Ronilson & Márcia</div>
+    <div class="data">30 de Outubro de 2026 • 19h</div>
+    <button onclick="abrir()">Abrir Convite</button>
   </div>
 </div>
 
-<!-- SITE -->
+<!-- SEGUNDA TELA -->
 <div id="site">
 
-<div class="hero">
-  <div class="hero-box">
-    <div class="nomes dourado">Ronilson & Márcia</div>
+  <div class="conteudo">
 
-    <div class="data dourado">
-      <span class="dia">30</span><br>
-      Outubro 2026<br>
-      19 horas
+    <div class="titulo">Ronilson & Márcia</div>
+
+    <p class="texto">
+      Com alegria no coração, convidamos você para celebrar este momento único conosco.
+    </p>
+
+    <a class="btn" href="#cerimonia">Cerimônia</a>
+    <a class="btn" href="#recepcao">Recepção</a>
+    <a class="btn" href="#presentes">Lista de Presentes</a>
+    <a class="btn" href="#presenca">Consultar Senhas</a>
+
+    <!-- CERIMÔNIA -->
+    <div id="cerimonia" class="box">
+      <p>Capela Nossa Senhora do Perpétuo Socorro</p>
+      <p>Av. Leonardo Malcher, 541 - Manaus</p>
+      <a class="btn" target="_blank" href="https://maps.app.goo.gl/6k88jM35cc1eeQFNA">Ver Local</a>
     </div>
 
-    <div class="menu">
-      <a class="btn" href="#cerimonia">Cerimônia</a>
-      <a class="btn" href="#recepcao">Recepção</a>
-      <a class="btn" href="#presenca">Confirmar Presença</a>
+    <!-- RECEPÇÃO -->
+    <div id="recepcao" class="box">
+      <p>Innovare Festas e Eventos</p>
+      <p>Av. Silves, 879 - Manaus</p>
+      <a class="btn" target="_blank" href="https://maps.app.goo.gl/dXFb7f6kUVwwfTLG7">Abrir Localização</a>
     </div>
+
+    <!-- PRESENTES -->
+    <div id="presentes" class="box">
+      <p>Lista de Presentes</p>
+
+      <a class="btn" target="_blank" href="https://www.bemol.com.br/lp/marcia%26ronilson">
+        Lista Bemol
+      </a>
+
+      <a class="btn" target="_blank" href="https://www.dinamicautil.com.br/index.php?route=listapresente/edit&id_lista=60034">
+        Lista Dinâmica
+      </a>
+
+      <div style="margin-top:10px;">PIX: 92984236693</div>
+    </div>
+
+    <!-- PRESENÇA -->
+    <div id="presenca" class="box">
+
+      <p>Digite seu nome para confirmar presença</p>
+
+      <input type="text" id="nome">
+
+      <button class="btn" onclick="confirmar()">Confirmar</button>
+
+      <textarea id="msg"></textarea>
+
+    </div>
+
   </div>
-</div>
-
-<!-- CERIMÔNIA -->
-<section id="cerimonia">
-<h2 class="titulo">Cerimônia</h2>
-<div class="box">
-Capela Nossa Senhora do Perpétuo Socorro<br>
-Av. Leonardo Malcher, Manaus<br><br>
-
-<a class="btn" href="https://maps.app.goo.gl/6k88jM35cc1eeQFNA" target="_blank">
-Ver localização
-</a>
-</div>
-</section>
-
-<!-- RECEPÇÃO -->
-<section id="recepcao">
-<h2 class="titulo">Recepção</h2>
-<div class="box">
-Innovare Festas e Eventos<br>
-Av. Silves, 879 - Manaus<br><br>
-
-<a class="btn" href="https://maps.app.goo.gl/dXFb7f6kUVwwfTLG7" target="_blank">
-Abrir localização
-</a>
-</div>
-</section>
-
-<!-- CONFIRMAÇÃO -->
-<section id="presenca">
-<h2 class="titulo">Confirmar Presença</h2>
-<div class="box">
-
-<input id="busca" placeholder="Digite seu nome">
-
-<button onclick="consultar()">Consultar e enviar</button>
-
-<p id="resultado"></p>
-
-</div>
-</section>
 
 </div>
 
 <script>
 
-/* LISTA */
-const convidados = [
-{nome:"elena", tel:"5592988415301"},
-{nome:"raimundo", tel:"5592999825332"},
-{nome:"ronald", tel:"5592984501066"},
-{nome:"angela", tel:"5592984088432"},
-{nome:"william", tel:"5592981270904"},
-{nome:"ana rita", tel:"5592993471741"},
-{nome:"edvaldo", tel:"5592993293049"},
-{nome:"maria", tel:"5592984752375"},
-{nome:"junior", tel:"5592999767612"}
+function abrir(){
+  document.getElementById("inicio").style.display="none";
+  document.getElementById("site").style.display="block";
+}
+
+const lista = [
+"Elena","Raimundo","Ronald","Ângela","William","Ana Rita",
+"Edvaldo","Maria","Júnior","Margareth e Brenda","Anilson"
 ];
 
-/* ABRIR */
-function abrir(){
-  document.getElementById("env").classList.add("aberto");
-  setTimeout(()=>{
-    document.getElementById("tela-envelope").style.display="none";
-    document.getElementById("site").style.display="block";
-  },1000);
-}
+function confirmar(){
+  const nome = document.getElementById("nome").value;
 
-/* MUSICA */
-function playMusic(){
-  const m = document.getElementById("musica");
-  m.paused ? m.play() : m.pause();
-}
+  const texto = `Confirmo presença no casamento de Ronilson & Márcia\nNome: ${nome}`;
 
-/* CONSULTA */
-function consultar(){
-  const nome = document.getElementById("busca").value.toLowerCase();
+  document.getElementById("msg").value = texto;
 
-  const pessoa = convidados.find(c => nome.includes(c.nome));
+  const url = "https://wa.me/5592984236693?text=" + encodeURIComponent(texto);
 
-  if(!pessoa){
-    document.getElementById("resultado").innerText = "Nome não encontrado.";
-    return;
-  }
-
-  const msg = encodeURIComponent(
-`Confirmo presença\nNome: ${pessoa.nome}`
-  );
-
-  window.open(`https://wa.me/${pessoa.tel}?text=${msg}`);
+  window.open(url);
 }
 
 </script>
