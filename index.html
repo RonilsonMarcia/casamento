@@ -3,157 +3,215 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Ronilson & Márcia</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cinzel:wght@400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
+
 :root{
   --gold:#c9a24a;
-  --gold-light:#f4d27a;
-  --gold-dark:#8a6424;
-  --dark:#3f4d63;
   --blue:#4f5f78;
 }
 
+/* RESET */
 *{margin:0;padding:0;box-sizing:border-box}
+
 body{
   font-family:'Montserrat',sans-serif;
-  background:linear-gradient(135deg,#d6dde6,#f7f1e8,#ffffff);
-  color:var(--dark);
+  background:linear-gradient(135deg,#e6edf5,#fff,#f7f1e8);
 }
 
-/* CARD */
-.hero{
+/* ===== BOTÕES ===== */
+button,.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:230px;
+  height:48px;
+  margin:8px;
+  border-radius:30px;
+  background:linear-gradient(135deg,#4f5f78,#3f4d63);
+  color:#f4d27a;
+  border:none;
+  cursor:pointer;
+  font-weight:bold;
+}
+
+/* ===== PÁGINAS ===== */
+.pagina{
   min-height:100vh;
   display:flex;
   align-items:center;
   justify-content:center;
-  padding:20px;
+  padding:40px 20px;
 }
 
-.card{
-  max-width:1000px;
-  width:100%;
+.card,.box{
   background:#fff;
   padding:30px;
-  border-radius:30px;
-  box-shadow:0 20px 60px rgba(0,0,0,.2);
+  border-radius:25px;
+  max-width:650px;
+  width:100%;
   text-align:center;
+  box-shadow:0 10px 30px rgba(0,0,0,.1);
 }
 
-/* IMAGEM AJUSTADA */
-.logo1{
+/* ===== NOMES ===== */
+.nomes,.assinatura{
+  font-family:'Alex Brush';
+  font-size:70px;
+  color:var(--gold);
+}
+
+/* DATA */
+.dia{font-size:90px;color:#8a6424}
+.mes{font-size:30px}
+.ano{font-size:22px}
+.hora{margin-top:10px}
+
+/* FOTO */
+.foto{
   width:100%;
-  max-width:350px;
-  height:220px;
-  object-fit:cover;
-  object-position:center;
   border-radius:20px;
-  box-shadow:0 10px 30px rgba(0,0,0,0.2);
   margin-bottom:20px;
 }
 
-.logo2{
-  width:250px;
+/* INPUT */
+input,textarea{
+  width:100%;
+  padding:12px;
   margin-top:10px;
+  border-radius:10px;
+  border:1px solid #ccc;
 }
 
-/* NOMES */
-.nomes{
-  font-family:'Alex Brush',cursive;
-  font-size:60px;
-  margin:10px 0;
-  background:linear-gradient(45deg,#8a6424,#c9a24a,#f4d27a);
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
+textarea{height:100px}
+
+/* MOBILE */
+@media(max-width:600px){
+  .nomes{font-size:50px}
+  .dia{font-size:70px}
+  button{width:100%}
 }
 
-/* DATA ESTILO CASAMENTO */
-.data-casamento{
-  margin:25px 0;
-}
-
-.dia{
-  font-family:'Cinzel',serif;
-  font-size:80px;
-  font-weight:bold;
-  background:linear-gradient(45deg,#8a6424,#c9a24a,#f4d27a);
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
-}
-
-.mes-ano{
-  font-family:'Cinzel',serif;
-  font-size:18px;
-  letter-spacing:2px;
-  color:var(--gold-dark);
-}
-
-.hora{
-  margin-top:5px;
-  font-style:italic;
-}
-
-/* BOTÕES */
-.btn{
-  display:block;
-  margin:10px auto;
-  padding:12px 20px;
-  background:linear-gradient(135deg,#4f5f78,#3f4d63);
-  color:#f4d27a;
-  border-radius:25px;
-  text-decoration:none;
-  width:80%;
-  max-width:300px;
-}
-
-/* RESPONSIVO */
-@media(min-width:768px){
-  .card{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    align-items:center;
-    text-align:left;
-  }
-
-  .left{text-align:center}
-}
 </style>
 </head>
 
 <body>
 
-<div class="hero">
+<!-- PÁGINA 1 -->
+<section class="pagina">
   <div class="card">
+    <h1 class="nomes">Ronilson & Márcia</h1>
 
-    <div class="left">
-      <img src="fotoigreja.jpeg" class="logo1">
-      <img src="rm1.png" class="logo2">
-    </div>
+    <div class="dia">30</div>
+    <div class="mes">Outubro</div>
+    <div class="ano">2026</div>
+    <div class="hora">às 19 horas</div>
 
-    <div class="right">
-      <h1 class="nomes">Ronilson & Márcia</h1>
-
-      <p>
-        Com alegria no coração, convidamos você para celebrar conosco este momento especial.
-      </p>
-
-      <!-- NOVA DATA -->
-      <div class="data-casamento">
-        <div class="dia">30</div>
-        <div class="mes-ano">OUTUBRO • 2026</div>
-        <div class="hora">às 19h</div>
-      </div>
-
-      <a class="btn" href="#">Cerimônia</a>
-      <a class="btn" href="#">Recepção</a>
-      <a class="btn" href="#">Lista de Presentes</a>
-
-    </div>
-
+    <button onclick="confirmar()">Confirmar Presença</button>
   </div>
-</div>
+</section>
 
+<!-- PÁGINA FOTO -->
+<section class="pagina">
+  <div class="card">
+    <img src="fotoigreja.jpeg" class="foto">
+    <h2 class="assinatura">Ronilson & Márcia</h2>
+  </div>
+</section>
+
+<!-- CERIMÔNIA -->
+<section class="pagina">
+  <div class="box">
+    <h2>Cerimônia</h2>
+    <p>Capela Nossa Senhora do Perpétuo Socorro</p>
+    <p>Av. Leonardo Malcher, 541 - Manaus</p>
+
+    <a class="btn" target="_blank"
+    href="https://maps.app.goo.gl/iXigGFA4DZK2rKfg9">
+    Ver Local
+    </a>
+  </div>
+</section>
+
+<!-- RECEPÇÃO -->
+<section class="pagina">
+  <div class="box">
+    <h2>Recepção</h2>
+    <p>Innovare Festas e Eventos</p>
+    <p>Av. Silves, 879 - Crespo</p>
+
+    <a class="btn" target="_blank"
+    href="https://maps.app.goo.gl/HCoaKwvwQARE5mwz9">
+    Abrir localização
+    </a>
+  </div>
+</section>
+
+<!-- PRESENTES -->
+<section class="pagina">
+  <div class="box">
+    <h2>Lista de Presentes</h2>
+
+    <button onclick="window.open('https://www.bemol.com.br/lp/marcia%26ronilson')">
+      Lista Bemol
+    </button>
+
+    <button onclick="window.open('https://www.dinamicautil.com.br/index.php?route=listapresente/edit&id_lista=60034')">
+      Lista Dinâmica
+    </button>
+
+    <button onclick="window.open('https://wa.me/5592984236693')">
+      PIX
+    </button>
+  </div>
+</section>
+
+<!-- CONFIRMAÇÃO -->
+<section class="pagina">
+  <div class="box">
+    <h2>Confirmação de Presença</h2>
+
+    <input id="busca" placeholder="Digite nome ou telefone">
+
+    <button onclick="consultar()">Consultar</button>
+
+    <textarea id="resultado" readonly></textarea>
+  </div>
+</section>
+
+<!-- FINAL -->
+<section class="pagina">
+  <div class="card">
+    <h2 class="assinatura">Ronilson & Márcia</h2>
+    <p>Esperamos você!</p>
+  </div>
+</section>
+
+<script>
+
+function confirmar(){
+  window.open("https://wa.me/5592984236693");
+}
+
+const convidados=[
+  {nome:"ronilson"},
+  {nome:"marcia"}
+];
+
+function consultar(){
+  const v=document.getElementById("busca").value.toLowerCase();
+  const r=convidados.find(c=>c.nome===v);
+  document.getElementById("resultado").value=
+  r?"Confirmado ✅":"Não encontrado ❌";
+}
+
+</script>
+
+</body>
+</html>
 </body>
 </html>
