@@ -3,47 +3,82 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Convite - Ronilson & Márcia</title>
+
+<title>Ronilson & Márcia</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cinzel:wght@400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
+
+/* ===== CORES ===== */
 :root{
   --gold:#c9a24a;
+  --gold-light:#f4d27a;
   --dark:#3f4d63;
   --blue:#4f5f78;
+  --cream:#fffaf2;
 }
 
+/* RESET */
 *{margin:0;padding:0;box-sizing:border-box}
 
 body{
   font-family:'Montserrat',sans-serif;
-  background:linear-gradient(135deg,#0f1a2b,#1f2f4a);
+  background:linear-gradient(135deg,#d6dde6,#f7f1e8,#ffffff);
+}
+
+/* ===== TELA ENVELOPE ===== */
+
+#tela-envelope{
+  min-height:100vh;
   display:flex;
-  justify-content:center;
   align-items:center;
-  height:100vh;
-  color:#fff;
+  justify-content:center;
+  padding:20px;
+}
+
+.convite{
+  width:100%;
+  max-width:380px;
+  background:#fff;
+  border-radius:25px;
+  overflow:hidden;
+  box-shadow:0 20px 50px rgba(0,0,0,.3);
+}
+
+/* TOPO */
+.topo{
+  text-align:center;
+  padding:25px 20px;
+}
+
+.img-monograma{
+  width:90px;
+  display:block;
+  margin:auto;
+}
+
+.titulo{
+  font-family:'Cinzel',serif;
+  font-size:12px;
+  letter-spacing:2px;
+  margin-top:10px;
 }
 
 /* ENVELOPE */
 .envelope{
-  width:320px;
-  height:220px;
-  background:#142845;
   position:relative;
+  height:220px;
+  background:linear-gradient(135deg,#4f5f78,#3f4d63);
   cursor:pointer;
-  border-radius:12px;
-  overflow:hidden;
 }
 
 .tampa{
   position:absolute;
   width:100%;
   height:100%;
-  background:#1f3b63;
-  clip-path:polygon(0 0,100% 0,50% 100%);
-  transform-origin:top;
+  background:#2c3b52;
+  clip-path:polygon(0 0, 100% 0, 50% 100%);
   transition:1s;
 }
 
@@ -53,53 +88,78 @@ body{
 
 .texto{
   position:absolute;
-  bottom:10px;
+  bottom:20px;
   width:100%;
   text-align:center;
+  color:#fff;
+  font-size:13px;
 }
 
-/* CONVITE */
-.convite{
-  position:fixed;
-  inset:0;
-  background:linear-gradient(135deg,#d6dde6,#fff);
-  display:none;
-  overflow:auto;
-}
-
-.card{
-  max-width:900px;
-  margin:40px auto;
-  background:#fff;
-  border-radius:20px;
-  padding:30px;
+/* NOMES */
+.nomes-preview{
   text-align:center;
-  box-shadow:0 20px 60px rgba(0,0,0,.2);
-}
-
-.nomes{
-  font-family:'Alex Brush';
-  font-size:60px;
+  padding:20px;
+  font-family:'Alex Brush',cursive;
+  font-size:32px;
   color:var(--gold);
 }
 
-.data-destaque .dia{
-  font-size:90px;
-  font-family:'Cinzel';
+/* ===== SITE COMPLETO ===== */
+
+#site{
+  display:none;
 }
 
-.data-destaque .mes{
-  font-size:22px;
+/* HERO */
+.hero{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
 }
 
-.btn{
-  display:block;
-  margin:10px auto;
-  padding:12px;
-  border-radius:25px;
-  background:var(--blue);
+.card{
+  width:100%;
+  max-width:1000px;
+  background:linear-gradient(180deg,#ffffff,#fff8ec);
+  padding:30px;
+  border-radius:30px;
+  box-shadow:0 20px 60px rgba(63,77,99,.25);
+  text-align:center;
+  border:1px solid rgba(201,162,74,.45);
+}
+
+/* NOMES */
+.nomes{
+  font-family:'Alex Brush',cursive;
+  font-size:clamp(40px,8vw,80px);
+  background:linear-gradient(45deg,#8a6424,#c9a24a,#f4d27a);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+
+/* BOTÃO */
+button{
+  margin-top:15px;
+  padding:14px;
+  border-radius:30px;
+  background:linear-gradient(135deg,#4f5f78,#3f4d63);
   color:#f4d27a;
-  text-decoration:none;
+  border:none;
+  cursor:pointer;
+  width:100%;
+}
+
+/* RESPONSIVO */
+@media(min-width:768px){
+  .card{
+    padding:50px;
+  }
+  button{
+    width:auto;
+    padding:12px 30px;
+  }
 }
 
 </style>
@@ -107,54 +167,73 @@ body{
 
 <body>
 
-<div class="envelope" onclick="abrir()" id="env">
-  <div class="tampa"></div>
-  <div class="texto">Abrir Convite</div>
-</div>
+<!-- ===== ENVELOPE ===== -->
+<div id="tela-envelope">
 
-<div class="convite" id="convite">
-  <div class="card">
+  <div class="convite">
 
-    <img src="rm1.png" width="150">
-
-    <h1 class="nomes">Ronilson & Márcia</h1>
-
-    <div class="data-destaque">
-      <div class="dia">30</div>
-      <div class="mes">Outubro 2026</div>
-      <div>19 horas</div>
+    <div class="topo">
+      <img src="rm1.png" class="img-monograma">
+      <div class="titulo">CONVITE ESPECIAL DE CASAMENTO</div>
     </div>
 
-    <p style="margin-top:20px;">Com alegria convidamos você</p>
+    <div class="envelope" onclick="abrir()" id="env">
+      <div class="tampa"></div>
+      <div class="texto">CLIQUE NO ENVELOPE</div>
+    </div>
 
-    <h3>📍 Cerimônia</h3>
-    <p>Capela Nossa Senhora do Perpétuo Socorro</p>
-    <a class="btn" href="https://maps.app.goo.gl/6k88jM35cc1eeQFNA" target="_blank">Ver Local</a>
-
-    <h3>🎉 Recepção</h3>
-    <p>Beer Dance</p>
-    <a class="btn" href="https://maps.app.goo.gl/iXigGFA4DZK2rKfg9" target="_blank">Ver Local</a>
-
-    <h3>🎁 Presentes</h3>
-    <a class="btn" href="https://www.bemol.com.br/lp/marcia%26ronilson" target="_blank">Lista Bemol</a>
-
-    <a class="btn" onclick="confirmar()">Confirmar via WhatsApp</a>
+    <div class="nomes-preview">
+      Ronilson & Márcia
+    </div>
 
   </div>
+
+</div>
+
+<!-- ===== SITE COMPLETO ===== -->
+<div id="site">
+
+  <div class="hero">
+    <div class="card">
+
+      <img src="rm1.png" style="width:180px; margin-bottom:20px;">
+
+      <h1 class="nomes">Ronilson & Márcia</h1>
+
+      <p style="margin:15px 0;">
+        Com alegria no coração, convidamos você para celebrar conosco 💛
+      </p>
+
+      <div style="font-family:'Cinzel'; color:#8a6424; font-weight:bold;">
+        30 de Outubro de 2026 • 19h
+      </div>
+
+      <button onclick="confirmar()">Confirmar Presença</button>
+
+    </div>
+  </div>
+
 </div>
 
 <script>
+
 function abrir(){
-  document.getElementById('env').classList.add('aberto');
+  document.getElementById("env").classList.add("aberto");
+
   setTimeout(()=>{
-    document.getElementById('convite').style.display='block';
-  },800);
+    document.getElementById("tela-envelope").style.display="none";
+    document.getElementById("site").style.display="block";
+  },1000);
 }
 
 function confirmar(){
-  const msg = encodeURIComponent('Confirmo minha presença no casamento');
-  window.open('https://wa.me/5592984236693?text='+msg);
+  const msg = encodeURIComponent(
+`💛 Confirmo minha presença no casamento de Ronilson & Márcia`
+  );
+
+  window.open("https://wa.me/5592984236693?text="+msg);
 }
+
 </script>
 
 </body>
