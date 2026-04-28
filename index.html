@@ -1,55 +1,342 @@
-<!-- SUBSTITUA APENAS ESSAS PARTES NO SEU CÓDIGO -->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Ronilson & Márcia</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cinzel:wght@400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
 
-/* ===== FOTO COM EFEITO CINEMA ===== */
-.hero{
-  min-height:100vh;
+/* ===== CORES ===== */
+:root{
+  --gold:#c9a24a;
+  --dark:#3f4d63;
+  --blue:#4f5f78;
+}
+
+/* RESET */
+*{margin:0;padding:0;box-sizing:border-box}
+
+body{
+  font-family:'Montserrat',sans-serif;
+  background:linear-gradient(135deg,#e6edf5,#fff,#f7f1e8);
+  overflow-x:hidden;
+}
+
+/* ===== FUNDO PREMIUM ===== */
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  background-image:radial-gradient(circle, rgba(201,162,74,.25) 1px, transparent 1px);
+  background-size:40px 40px;
+  animation:bgMove 20s linear infinite;
+  z-index:-1;
+}
+
+@keyframes bgMove{
+  from{background-position:0 0}
+  to{background-position:200px 200px}
+}
+
+/* ===== BOTÕES PADRÃO ===== */
+.btn, button{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:230px;
+  height:48px;
+  margin:8px;
+  border-radius:30px;
+  background:linear-gradient(135deg,#4f5f78,#3f4d63);
+  color:#f4d27a;
+  border:1px solid rgba(244,210,122,.7);
+  cursor:pointer;
+  font-weight:bold;
+  transition:.3s;
+  text-decoration:none;
+}
+
+.btn:hover, button:hover{
+  transform:scale(1.05);
+  box-shadow:0 10px 25px rgba(0,0,0,.25);
+}
+
+/* ===== ENVELOPE ===== */
+#tela-envelope{
+  height:100vh;
   display:flex;
   align-items:center;
   justify-content:center;
-  padding:20px;
-  position:relative;
-  background:url('fotoigreja.jpeg') center/cover no-repeat;
 }
 
-/* overlay escuro */
+.convite{
+  max-width:380px;
+  width:100%;
+  background:#fff;
+  border-radius:25px;
+  overflow:hidden;
+  box-shadow:0 20px 60px rgba(0,0,0,.3);
+}
+
+.topo{text-align:center;padding:25px}
+
+.img-monograma{width:90px}
+
+.envelope{
+  height:220px;
+  background:#4f5f78;
+  position:relative;
+  cursor:pointer;
+}
+
+.tampa{
+  position:absolute;
+  width:100%;
+  height:100%;
+  background:#2c3b52;
+  clip-path:polygon(0 0,100% 0,50% 100%);
+  transition:1s;
+}
+
+.envelope.aberto .tampa{
+  transform:rotateX(180deg);
+}
+
+.texto{
+  position:absolute;
+  bottom:20px;
+  width:100%;
+  text-align:center;
+  color:#fff;
+}
+
+.nomes-preview{
+  font-family:'Alex Brush';
+  text-align:center;
+  font-size:32px;
+  color:var(--gold);
+  padding:20px;
+}
+
+/* ===== SITE ===== */
+#site{display:none}
+
+/* HERO COM IMAGEM CINEMA */
+.hero{
+  min-height:100vh;
+  position:relative;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+}
+
+/* IMAGEM FULL RESPONSIVA */
 .hero::before{
   content:"";
   position:absolute;
   inset:0;
-  background:rgba(0,0,0,0.55);
+  background:url("fotoigreja.jpeg") center/cover no-repeat;
+  filter:brightness(.55) contrast(1.1);
   z-index:0;
 }
 
-/* efeito nuvem suave */
+/* OVERLAY SUAVE */
 .hero::after{
   content:"";
   position:absolute;
   inset:0;
-  background:radial-gradient(circle at 30% 40%, rgba(255,255,255,0.15), transparent 60%),
-             radial-gradient(circle at 70% 60%, rgba(255,255,255,0.1), transparent 70%);
-  animation:nuvem 12s ease-in-out infinite alternate;
-  z-index:0;
+  background:linear-gradient(to bottom, rgba(0,0,0,.3), rgba(0,0,0,.7));
+  z-index:1;
 }
 
-@keyframes nuvem{
-  from{transform:scale(1)}
-  to{transform:scale(1.1)}
-}
-
-/* garante conteúdo acima */
-.card{
+/* CONTEÚDO */
+.hero-content{
   position:relative;
   z-index:2;
-  background:rgba(255,255,255,0.95);
+  color:#fff;
+  padding:20px;
+  max-width:900px;
 }
 
-/* títulos mais legíveis */
-h2{
-  font-family:'Cinzel',serif;
-  margin-bottom:10px;
-  color:#8a6424;
+/* NOMES */
+.nomes{
+  font-family:'Alex Brush';
+  font-size:clamp(50px,10vw,100px);
+  color:#f4d27a;
+}
+
+/* DATA */
+.dia{
+  font-size:90px;
+  font-weight:bold;
+  color:#f4d27a;
+}
+
+.mes{
+  font-family:'Cinzel';
+  font-size:24px;
+}
+
+.hora{
+  font-size:16px;
+  margin-bottom:15px;
+}
+
+/* SEÇÕES */
+section{
+  padding:50px 20px;
+  text-align:center;
+}
+
+.box{
+  max-width:600px;
+  margin:auto;
+  background:#fff;
+  padding:25px;
+  border-radius:20px;
+  box-shadow:0 10px 30px rgba(0,0,0,.1);
+}
+
+/* INPUT */
+.input-campo{
+  width:100%;
+  padding:12px;
+  border-radius:10px;
+  border:1px solid #ccc;
+  margin-top:10px;
+}
+
+/* MOBILE */
+@media(max-width:600px){
+  .btn,button{width:100%}
+  .dia{font-size:70px}
 }
 
 </style>
+</head>
+
+<body>
+
+<audio id="musica" loop>
+  <source src="amor.mp3">
+</audio>
+
+<!-- ENVELOPE -->
+<div id="tela-envelope">
+  <div class="convite">
+    <div class="topo">
+      <img src="rm1.png" class="img-monograma">
+    </div>
+
+    <div class="envelope" onclick="abrir()" id="env">
+      <div class="tampa"></div>
+      <div class="texto">Clique para abrir</div>
+    </div>
+
+    <div class="nomes-preview">Ronilson & Márcia</div>
+  </div>
+</div>
+
+<!-- SITE -->
+<div id="site">
+
+<div class="hero">
+  <div class="hero-content">
+
+    <h1 class="nomes">Ronilson & Márcia</h1>
+
+    <div class="dia">30</div>
+    <div class="mes">Outubro 2026</div>
+    <div class="hora">às 19 horas</div>
+
+    <button onclick="confirmar()">Confirmar Presença</button>
+
+    <div>
+      <a class="btn" href="#cerimonia">Cerimônia</a>
+      <a class="btn" href="#recepcao">Recepção</a>
+      <a class="btn" href="#presentes">Presentes</a>
+      <a class="btn" href="#presenca">Senhas</a>
+    </div>
+
+  </div>
+</div>
+
+<section id="presentes">
+  <div class="box">
+    <h2>Lista de Presentes</h2>
+
+    <button onclick="window.open('https://www.bemol.com.br/lp/marcia%26ronilson')">Lista Bemol</button>
+    <button onclick="window.open('https://www.dinamicautil.com.br/index.php?route=listapresente/edit&id_lista=60034')">Lista Dinâmica</button>
+
+    <p><strong>PIX:</strong></p>
+    <p style="color:#c9a24a;font-size:20px;font-weight:bold;">92984236693</p>
+  </div>
+</section>
+
+<section id="presenca">
+  <div class="box">
+    <h2>Consultar Senhas</h2>
+
+    <input id="busca" class="input-campo" placeholder="Digite nome ou telefone">
+
+    <button onclick="consultar()">Consultar e enviar</button>
+
+    <textarea id="resultado" style="width:100%;height:120px;margin-top:10px"></textarea>
+
+  </div>
+</section>
+
+</div>
+
+<script>
+
+function abrir(){
+  document.getElementById("env").classList.add("aberto");
+  setTimeout(()=>{
+    document.getElementById("tela-envelope").style.display="none";
+    document.getElementById("site").style.display="block";
+  },1000);
+}
+
+function confirmar(){
+  window.open("https://wa.me/5592984236693");
+}
+
+/* LISTA REAL */
+const convidados = [
+  {nome:"elena", tel:"92988415301"},
+  {nome:"raimundo", tel:"92999825332"},
+  {nome:"ronald", tel:"92984501066"},
+  {nome:"angela", tel:"92984088432"},
+  {nome:"william", tel:"92981270904"},
+  {nome:"ana rita", tel:"92993471741"},
+  {nome:"edvaldo", tel:"92993293049"},
+  {nome:"maria", tel:"92984752375"}
+];
+
+function consultar(){
+  let busca = document.getElementById("busca").value.toLowerCase();
+  let r = convidados.find(c => busca.includes(c.nome) || busca.includes(c.tel));
+
+  let msg;
+
+  if(r){
+    msg = `Confirmo presença no casamento Ronilson & Márcia\nNome: ${r.nome}`;
+  }else{
+    msg = "Nome não encontrado. Fale com os noivos.";
+  }
+
+  document.getElementById("resultado").value = msg;
+
+  window.open("https://wa.me/5592984236693?text="+encodeURIComponent(msg));
+}
+
+</script>
+
+</body>
+</html>
