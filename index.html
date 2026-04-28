@@ -10,7 +10,7 @@
 
 <style>
 
-/* ===== CORES ===== */
+/* ===== VARIÁVEIS ===== */
 :root{
   --gold:#c9a24a;
   --dark:#3f4d63;
@@ -26,7 +26,7 @@ body{
   overflow-x:hidden;
 }
 
-/* ===== FUNDO PREMIUM ===== */
+/* ===== FUNDO PREMIUM (PARTÍCULAS) ===== */
 body::before{
   content:"";
   position:fixed;
@@ -42,7 +42,7 @@ body::before{
   to{background-position:200px 200px}
 }
 
-/* ===== BOTÕES PADRÃO ===== */
+/* ===== BOTÕES ===== */
 .btn, button{
   display:inline-flex;
   align-items:center;
@@ -57,7 +57,6 @@ body::before{
   cursor:pointer;
   font-weight:bold;
   transition:.3s;
-  text-decoration:none;
 }
 
 .btn:hover, button:hover{
@@ -80,6 +79,12 @@ body::before{
   border-radius:25px;
   overflow:hidden;
   box-shadow:0 20px 60px rgba(0,0,0,.3);
+  animation:fadeUp 1s;
+}
+
+@keyframes fadeUp{
+  from{opacity:0; transform:translateY(40px)}
+  to{opacity:1}
 }
 
 .topo{text-align:center;padding:25px}
@@ -125,67 +130,36 @@ body::before{
 /* ===== SITE ===== */
 #site{display:none}
 
-/* HERO COM IMAGEM CINEMA */
+/* HERO */
 .hero{
   min-height:100vh;
-  position:relative;
   display:flex;
   align-items:center;
   justify-content:center;
-  text-align:center;
-}
-
-/* IMAGEM FULL RESPONSIVA */
-.hero::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:url("fotoigreja.jpeg") center/cover no-repeat;
-  filter:brightness(.55) contrast(1.1);
-  z-index:0;
-}
-
-/* OVERLAY SUAVE */
-.hero::after{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:linear-gradient(to bottom, rgba(0,0,0,.3), rgba(0,0,0,.7));
-  z-index:1;
-}
-
-/* CONTEÚDO */
-.hero-content{
-  position:relative;
-  z-index:2;
-  color:#fff;
   padding:20px;
-  max-width:900px;
 }
 
-/* NOMES */
+.card{
+  max-width:900px;
+  width:100%;
+  background:#fff;
+  padding:40px;
+  border-radius:30px;
+  text-align:center;
+  box-shadow:0 20px 60px rgba(0,0,0,.2);
+  animation:fadeUp 1s;
+}
+
 .nomes{
   font-family:'Alex Brush';
-  font-size:clamp(50px,10vw,100px);
-  color:#f4d27a;
+  font-size:clamp(40px,8vw,80px);
+  color:var(--gold);
 }
 
-/* DATA */
-.dia{
-  font-size:90px;
-  font-weight:bold;
-  color:#f4d27a;
-}
-
-.mes{
-  font-family:'Cinzel';
-  font-size:24px;
-}
-
-.hora{
-  font-size:16px;
-  margin-bottom:15px;
-}
+/* DATA PREMIUM */
+.dia{font-size:80px;font-weight:bold;color:#8a6424}
+.mes{font-family:'Cinzel';font-size:22px}
+.hora{font-size:16px}
 
 /* SEÇÕES */
 section{
@@ -211,10 +185,21 @@ section{
   margin-top:10px;
 }
 
+/* AUDIO */
+.audio{
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  background:#4f5f78;
+  color:#fff;
+  padding:12px;
+  border-radius:50px;
+  cursor:pointer;
+}
+
 /* MOBILE */
 @media(max-width:600px){
   .btn,button{width:100%}
-  .dia{font-size:70px}
 }
 
 </style>
@@ -225,6 +210,8 @@ section{
 <audio id="musica" loop>
   <source src="amor.mp3">
 </audio>
+
+<div class="audio" onclick="toggleMusic()">🎵</div>
 
 <!-- ENVELOPE -->
 <div id="tela-envelope">
@@ -246,7 +233,9 @@ section{
 <div id="site">
 
 <div class="hero">
-  <div class="hero-content">
+  <div class="card">
+
+    <img src="fotoigreja.jpeg" width="160">
 
     <h1 class="nomes">Ronilson & Márcia</h1>
 
@@ -266,25 +255,38 @@ section{
   </div>
 </div>
 
+<section id="cerimonia">
+  <div class="box">
+    <h2>💒 Cerimônia</h2>
+    <p>Capela Nossa Senhora do Perpétuo Socorro</p>
+    <a class="btn" target="_blank" href="https://maps.app.goo.gl/6k88jM35cc1eeQFNA">Ver localização</a>
+  </div>
+</section>
+
+<section id="recepcao">
+  <div class="box">
+    <h2>🎉 Recepção</h2>
+    <p>Innovare Festas e Eventos</p>
+    <p>Av. Silves, 879 - Crespo</p>
+    <a class="btn" target="_blank" href="https://maps.app.goo.gl/dXFb7f6kUVwwfTLG7">Abrir localização</a>
+  </div>
+</section>
+
 <section id="presentes">
   <div class="box">
-    <h2>Lista de Presentes</h2>
-
+    <h2>🎁 Presentes</h2>
     <button onclick="window.open('https://www.bemol.com.br/lp/marcia%26ronilson')">Lista Bemol</button>
     <button onclick="window.open('https://www.dinamicautil.com.br/index.php?route=listapresente/edit&id_lista=60034')">Lista Dinâmica</button>
-
-    <p><strong>PIX:</strong></p>
-    <p style="color:#c9a24a;font-size:20px;font-weight:bold;">92984236693</p>
   </div>
 </section>
 
 <section id="presenca">
   <div class="box">
-    <h2>Consultar Senhas</h2>
+    <h2>📋 Consultar Senhas</h2>
 
     <input id="busca" class="input-campo" placeholder="Digite nome ou telefone">
 
-    <button onclick="consultar()">Consultar e enviar</button>
+    <button onclick="consultar()">Consultar</button>
 
     <textarea id="resultado" style="width:100%;height:120px;margin-top:10px"></textarea>
 
@@ -307,33 +309,20 @@ function confirmar(){
   window.open("https://wa.me/5592984236693");
 }
 
-/* LISTA REAL */
-const convidados = [
-  {nome:"elena", tel:"92988415301"},
-  {nome:"raimundo", tel:"92999825332"},
-  {nome:"ronald", tel:"92984501066"},
-  {nome:"angela", tel:"92984088432"},
-  {nome:"william", tel:"92981270904"},
-  {nome:"ana rita", tel:"92993471741"},
-  {nome:"edvaldo", tel:"92993293049"},
-  {nome:"maria", tel:"92984752375"}
+function toggleMusic(){
+  const m=document.getElementById("musica");
+  m.paused?m.play():m.pause();
+}
+
+const convidados=[
+  {nome:"Ronilson",tel:"92 984236693"},
+  {nome:"Márcia",tel:"92999783464"}
 ];
 
 function consultar(){
-  let busca = document.getElementById("busca").value.toLowerCase();
-  let r = convidados.find(c => busca.includes(c.nome) || busca.includes(c.tel));
-
-  let msg;
-
-  if(r){
-    msg = `Confirmo presença no casamento Ronilson & Márcia\nNome: ${r.nome}`;
-  }else{
-    msg = "Nome não encontrado. Fale com os noivos.";
-  }
-
-  document.getElementById("resultado").value = msg;
-
-  window.open("https://wa.me/5592984236693?text="+encodeURIComponent(msg));
+  const v=document.getElementById("busca").value.toLowerCase();
+  const r=convidados.find(c=>c.nome===v||c.tel===v);
+  document.getElementById("resultado").value=r?"Confirmado ✅":"Não encontrado ❌";
 }
 
 </script>
