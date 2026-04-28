@@ -6,101 +6,70 @@
 
 <title>Ronilson & Márcia</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cinzel:wght@400;700&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cinzel:wght@400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
+
+/* ===== CORES ===== */
 :root{
   --gold:#c9a24a;
+  --gold-light:#f4d27a;
   --dark:#3f4d63;
   --blue:#4f5f78;
-  --white:#ffffff;
-  --text:#222;
+  --cream:#fffaf2;
 }
 
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-}
-
-html{
-  scroll-behavior:smooth;
-}
+/* RESET */
+*{margin:0;padding:0;box-sizing:border-box}
 
 body{
   font-family:'Montserrat',sans-serif;
-  background:linear-gradient(135deg,#e6edf5,#fff,#f7f1e8);
-  color:var(--text);
-  overflow-x:hidden;
+  background:linear-gradient(135deg,#d6dde6,#f7f1e8,#ffffff);
 }
 
-body::before{
-  content:"";
-  position:fixed;
-  inset:0;
-  background-image:radial-gradient(circle, rgba(201,162,74,.25) 1px, transparent 1px);
-  background-size:40px 40px;
-  z-index:-1;
-}
+/* ===== TELA ENVELOPE ===== */
 
-/* BOTÕES */
-.btn,
-button{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  min-width:230px;
-  height:50px;
-  margin:8px;
-  padding:0 28px;
-  border-radius:30px;
-  background:linear-gradient(135deg,#4f5f78,#3f4d63);
-  color:#f4d27a;
-  border:1px solid rgba(244,210,122,.7);
-  cursor:pointer;
-  font-weight:700;
-  font-size:15px;
-  text-decoration:none;
-  transition:.3s;
-}
-
-.btn:hover,
-button:hover{
-  transform:scale(1.04);
-  box-shadow:0 10px 25px rgba(0,0,0,.22);
-}
-
-/* ENVELOPE */
 #tela-envelope{
   min-height:100vh;
   display:flex;
   align-items:center;
   justify-content:center;
-  padding:25px;
+  padding:20px;
 }
 
 .convite{
-  max-width:420px;
   width:100%;
+  max-width:380px;
   background:#fff;
-  border-radius:28px;
+  border-radius:25px;
   overflow:hidden;
-  box-shadow:0 20px 60px rgba(0,0,0,.25);
+  box-shadow:0 20px 50px rgba(0,0,0,.3);
 }
 
+/* TOPO */
 .topo{
   text-align:center;
-  padding:28px;
+  padding:25px 20px;
 }
 
 .img-monograma{
-  width:100px;
+  width:90px;
+  display:block;
+  margin:auto;
 }
 
+.titulo{
+  font-family:'Cinzel',serif;
+  font-size:12px;
+  letter-spacing:2px;
+  margin-top:10px;
+}
+
+/* ENVELOPE */
 .envelope{
-  height:240px;
-  background:#4f5f78;
   position:relative;
+  height:220px;
+  background:linear-gradient(135deg,#4f5f78,#3f4d63);
   cursor:pointer;
 }
 
@@ -109,7 +78,7 @@ button:hover{
   width:100%;
   height:100%;
   background:#2c3b52;
-  clip-path:polygon(0 0,100% 0,50% 100%);
+  clip-path:polygon(0 0, 100% 0, 50% 100%);
   transition:1s;
 }
 
@@ -119,473 +88,152 @@ button:hover{
 
 .texto{
   position:absolute;
-  bottom:24px;
+  bottom:20px;
   width:100%;
   text-align:center;
   color:#fff;
-  font-size:18px;
+  font-size:13px;
 }
 
+/* NOMES */
 .nomes-preview{
-  font-family:'Alex Brush',cursive;
   text-align:center;
-  font-size:42px;
+  padding:20px;
+  font-family:'Alex Brush',cursive;
+  font-size:32px;
   color:var(--gold);
-  padding:22px;
 }
 
-/* SITE */
+/* ===== SITE COMPLETO ===== */
+
 #site{
   display:none;
 }
 
-.pagina{
+/* HERO */
+.hero{
   min-height:100vh;
-  padding:70px 24px;
   display:flex;
   align-items:center;
   justify-content:center;
-  text-align:center;
+  padding:20px;
 }
 
-.card,
-.box{
+.card{
   width:100%;
-  max-width:760px;
-  background:rgba(255,255,255,.96);
-  padding:45px 35px;
-  border-radius:32px;
-  box-shadow:0 18px 50px rgba(0,0,0,.13);
+  max-width:1000px;
+  background:linear-gradient(180deg,#ffffff,#fff8ec);
+  padding:30px;
+  border-radius:30px;
+  box-shadow:0 20px 60px rgba(63,77,99,.25);
+  text-align:center;
+  border:1px solid rgba(201,162,74,.45);
 }
 
-/* PRIMEIRA PÁGINA */
-.hero-card{
-  max-width:980px;
-  min-height:70vh;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-}
-
+/* NOMES */
 .nomes{
   font-family:'Alex Brush',cursive;
-  font-size:clamp(62px, 9vw, 130px);
-  color:var(--gold);
-  font-weight:400;
-  line-height:1;
-  margin-bottom:25px;
+  font-size:clamp(40px,8vw,80px);
+  background:linear-gradient(45deg,#8a6424,#c9a24a,#f4d27a);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
 }
 
-.subtitulo{
-  font-family:'Cinzel',serif;
-  font-size:clamp(18px, 2.2vw, 28px);
-  margin-bottom:25px;
-  color:#333;
-}
-
-.data-area{
-  margin:25px 0 35px;
-}
-
-.dia{
-  font-size:clamp(90px, 13vw, 170px);
-  font-weight:700;
-  color:#8a6424;
-  line-height:.9;
-}
-
-.mes{
-  font-family:'Cinzel',serif;
-  font-size:clamp(30px, 4vw, 54px);
-  color:#333;
-}
-
-.ano{
-  font-size:clamp(22px, 2.5vw, 34px);
-  margin-top:6px;
-}
-
-.hora{
-  font-size:clamp(18px, 2vw, 26px);
-  margin-top:14px;
-}
-
-/* SEGUNDA PÁGINA ESTILO CELULAR */
-.phone-wrap{
-  width:min(430px, 92vw);
-  margin:auto;
-}
-
-.phone{
-  position:relative;
-  width:100%;
-  aspect-ratio:9/16;
-  background:#000;
-  border-radius:45px;
-  padding:18px;
-  box-shadow:0 25px 60px rgba(0,0,0,.35);
-}
-
-.phone::before{
-  content:"";
-  position:absolute;
-  top:0;
-  left:50%;
-  transform:translateX(-50%);
-  width:48%;
-  height:34px;
-  background:#000;
-  border-radius:0 0 22px 22px;
-  z-index:3;
-}
-
-.phone-screen{
-  width:100%;
-  height:100%;
-  background:#fff;
-  border-radius:32px;
-  overflow:hidden;
-  position:relative;
-}
-
-.phone-screen img{
-  width:100%;
-  height:62%;
-  object-fit:cover;
-  display:block;
-}
-
-.fade-white{
-  position:absolute;
-  left:0;
-  right:0;
-  top:46%;
-  height:28%;
-  background:linear-gradient(to bottom, rgba(255,255,255,0), #fff 70%);
-}
-
-.phone-text{
-  position:absolute;
-  left:18px;
-  right:18px;
-  bottom:34px;
-  text-align:center;
-}
-
-.versiculo{
-  font-family:'Cinzel',serif;
-  font-size:clamp(16px, 4vw, 22px);
-  color:#333;
-  line-height:1.5;
-}
-
-.assinatura{
-  font-family:'Alex Brush',cursive;
-  font-size:clamp(44px, 9vw, 72px);
-  color:var(--gold);
-  margin-top:18px;
-}
-
-/* SEÇÕES */
-h2{
-  font-size:clamp(34px, 4vw, 52px);
-  margin-bottom:28px;
-}
-
-h3{
-  font-size:clamp(20px, 2.5vw, 28px);
-  margin-bottom:8px;
-}
-
-p{
-  font-size:clamp(17px, 2vw, 23px);
-  line-height:1.55;
-  margin-bottom:8px;
-}
-
-.botoes-presentes{
-  display:flex;
-  flex-wrap:wrap;
-  justify-content:center;
-  gap:10px;
-  margin-top:25px;
-}
-
-.input-campo{
-  width:100%;
-  padding:15px;
-  border-radius:14px;
-  border:1px solid #ccc;
-  margin:22px 0 10px;
-  font-size:16px;
-}
-
-textarea{
-  width:100%;
-  height:115px;
+/* BOTÃO */
+button{
   margin-top:15px;
-  border-radius:14px;
-  border:1px solid #ccc;
   padding:14px;
-  font-size:16px;
-  resize:none;
-}
-
-.audio{
-  position:fixed;
-  bottom:20px;
-  right:20px;
-  background:#4f5f78;
-  color:#fff;
-  padding:14px 20px;
-  border-radius:50px;
+  border-radius:30px;
+  background:linear-gradient(135deg,#4f5f78,#3f4d63);
+  color:#f4d27a;
+  border:none;
   cursor:pointer;
-  z-index:50;
-  box-shadow:0 8px 25px rgba(0,0,0,.25);
+  width:100%;
 }
 
-/* TABLET */
-@media(max-width:900px){
-  .hero-card{
-    max-width:760px;
-    min-height:72vh;
+/* RESPONSIVO */
+@media(min-width:768px){
+  .card{
+    padding:50px;
   }
-
-  .card,
-  .box{
-    max-width:680px;
-  }
-}
-
-/* CELULAR */
-@media(max-width:600px){
-  .pagina{
-    padding:45px 18px;
-  }
-
-  .card,
-  .box{
-    padding:32px 22px;
-    border-radius:26px;
-  }
-
-  .hero-card{
-    min-height:75vh;
-  }
-
-  .btn,
   button{
-    width:100%;
-    max-width:330px;
-  }
-
-  .phone{
-    border-radius:38px;
-    padding:14px;
-  }
-
-  .phone-screen{
-    border-radius:28px;
-  }
-
-  .audio{
-    font-size:14px;
-    padding:12px 16px;
+    width:auto;
+    padding:12px 30px;
   }
 }
 
-/* COMPUTADOR GRANDE */
-@media(min-width:1200px){
-  .hero-card{
-    max-width:1100px;
-    min-height:78vh;
-  }
-
-  .card,
-  .box{
-    max-width:850px;
-  }
-}
 </style>
 </head>
 
 <body>
 
-<audio id="musica" loop>
-  <source src="amor.mp3" type="audio/mpeg">
-</audio>
-
-<div class="audio" onclick="toggleMusic()">Música</div>
-
-<!-- ENVELOPE -->
+<!-- ===== ENVELOPE ===== -->
 <div id="tela-envelope">
+
   <div class="convite">
+
     <div class="topo">
-      <img src="rm1.png" class="img-monograma" alt="Monograma Ronilson e Márcia">
+      <img src="rm1.png" class="img-monograma">
+      <div class="titulo">CONVITE ESPECIAL DE CASAMENTO</div>
     </div>
 
     <div class="envelope" onclick="abrir()" id="env">
       <div class="tampa"></div>
-      <div class="texto">Clique para abrir</div>
+      <div class="texto">CLIQUE NO ENVELOPE</div>
     </div>
 
-    <div class="nomes-preview">Ronilson & Márcia</div>
+    <div class="nomes-preview">
+      Ronilson & Márcia
+    </div>
+
   </div>
+
 </div>
 
-<!-- SITE -->
+<!-- ===== SITE COMPLETO ===== -->
 <div id="site">
 
-  <!-- PRIMEIRA PÁGINA -->
-  <section class="pagina">
-    <div class="card hero-card">
+  <div class="hero">
+    <div class="card">
+
+      <img src="rm1.png" style="width:180px; margin-bottom:20px;">
+
       <h1 class="nomes">Ronilson & Márcia</h1>
 
-      <div class="subtitulo">Convidam para celebrar o seu casamento</div>
+      <p style="margin:15px 0;">
+        Com alegria no coração, convidamos você para celebrar conosco 💛
+      </p>
 
-      <div class="data-area">
-        <div class="dia">30</div>
-        <div class="mes">Outubro</div>
-        <div class="ano">2026</div>
-        <div class="hora">às 19 horas</div>
+      <div style="font-family:'Cinzel'; color:#8a6424; font-weight:bold;">
+        30 de Outubro de 2026 • 19h
       </div>
 
       <button onclick="confirmar()">Confirmar Presença</button>
 
-      <div class="botoes-presentes">
-        <a class="btn" href="#cerimonia">Cerimônia</a>
-        <a class="btn" href="#recepcao">Recepção</a>
-        <a class="btn" href="#presentes">Presentes</a>
-        <a class="btn" href="#presenca">Confirmação</a>
-      </div>
     </div>
-  </section>
-
-  <!-- SEGUNDA PÁGINA COM FOTO DA IGREJA -->
-  <section class="pagina">
-    <div class="phone-wrap">
-      <div class="phone">
-        <div class="phone-screen">
-          <img src="fotoigreja.jpeg" alt="Foto da igreja">
-          <div class="fade-white"></div>
-
-          <div class="phone-text">
-            <div class="versiculo">
-              As muitas águas não podem apagar o amor.
-            </div>
-            <div class="assinatura">Ronilson & Márcia</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CERIMÔNIA -->
-  <section id="cerimonia" class="pagina">
-    <div class="box">
-      <h2>Cerimônia</h2>
-      <h3>Igreja</h3>
-      <p>Capela Nossa Senhora do Perpétuo Socorro</p>
-      <p>Av. Leonardo Malcher, 541 - Aparecida, Manaus - AM</p>
-
-      <a class="btn" target="_blank" href="https://maps.app.goo.gl/iXigGFA4DZK2rKfg9">
-        Ver Local
-      </a>
-    </div>
-  </section>
-
-  <!-- RECEPÇÃO -->
-  <section id="recepcao" class="pagina">
-    <div class="box">
-      <h2>Recepção</h2>
-      <h3>Innovare Festas e Eventos</h3>
-      <p>Av. Silves, 879 - Crespo, Manaus - AM</p>
-
-      <a class="btn" target="_blank" href="https://maps.app.goo.gl/HCoaKwvwQARE5mwz9">
-        Abrir localização
-      </a>
-    </div>
-  </section>
-
-  <!-- PRESENTES -->
-  <section id="presentes" class="pagina">
-    <div class="box">
-      <h2>Lista de Presentes</h2>
-      <p>Sua presença será o nosso maior presente.</p>
-
-      <div class="botoes-presentes">
-        <button onclick="window.open('https://www.bemol.com.br/lp/marcia%26ronilson', '_blank')">
-          Lista Bemol
-        </button>
-
-        <button onclick="window.open('https://www.dinamicautil.com.br/index.php?route=listapresente/edit&id_lista=60034', '_blank')">
-          Lista Dinâmica
-        </button>
-
-        <button onclick="window.open('https://wa.me/5592984236693', '_blank')">
-          PIX
-        </button>
-      </div>
-    </div>
-  </section>
-
-  <!-- CONFIRMAÇÃO -->
-  <section id="presenca" class="pagina">
-    <div class="box">
-      <h2>Confirmação de Presença</h2>
-      <p>Consulte sua senha pelo nome ou telefone.</p>
-
-      <input id="busca" class="input-campo" placeholder="Digite nome ou telefone">
-
-      <button onclick="consultar()">Consultar</button>
-
-      <textarea id="resultado" readonly></textarea>
-    </div>
-  </section>
-
-  <!-- FINAL -->
-  <section class="pagina">
-    <div class="card">
-      <h2 class="assinatura">Ronilson & Márcia</h2>
-      <p>Esperamos você para celebrar esse momento especial.</p>
-    </div>
-  </section>
+  </div>
 
 </div>
 
 <script>
+
 function abrir(){
   document.getElementById("env").classList.add("aberto");
+
   setTimeout(()=>{
     document.getElementById("tela-envelope").style.display="none";
     document.getElementById("site").style.display="block";
-    window.scrollTo(0,0);
   },1000);
 }
 
 function confirmar(){
-  window.open("https://wa.me/5592984236693", "_blank");
+  const msg = encodeURIComponent(
+`💛 Confirmo minha presença no casamento de Ronilson & Márcia`
+  );
+
+  window.open("https://wa.me/5592984236693?text="+msg);
 }
 
-function toggleMusic(){
-  const m=document.getElementById("musica");
-  m.paused ? m.play() : m.pause();
-}
-
-const convidados=[
-  {nome:"ronilson", tel:"92984236693"},
-  {nome:"márcia", tel:"92999783464"},
-  {nome:"marcia", tel:"92999783464"}
-];
-
-function consultar(){
-  const v=document.getElementById("busca").value.toLowerCase().trim();
-  const r=convidados.find(c => c.nome === v || c.tel === v);
-
-  document.getElementById("resultado").value =
-    r ? "Presença confirmada. Sua senha foi localizada." : "Não encontrado. Verifique o nome ou telefone digitado.";
-}
 </script>
 
 </body>
