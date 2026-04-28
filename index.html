@@ -10,9 +10,10 @@
 
 <style>
 
-/* CORES */
+/* ===== CORES ===== */
 :root{
   --gold:#c9a24a;
+  --gold-light:#f4d27a;
   --dark:#3f4d63;
   --blue:#4f5f78;
 }
@@ -140,7 +141,7 @@ body{
   font-weight:bold;
 }
 
-/* BOTÕES */
+/* BOTÕES PADRÃO */
 .btn{
   display:block;
   margin:10px auto;
@@ -153,12 +154,70 @@ body{
   cursor:pointer;
 }
 
-/* SEÇÕES */
-section{
-  padding:30px 15px;
-  text-align:center;
+/* ===== BOTÕES LUXO ===== */
+.botoes-presentes{
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+  margin-top:20px;
 }
 
+.btn-luxo{
+  position:relative;
+  height:55px;
+  width:100%;
+  border-radius:40px;
+  border:1px solid rgba(201,162,74,.6);
+  background:linear-gradient(135deg, rgba(255,255,255,.15), rgba(255,255,255,.05));
+  backdrop-filter:blur(10px);
+  color:#c9a24a;
+  font-weight:600;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  cursor:pointer;
+  overflow:hidden;
+  transition:.4s;
+}
+
+.btn-luxo span{z-index:2}
+
+.btn-luxo::before{
+  content:"";
+  position:absolute;
+  width:200%;
+  height:100%;
+  left:-100%;
+  background:linear-gradient(120deg, transparent, rgba(244,210,122,.6), transparent);
+  transition:.6s;
+}
+
+.btn-luxo:hover{
+  transform:translateY(-3px) scale(1.02);
+  box-shadow:0 15px 35px rgba(0,0,0,.25);
+  color:#f4d27a;
+}
+
+.btn-luxo:hover::before{left:100%}
+
+.btn-luxo:active{transform:scale(.98)}
+
+@media(min-width:768px){
+  .botoes-presentes{flex-direction:row;justify-content:center;flex-wrap:wrap;}
+  .btn-luxo{width:220px;}
+}
+
+/* INPUTS */
+.input-campo, .textarea-campo{
+  width:100%;
+  margin-top:10px;
+  padding:12px;
+  border-radius:10px;
+  border:1px solid var(--gold);
+}
+
+/* BOX */
+section{padding:30px 15px;text-align:center}
 .box{
   background:#fff;
   padding:20px;
@@ -184,30 +243,26 @@ section{
 <body>
 
 <audio id="musica" loop>
-  <source src="amor.mp3" type="audio/mpeg">
+<source src="amor.mp3" type="audio/mpeg">
 </audio>
 
 <div class="audio" onclick="playMusic()">🎵 Música</div>
 
 <!-- ENVELOPE -->
 <div id="tela-envelope">
-  <div class="convite">
+<div class="convite">
+<div class="topo">
+<img src="rm1.png" class="img-monograma">
+<div class="titulo">CONVITE ESPECIAL DE CASAMENTO</div>
+</div>
 
-    <div class="topo">
-      <img src="rm1.png" class="img-monograma">
-      <div class="titulo">CONVITE ESPECIAL DE CASAMENTO</div>
-    </div>
+<div class="envelope" onclick="abrir()" id="env">
+<div class="tampa"></div>
+<div class="texto">CLIQUE NO ENVELOPE</div>
+</div>
 
-    <div class="envelope" onclick="abrir()" id="env">
-      <div class="tampa"></div>
-      <div class="texto">CLIQUE NO ENVELOPE</div>
-    </div>
-
-    <div class="nomes-preview">
-      Ronilson & Márcia
-    </div>
-
-  </div>
+<div class="nomes-preview">Ronilson & Márcia</div>
+</div>
 </div>
 
 <!-- SITE -->
@@ -220,68 +275,63 @@ section{
 
 <h1 class="nomes">Ronilson & Márcia</h1>
 
-<p>Com alegria convidamos você para este momento especial 💛</p>
-
 <div class="data-box">
-  <div class="dia">30</div>
-  <div class="mes">Outubro 2026</div>
-  <div class="hora">19 horas</div>
+<div class="dia">30</div>
+<div class="mes">Outubro 2026</div>
+<div class="hora">19 horas</div>
 </div>
 
 <button class="btn" onclick="confirmar()">Confirmar Presença</button>
+<a class="btn" href="#presenca">Consultar Senhas</a>
 
 </div>
 </div>
-
-<!-- CERIMÔNIA -->
-<section>
-<h2>Cerimônia</h2>
-<div class="box">
-<p><strong>Igreja</strong></p>
-<p>Capela Nossa Senhora do Perpétuo Socorro</p>
-<p>Av. Leonardo Malcher, Manaus</p>
-
-<a class="btn" target="_blank" href="https://maps.app.goo.gl/6k88jM35cc1eeQFNA">
-Ver Local
-</a>
-</div>
-</section>
-
-<!-- RECEPÇÃO -->
-<section>
-<h2>Recepção</h2>
-<div class="box">
-
-<p><strong>Innovare Festas e Eventos</strong></p>
-<p>Av. Silves, 879 - Crespo, Manaus - AM</p>
-
-<a class="btn" target="_blank" href="https://maps.app.goo.gl/dXFb7f6kUVwwfTLG7">
-Abrir localização
-</a>
-
-</div>
-</section>
 
 <!-- PRESENTES -->
 <section>
 <h2>Lista de Presentes</h2>
+
 <div class="box">
 
-<button class="btn" onclick="window.open('https://www.bemol.com.br/lp/marcia%26ronilson')">
-Lista Bemol
+<div class="botoes-presentes">
+
+<button class="btn-luxo" onclick="window.open('https://www.bemol.com.br/lp/marcia%26ronilson')">
+<span>🎁 Lista Bemol</span>
 </button>
 
-<button class="btn" onclick="window.open('https://www.dinamicautil.com.br/index.php?route=listapresente/edit&id_lista=60034')">
-Lista Dinâmica
+<button class="btn-luxo" onclick="window.open('https://www.dinamicautil.com.br/index.php?route=listapresente/edit&id_lista=60034')">
+<span>💎 Lista Dinâmica</span>
 </button>
 
-<button class="btn" onclick="mostrarPix()">PIX</button>
+<button class="btn-luxo" onclick="mostrarPix()">
+<span>💰 PIX</span>
+</button>
 
-<div id="pix" style="display:none;">
-<p>Chave PIX:</p>
-<p><strong>92984236693</strong></p>
 </div>
 
+<div id="pix" style="display:none;margin-top:15px;">
+<p><strong>Chave PIX:</strong></p>
+<p style="font-size:18px;color:#c9a24a;">92984236693</p>
+</div>
+
+</div>
+</section>
+
+<!-- CONSULTA -->
+<section id="presenca">
+<h2>Consultar Senhas</h2>
+
+<div class="box">
+<input type="text" id="buscaConvidado" class="input-campo" placeholder="Digite seu nome ou telefone">
+
+<button class="btn" onclick="consultarConvite()">Consultar</button>
+
+<div id="areaResultado" style="display:none;">
+<textarea id="resultadoConvite" class="textarea-campo" readonly></textarea>
+
+<button class="btn" onclick="enviarWhatsApp()">Enviar WhatsApp</button>
+<button class="btn" onclick="copiarConfirmacao()">Copiar</button>
+</div>
 </div>
 </section>
 
@@ -289,31 +339,62 @@ Lista Dinâmica
 
 <script>
 
-function abrir(){
-  document.getElementById("env").classList.add("aberto");
+let tocando=false;
+function playMusic(){
+const m=document.getElementById("musica");
+tocando?m.pause():m.play();
+tocando=!tocando;
+}
 
-  setTimeout(()=>{
-    document.getElementById("tela-envelope").style.display="none";
-    document.getElementById("site").style.display="block";
-  },1000);
+function abrir(){
+document.getElementById("env").classList.add("aberto");
+setTimeout(()=>{
+document.getElementById("tela-envelope").style.display="none";
+document.getElementById("site").style.display="block";
+},1000);
 }
 
 function confirmar(){
-  const msg = encodeURIComponent("Confirmo presença no casamento 💛");
-  window.open("https://wa.me/5592984236693?text="+msg);
+window.open("https://wa.me/5592984236693?text=Confirmo presença 💛");
 }
 
 function mostrarPix(){
-  const p = document.getElementById("pix");
-  p.style.display = p.style.display === "none" ? "block":"none";
+const p=document.getElementById("pix");
+p.style.display=p.style.display==="none"?"block":"none";
 }
 
-let tocando=false;
+/* CONVIDADOS */
+const convidados=[
+{nome:"ana silva",telefone:"92984000001",senhas:1},
+{nome:"bruno souza",telefone:"92984000002",senhas:1}
+];
 
-function playMusic(){
-  const m=document.getElementById("musica");
-  tocando ? m.pause() : m.play();
-  tocando=!tocando;
+let mensagem="";
+
+function consultarConvite(){
+const busca=document.getElementById("buscaConvidado").value.toLowerCase();
+const c=convidados.find(x=>x.nome===busca||x.telefone===busca);
+
+if(!c){alert("Não encontrado");return;}
+
+let texto=`Nome: ${c.nome}\nSenhas: ${c.senhas}\n`;
+
+for(let i=1;i<=c.senhas;i++){
+texto+=`Senha ${i}: ${c.telefone.slice(-4)}-${i}\n`;
+}
+
+document.getElementById("resultadoConvite").value=texto;
+document.getElementById("areaResultado").style.display="block";
+mensagem=texto;
+}
+
+function enviarWhatsApp(){
+window.open("https://wa.me/5592984236693?text="+encodeURIComponent(mensagem));
+}
+
+function copiarConfirmacao(){
+navigator.clipboard.writeText(mensagem);
+alert("Copiado!");
 }
 
 </script>
