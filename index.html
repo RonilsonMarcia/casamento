@@ -6,13 +6,17 @@
 
 <title>Ronilson & Márcia</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cinzel:wght@400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
 
 <style>
 
 /* RESET */
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:'Montserrat',sans-serif;overflow-x:hidden}
+
+body{
+  font-family:'Montserrat', sans-serif;
+  overflow-x:hidden;
+}
 
 /* ===== ENVELOPE ===== */
 #tela-envelope{
@@ -24,7 +28,8 @@ body{font-family:'Montserrat',sans-serif;overflow-x:hidden}
 }
 
 .convite{
-  width:340px;
+  width:90%;
+  max-width:360px;
   background:#fff;
   border-radius:25px;
   overflow:hidden;
@@ -62,6 +67,14 @@ body{font-family:'Montserrat',sans-serif;overflow-x:hidden}
   color:#fff;
 }
 
+.nomes-preview{
+  text-align:center;
+  padding:15px;
+  font-family:'Cinzel';
+  font-size:24px;
+  color:#c9a24a;
+}
+
 /* ===== HERO CINEMA ===== */
 #site{display:none}
 
@@ -72,10 +85,11 @@ body{font-family:'Montserrat',sans-serif;overflow-x:hidden}
   justify-content:center;
 
   background:
-    radial-gradient(circle at center, rgba(0,0,0,0.2), rgba(0,0,0,0.8)),
+    radial-gradient(circle, rgba(0,0,0,0.2), rgba(0,0,0,0.85)),
     url('fotaigreja.jpeg') center/cover no-repeat;
 
   animation:zoomBg 12s ease-in-out infinite alternate;
+  padding:20px;
 }
 
 @keyframes zoomBg{
@@ -83,25 +97,14 @@ body{font-family:'Montserrat',sans-serif;overflow-x:hidden}
   to{background-size:110%}
 }
 
-/* OVERLAY VINHETA */
-.hero::after{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:radial-gradient(circle, transparent 40%, rgba(0,0,0,0.7));
-}
-
 /* CARD */
 .card{
-  position:relative;
-  z-index:2;
-
-  width:90%;
-  max-width:800px;
-  padding:60px 40px;
+  width:100%;
+  max-width:900px;
+  padding:clamp(25px,5vw,60px);
 
   background:rgba(255,255,255,0.08);
-  backdrop-filter:blur(15px);
+  backdrop-filter:blur(12px);
 
   border-radius:30px;
   border:1px solid rgba(255,255,255,0.2);
@@ -110,40 +113,41 @@ body{font-family:'Montserrat',sans-serif;overflow-x:hidden}
   color:#fff;
 }
 
-/* ANIMAÇÕES */
-.fadeUp{
-  opacity:0;
-  transform:translateY(30px);
-  animation:fadeUp 1.5s forwards;
-}
-
-@keyframes fadeUp{
-  to{opacity:1;transform:translateY(0)}
-}
-
 /* NOMES */
 .nomes{
-  font-family:'Alex Brush';
-  font-size:70px;
+  font-family:'Cinzel';
+  font-size:clamp(32px,8vw,70px);
+  letter-spacing:2px;
   color:#f4d27a;
-  animation-delay:.5s;
 }
 
 /* DATA */
 .data{
-  margin:20px 0;
   font-family:'Cinzel';
+  margin:20px 0;
+  text-transform:uppercase;
 }
 
-.dia{font-size:90px;display:block}
-.mes{letter-spacing:3px}
-.hora{margin-top:5px}
+.dia{
+  font-size:clamp(50px,12vw,90px);
+  display:block;
+}
+
+.mes{
+  font-size:clamp(14px,3vw,18px);
+  letter-spacing:3px;
+}
+
+.hora{
+  font-size:clamp(12px,2.5vw,16px);
+}
 
 /* BOTÕES */
 .btn{
   display:block;
   width:100%;
-  margin:8px 0;
+  max-width:400px;
+  margin:10px auto;
   padding:14px;
 
   background:rgba(255,255,255,0.1);
@@ -152,16 +156,32 @@ body{font-family:'Montserrat',sans-serif;overflow-x:hidden}
 
   border-radius:30px;
   text-decoration:none;
-
-  opacity:0;
-  transform:translateY(20px);
-  animation:fadeUp 1s forwards;
+  font-size:14px;
 }
 
-.btn:nth-child(1){animation-delay:1.5s}
-.btn:nth-child(2){animation-delay:1.7s}
-.btn:nth-child(3){animation-delay:1.9s}
-.btn:nth-child(4){animation-delay:2.1s}
+/* SEÇÕES */
+section{
+  padding:40px 15px;
+  text-align:center;
+  background:#fff;
+}
+
+.box{
+  max-width:600px;
+  margin:auto;
+  padding:20px;
+  border-radius:20px;
+  box-shadow:0 5px 20px rgba(0,0,0,.1);
+}
+
+/* INPUT */
+.input-campo{
+  width:100%;
+  padding:12px;
+  border-radius:10px;
+  border:1px solid #c9a24a;
+  margin-top:10px;
+}
 
 /* AUDIO */
 .audio{
@@ -172,8 +192,16 @@ body{font-family:'Montserrat',sans-serif;overflow-x:hidden}
   color:#fff;
   padding:10px;
   border-radius:20px;
-  z-index:999;
   cursor:pointer;
+}
+
+/* RESPONSIVO */
+@media(min-width:768px){
+  .btn{
+    display:inline-block;
+    width:auto;
+    min-width:200px;
+  }
 }
 
 </style>
@@ -199,9 +227,7 @@ body{font-family:'Montserrat',sans-serif;overflow-x:hidden}
       <div class="texto">Abrir convite</div>
     </div>
 
-    <div style="text-align:center;padding:15px;font-family:'Alex Brush';font-size:28px;color:#c9a24a;">
-      Ronilson & Márcia
-    </div>
+    <div class="nomes-preview">Ronilson & Márcia</div>
   </div>
 </div>
 
@@ -211,21 +237,59 @@ body{font-family:'Montserrat',sans-serif;overflow-x:hidden}
 <div class="hero">
 <div class="card">
 
-<h1 class="nomes fadeUp">Ronilson & Márcia</h1>
+<h1 class="nomes">Ronilson & Márcia</h1>
 
-<div class="data fadeUp" style="animation-delay:1s">
+<div class="data">
   <span class="dia">30</span>
   <div class="mes">OUTUBRO 2026</div>
   <div class="hora">19 HORAS</div>
 </div>
 
-<a class="btn" href="#">Cerimônia</a>
-<a class="btn" href="#">Recepção</a>
-<a class="btn" href="#">Presentes</a>
-<a class="btn" href="#">Consultar Senhas</a>
+<a class="btn" href="#cerimonia">Cerimônia</a>
+<a class="btn" href="#recepcao">Recepção</a>
+<a class="btn" href="#presentes">Presentes</a>
+<a class="btn" href="#presenca">Consultar Senhas</a>
 
 </div>
 </div>
+
+<!-- CERIMONIA -->
+<section id="cerimonia">
+  <div class="box">
+    <p><strong>Capela Nossa Senhora do Perpétuo Socorro</strong></p>
+    <p>Av. Leonardo Malcher, Manaus</p>
+    <a class="btn" target="_blank" href="https://maps.app.goo.gl/6k88jM35cc1eeQFNA">Ver localização</a>
+  </div>
+</section>
+
+<!-- RECEPÇÃO -->
+<section id="recepcao">
+  <div class="box">
+    <p><strong>Innovare Festas e Eventos</strong></p>
+    <p>Av. Silves, 879 - Crespo, Manaus</p>
+    <a class="btn" target="_blank" href="https://maps.app.goo.gl/dXFb7f6kUVwwfTLG7">Abrir localização</a>
+  </div>
+</section>
+
+<!-- PRESENTES -->
+<section id="presentes">
+  <div class="box">
+    <button class="btn" onclick="window.open('https://www.bemol.com.br/lp/marcia%26ronilson')">Lista Bemol</button>
+    <button class="btn" onclick="window.open('https://www.dinamicautil.com.br/index.php?route=listapresente/edit&id_lista=60034')">Lista Dinâmica</button>
+  </div>
+</section>
+
+<!-- SENHAS -->
+<section id="presenca">
+  <div class="box">
+    <input type="text" id="buscaConvidado" class="input-campo" placeholder="Digite seu nome">
+    <button class="btn" onclick="consultarConvite()">Consultar</button>
+  </div>
+</section>
+
+<footer style="text-align:center;padding:30px;background:#4f5f78;color:#fff;">
+  Ronilson & Márcia<br>30 de Outubro de 2026
+</footer>
 
 </div>
 
@@ -237,16 +301,33 @@ function abrir(){
   setTimeout(()=>{
     document.getElementById("tela-envelope").style.display="none";
     document.getElementById("site").style.display="block";
-
-    // autoplay música após interação
     document.getElementById("musica").play();
-
   },1000);
 }
 
 function playMusic(){
   const m=document.getElementById("musica");
   if(m.paused){m.play()}else{m.pause()}
+}
+
+const convidados=[
+  {nome:"ana",senhas:1},
+  {nome:"bruno",senhas:1}
+];
+
+function consultarConvite(){
+  const nome=document.getElementById("buscaConvidado").value.toLowerCase();
+
+  const c=convidados.find(x=>x.nome.includes(nome));
+
+  if(!c){
+    alert("Nome não encontrado");
+    return;
+  }
+
+  const msg=`Confirmação de presença - Casamento Ronilson & Márcia\nNome: ${c.nome}\nSenhas: ${c.senhas}`;
+
+  window.open("https://wa.me/5592984236693?text="+encodeURIComponent(msg));
 }
 
 </script>
