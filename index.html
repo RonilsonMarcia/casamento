@@ -11,7 +11,7 @@
 <style>
 :root{
   --gold:#c9a24a;
-  --gold-light:#f4d27a;
+  --gold-dark:#8a6424;
   --dark:#3f4d63;
   --blue:#4f5f78;
   --cream:#fffaf2;
@@ -25,12 +25,32 @@
 
 html{
   scroll-behavior:smooth;
+  scroll-snap-type:y mandatory;
 }
 
 body{
   font-family:'Montserrat',sans-serif;
-  background:linear-gradient(135deg,#d6dde6,#f7f1e8,#ffffff);
   color:var(--dark);
+  background:#fffaf2;
+  overflow-x:hidden;
+}
+
+/* FUNDO FLORAL */
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  background:url("fundo-flores.png") center/cover no-repeat;
+  opacity:.95;
+  z-index:-2;
+}
+
+body::after{
+  content:"";
+  position:fixed;
+  inset:0;
+  background:rgba(255,250,242,.72);
+  z-index:-1;
 }
 
 /* ENVELOPE */
@@ -40,40 +60,36 @@ body{
   align-items:center;
   justify-content:center;
   padding:20px;
+  scroll-snap-align:start;
 }
 
 .convite{
-  max-width:380px;
+  max-width:390px;
   width:100%;
-  background:#fff;
-  border-radius:25px;
+  background:rgba(255,255,255,.88);
+  border-radius:28px;
   overflow:hidden;
-  box-shadow:0 20px 50px rgba(0,0,0,.30);
+  box-shadow:0 20px 60px rgba(0,0,0,.25);
   text-align:center;
+  border:1px solid rgba(201,162,74,.45);
 }
 
 .topo{
-  padding:25px 20px;
+  padding:28px 20px 18px;
 }
 
-.monograma{
-  font-family:'Cinzel',serif;
-  color:var(--gold);
-  font-size:46px;
-  border:2px solid var(--gold);
-  width:95px;
-  height:95px;
-  border-radius:50%;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  margin:0 auto 12px;
+.selo-img{
+  width:150px;
+  max-width:70%;
+  display:block;
+  margin:0 auto 10px;
+  filter:drop-shadow(0 8px 12px rgba(0,0,0,.18));
 }
 
 .topo p{
   font-family:'Cinzel',serif;
   color:var(--dark);
-  letter-spacing:1px;
+  letter-spacing:2px;
 }
 
 .envelope{
@@ -92,27 +108,6 @@ body{
   transform-origin:top;
   transition:1s;
   z-index:2;
-}
-
-.envelope::before,
-.envelope::after{
-  content:"";
-  position:absolute;
-  bottom:0;
-  width:100%;
-  height:100%;
-  background:rgba(255,255,255,.08);
-  z-index:1;
-}
-
-.envelope::before{
-  left:0;
-  clip-path:polygon(0 100%,0 0,50% 60%);
-}
-
-.envelope::after{
-  right:0;
-  clip-path:polygon(100% 100%,100% 0,50% 60%);
 }
 
 .envelope.aberto .tampa{
@@ -137,80 +132,88 @@ body{
 
 .pagina{
   min-height:100vh;
+  scroll-snap-align:start;
   display:flex;
   align-items:center;
   justify-content:center;
-  padding:40px 20px;
+  padding:35px 18px;
   text-align:center;
-  position:relative;
 }
 
 .card,
 .box{
   max-width:900px;
   width:100%;
-  background:rgba(255,255,255,.92);
-  padding:35px 25px;
+  background:rgba(255,255,255,.86);
+  padding:32px 22px;
   border-radius:28px;
-  box-shadow:0 15px 40px rgba(0,0,0,.15);
-  border:1px solid rgba(201,162,74,.25);
+  box-shadow:0 15px 45px rgba(0,0,0,.14);
+  border:1px solid rgba(201,162,74,.35);
+  backdrop-filter:blur(3px);
+}
+
+.selo-pequeno{
+  width:120px;
+  display:block;
+  margin:0 auto 12px;
+  filter:drop-shadow(0 6px 10px rgba(0,0,0,.15));
 }
 
 .titulo{
   font-family:'Cinzel',serif;
-  font-size:clamp(28px,6vw,48px);
+  font-size:clamp(27px,6vw,46px);
   color:var(--dark);
   margin-bottom:10px;
 }
 
 .subtitulo{
   font-family:'Cinzel',serif;
-  font-size:18px;
+  font-size:17px;
   color:var(--blue);
   letter-spacing:2px;
-  margin-bottom:20px;
+  margin-bottom:15px;
 }
 
 .nomes{
   font-family:'Alex Brush',cursive;
-  font-size:clamp(58px,12vw,100px);
+  font-size:clamp(58px,12vw,105px);
   background:linear-gradient(45deg,#8a6424,#c9a24a,#f4d27a);
   -webkit-background-clip:text;
   -webkit-text-fill-color:transparent;
   line-height:1.1;
-  margin:20px 0;
-}
-
-.linha{
-  width:90px;
-  height:2px;
-  background:var(--gold);
-  margin:20px auto;
+  margin:15px 0;
 }
 
 .data-box{
-  margin:25px auto;
+  margin:20px auto;
   font-family:'Cinzel',serif;
 }
 
 .dia-grande{
-  font-size:110px;
-  line-height:95px;
-  color:var(--gold);
+  font-size:120px;
+  line-height:100px;
+  color:var(--dark);
   font-weight:700;
 }
 
 .mes-ano{
-  font-size:26px;
+  font-size:25px;
   color:var(--dark);
-  letter-spacing:2px;
+  letter-spacing:3px;
   margin-top:12px;
 }
 
 .horario{
-  font-size:22px;
-  color:var(--blue);
+  font-size:21px;
+  color:var(--gold-dark);
   margin-top:10px;
+}
+
+.linha{
+  width:100px;
+  height:2px;
+  background:var(--gold);
+  margin:18px auto;
 }
 
 .texto{
@@ -218,6 +221,19 @@ body{
   line-height:1.8;
   max-width:720px;
   margin:0 auto;
+}
+
+/* FOTO NO TOPO DA SEGUNDA PÁGINA */
+.foto-topo{
+  width:100%;
+  max-width:620px;
+  height:300px;
+  object-fit:cover;
+  border-radius:25px;
+  margin:0 auto 25px;
+  display:block;
+  box-shadow:0 15px 35px rgba(0,0,0,.20);
+  border:3px solid rgba(201,162,74,.45);
 }
 
 /* BOTÕES */
@@ -233,12 +249,10 @@ button{
   cursor:pointer;
   text-decoration:none;
   font-size:15px;
-  transition:.3s;
 }
 
 .btn:hover,
 button:hover{
-  transform:scale(1.04);
   background:linear-gradient(135deg,#c9a24a,#8a6424);
 }
 
@@ -246,29 +260,29 @@ button:hover{
 .manual-grid{
   display:grid;
   grid-template-columns:repeat(2,1fr);
-  gap:22px;
+  gap:18px;
   max-width:600px;
-  margin:30px auto 0;
+  margin:25px auto 0;
 }
 
 .manual-item{
-  padding:18px;
-  border-radius:20px;
+  padding:16px;
+  border-radius:18px;
   background:#fffaf2;
   border:1px solid rgba(201,162,74,.35);
 }
 
 .manual-item span{
   display:block;
-  font-size:30px;
+  font-size:28px;
   color:var(--gold);
-  margin-bottom:10px;
+  margin-bottom:8px;
 }
 
 /* TIMELINE */
 .timeline{
   max-width:520px;
-  margin:35px auto 0;
+  margin:30px auto 0;
   text-align:left;
   position:relative;
   padding-left:35px;
@@ -282,12 +296,11 @@ button:hover{
   bottom:0;
   width:3px;
   background:var(--dark);
-  border-radius:10px;
 }
 
 .timeline-item{
   position:relative;
-  margin-bottom:25px;
+  margin-bottom:20px;
   padding:15px 18px;
   background:#fffaf2;
   border-radius:18px;
@@ -298,7 +311,7 @@ button:hover{
   content:"";
   position:absolute;
   left:-31px;
-  top:22px;
+  top:21px;
   width:15px;
   height:15px;
   background:var(--gold);
@@ -307,7 +320,7 @@ button:hover{
 }
 
 .timeline-item strong{
-  color:var(--gold);
+  color:var(--gold-dark);
   font-family:'Cinzel',serif;
 }
 
@@ -326,50 +339,24 @@ textarea{
 }
 
 textarea{
-  height:100px;
+  height:90px;
 }
 
-/* FOTO */
-.foto-convite{
-  position:relative;
-  max-width:430px;
-  width:100%;
-  border-radius:30px;
-  overflow:hidden;
-  box-shadow:0 25px 70px rgba(0,0,0,.25);
-  margin:auto;
-}
-
-.foto-convite img{
-  width:100%;
-  display:block;
-}
-
-.overlay{
-  position:absolute;
-  bottom:0;
-  width:100%;
-  height:65%;
-  background:linear-gradient(to bottom,transparent,#fff);
-}
-
-.texto-foto{
-  position:absolute;
-  bottom:25px;
-  width:100%;
-  padding:20px;
-}
-
-.assinatura{
-  font-family:'Alex Brush',cursive;
-  font-size:50px;
-  color:var(--gold);
+.audio-btn{
+  position:fixed;
+  right:15px;
+  bottom:15px;
+  z-index:999;
+  width:48px;
+  height:48px;
+  border-radius:50%;
+  padding:0;
 }
 
 /* RESPONSIVO */
 @media(max-width:600px){
   .dia-grande{
-    font-size:95px;
+    font-size:100px;
     line-height:85px;
   }
 
@@ -381,9 +368,8 @@ textarea{
     grid-template-columns:1fr;
   }
 
-  .card,
-  .box{
-    padding:28px 18px;
+  .foto-topo{
+    height:240px;
   }
 }
 </style>
@@ -391,12 +377,18 @@ textarea{
 
 <body>
 
+<audio id="musica" loop>
+  <source src="musica.mp3" type="audio/mpeg">
+</audio>
+
+<button class="audio-btn" onclick="toggleMusica()">♪</button>
+
 <!-- ENVELOPE -->
 <div id="tela-envelope">
   <div class="convite">
     <div class="topo">
-      <div class="monograma">R&M</div>
-      <p>Convite de Casamento</p>
+      <img src="rm1.png" class="selo-img" alt="Ronilson e Márcia">
+      <p>CONVITE DE CASAMENTO</p>
     </div>
 
     <div class="envelope" onclick="abrir()" id="env">
@@ -409,10 +401,10 @@ textarea{
 <!-- SITE -->
 <div id="site">
 
-<!-- SAVE THE DATE -->
+<!-- PÁGINA 1 -->
 <section class="pagina">
   <div class="card">
-    <div class="monograma">R&M</div>
+    <img src="rm1.png" class="selo-pequeno" alt="Selo R&M">
 
     <h2 class="titulo">SAVE THE DATE</h2>
     <p class="subtitulo">NOSSO CASAMENTO</p>
@@ -434,10 +426,12 @@ textarea{
   </div>
 </section>
 
-<!-- MENSAGEM -->
+<!-- PÁGINA 2 COM FOTO EM CIMA -->
 <section class="pagina">
   <div class="box">
-    <div class="monograma">R&M</div>
+    <img src="fotoigreja.jpeg" class="foto-topo" alt="Foto da igreja">
+
+    <img src="rm1.png" class="selo-pequeno" alt="Selo R&M">
 
     <p class="texto">
       Queridos familiares e amigos,<br><br>
@@ -454,6 +448,8 @@ textarea{
 <!-- CONVITE OFICIAL -->
 <section class="pagina" id="convite">
   <div class="box">
+    <img src="rm1.png" class="selo-pequeno" alt="Selo R&M">
+
     <p class="subtitulo">COM A BÊNÇÃO DE DEUS</p>
 
     <h1 class="nomes">Ronilson & Márcia</h1>
@@ -489,18 +485,6 @@ textarea{
   </div>
 </section>
 
-<!-- FOTO -->
-<section class="pagina">
-  <div class="foto-convite">
-    <img src="fotoigreja.jpeg" alt="Foto do convite">
-    <div class="overlay"></div>
-    <div class="texto-foto">
-      <p>As muitas águas não podem apagar o amor.</p>
-      <div class="assinatura">Ronilson & Márcia</div>
-    </div>
-  </div>
-</section>
-
 <!-- MANUAL -->
 <section class="pagina">
   <div class="box">
@@ -523,35 +507,12 @@ textarea{
     <h2 class="titulo">Nosso Dia</h2>
 
     <div class="timeline">
-      <div class="timeline-item">
-        <strong>19h00</strong><br>
-        Cerimônia Religiosa
-      </div>
-
-      <div class="timeline-item">
-        <strong>20h00</strong><br>
-        Recepção dos convidados
-      </div>
-
-      <div class="timeline-item">
-        <strong>21h30</strong><br>
-        Abertura do jantar
-      </div>
-
-      <div class="timeline-item">
-        <strong>22h00</strong><br>
-        Dança dos noivos
-      </div>
-
-      <div class="timeline-item">
-        <strong>22h30</strong><br>
-        Corte do bolo
-      </div>
-
-      <div class="timeline-item">
-        <strong>23h00</strong><br>
-        Abertura da pista
-      </div>
+      <div class="timeline-item"><strong>19h00</strong><br>Cerimônia Religiosa</div>
+      <div class="timeline-item"><strong>20h00</strong><br>Recepção dos convidados</div>
+      <div class="timeline-item"><strong>21h30</strong><br>Abertura do jantar</div>
+      <div class="timeline-item"><strong>22h00</strong><br>Dança dos noivos</div>
+      <div class="timeline-item"><strong>22h30</strong><br>Corte do bolo</div>
+      <div class="timeline-item"><strong>23h00</strong><br>Abertura da pista</div>
     </div>
   </div>
 </section>
@@ -570,9 +531,7 @@ textarea{
     <br>
 
     <a class="btn" href="https://www.bemol.com.br/lp/marcia%26ronilson" target="_blank">Lista Bemol</a>
-
     <a class="btn" href="https://www.dinamicautil.com.br/index.php?route=listapresente/edit&id_lista=60034" target="_blank">Lista Dinâmica</a>
-
     <a class="btn" href="https://wa.me/5592984236693" target="_blank">PIX / WhatsApp</a>
   </div>
 </section>
@@ -603,7 +562,20 @@ function abrir(){
   setTimeout(()=>{
     document.getElementById("tela-envelope").style.display="none";
     document.getElementById("site").style.display="block";
+
+    const audio = document.getElementById("musica");
+    audio.play().catch(()=>{});
   },1000);
+}
+
+function toggleMusica(){
+  const audio = document.getElementById("musica");
+
+  if(audio.paused){
+    audio.play();
+  }else{
+    audio.pause();
+  }
 }
 
 function normalizar(t){
