@@ -17,13 +17,14 @@
 }
 
 *{margin:0;padding:0;box-sizing:border-box}
+
 body{
   font-family:'Montserrat',sans-serif;
   background:linear-gradient(135deg,#d6dde6,#f7f1e8,#ffffff);
   color:var(--dark);
 }
 
-/* CARD */
+/* HERO */
 .hero{
   min-height:100vh;
   display:flex;
@@ -32,6 +33,7 @@ body{
   padding:20px;
 }
 
+/* CARD */
 .card{
   max-width:1000px;
   width:100%;
@@ -42,26 +44,23 @@ body{
   text-align:center;
 }
 
-/* IMAGEM AJUSTADA */
+/* IMAGENS */
 .logo1{
   width:100%;
   max-width:350px;
   height:220px;
   object-fit:cover;
-  object-position:center;
   border-radius:20px;
-  box-shadow:0 10px 30px rgba(0,0,0,0.2);
   margin-bottom:20px;
 }
 
 .logo2{
   width:250px;
-  margin-top:10px;
 }
 
 /* NOMES */
 .nomes{
-  font-family:'Alex Brush',cursive;
+  font-family:'Alex Brush';
   font-size:60px;
   margin:10px 0;
   background:linear-gradient(45deg,#8a6424,#c9a24a,#f4d27a);
@@ -69,13 +68,11 @@ body{
   -webkit-text-fill-color:transparent;
 }
 
-/* DATA ESTILO CASAMENTO */
-.data-casamento{
-  margin:25px 0;
-}
+/* DATA */
+.data-casamento{margin:25px 0}
 
 .dia{
-  font-family:'Cinzel',serif;
+  font-family:'Cinzel';
   font-size:80px;
   font-weight:bold;
   background:linear-gradient(45deg,#8a6424,#c9a24a,#f4d27a);
@@ -84,28 +81,43 @@ body{
 }
 
 .mes-ano{
-  font-family:'Cinzel',serif;
+  font-family:'Cinzel';
   font-size:18px;
   letter-spacing:2px;
   color:var(--gold-dark);
 }
 
-.hora{
-  margin-top:5px;
-  font-style:italic;
-}
+.hora{margin-top:5px}
 
 /* BOTÕES */
 .btn{
   display:block;
   margin:10px auto;
-  padding:12px 20px;
+  padding:12px;
   background:linear-gradient(135deg,#4f5f78,#3f4d63);
   color:#f4d27a;
   border-radius:25px;
   text-decoration:none;
-  width:80%;
+  width:90%;
   max-width:300px;
+  cursor:pointer;
+  border:none;
+}
+
+/* INPUT */
+.input{
+  width:90%;
+  max-width:300px;
+  padding:10px;
+  margin-top:10px;
+  border-radius:10px;
+  border:1px solid #ccc;
+}
+
+.resultado{
+  margin-top:10px;
+  font-size:14px;
+  white-space:pre-line;
 }
 
 /* RESPONSIVO */
@@ -135,25 +147,102 @@ body{
     <div class="right">
       <h1 class="nomes">Ronilson & Márcia</h1>
 
-      <p>
-        Com alegria no coração, convidamos você para celebrar conosco este momento especial.
-      </p>
+      <p>Com alegria no coração, convidamos você para celebrar conosco este momento especial.</p>
 
-      <!-- NOVA DATA -->
       <div class="data-casamento">
         <div class="dia">30</div>
         <div class="mes-ano">OUTUBRO • 2026</div>
         <div class="hora">às 19h</div>
       </div>
 
-      <a class="btn" href="#">Cerimônia</a>
-      <a class="btn" href="#">Recepção</a>
-      <a class="btn" href="#">Lista de Presentes</a>
+      <!-- CONSULTA -->
+      <input id="busca" class="input" placeholder="Digite seu nome ou telefone">
+
+      <button class="btn" onclick="consultar()">Confirmar Presença</button>
+
+      <div id="resultado" class="resultado"></div>
 
     </div>
 
   </div>
 </div>
+
+<script>
+
+/* NORMALIZAR */
+function normalizar(txt){
+  return txt.toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g,"")
+    .replace(/\s/g,"");
+}
+
+/* LISTA COMPLETA */
+const convidados = [
+{nome:"Elena",tel:"92988415301"},
+{nome:"Raimundo",tel:"92999825332"},
+{nome:"Ronald",tel:"92984501066"},
+{nome:"Ângela",tel:"92984088432"},
+{nome:"William",tel:"92981270904"},
+{nome:"Ana Rita",tel:"92993471741"},
+{nome:"Edvaldo",tel:"92993293049"},
+{nome:"Maria",tel:"92984752375"},
+{nome:"Júnior",tel:"92999767612"},
+{nome:"Margareth e Brenda",tel:"92991284550"},
+{nome:"Anilson",tel:"92993704465"},
+{nome:"Vânia, Vitor e Rosana",tel:"92991772318"},
+{nome:"Mariângela e Jessica",tel:""},
+{nome:"Renilson e Ane",tel:""},
+{nome:"Mônica e Sandro",tel:"92994730568"},
+{nome:"Dorlean e Cleide",tel:"92991248952"},
+{nome:"Luany e Fábio",tel:"92992412919"},
+{nome:"Raiany e esposo",tel:"92991149954"},
+{nome:"Ilana e esposo",tel:"92993056808"},
+{nome:"Silmara",tel:"92986293661"},
+{nome:"Ivana e filha",tel:"92991361649"},
+{nome:"Erick e Débora",tel:"92982533114"},
+{nome:"Maria Manfredo e esposo",tel:"92991953961"},
+{nome:"Fabian e esposa",tel:"92981212395"},
+{nome:"José Francisco e esposa",tel:"92988362416"},
+{nome:"Edevaldo e esposa",tel:"92988115257"},
+{nome:"Juan e esposa",tel:"92982385626"},
+{nome:"Roberto",tel:""},
+{nome:"Clodoaldo e esposa",tel:"92981710375"}
+];
+
+/* CONSULTA */
+function consultar(){
+  const input = document.getElementById("busca").value;
+
+  if(!input){
+    document.getElementById("resultado").innerText = "Digite seu nome ou telefone.";
+    return;
+  }
+
+  const busca = normalizar(input);
+
+  const encontrados = convidados.filter(c =>
+    normalizar(c.nome).includes(busca) || c.tel.includes(busca)
+  );
+
+  if(encontrados.length > 0){
+
+    let pessoa = encontrados[0];
+
+    let msg = `Confirmo presença no casamento\nNome: ${pessoa.nome}`;
+
+    document.getElementById("resultado").innerText =
+      `Confirmado ✅\nNome: ${pessoa.nome}`;
+
+    /* ENVIA WHATSAPP */
+    window.open(`https://wa.me/5592984236693?text=${encodeURIComponent(msg)}`);
+
+  }else{
+    document.getElementById("resultado").innerText = "Nome não encontrado ❌";
+  }
+}
+
+</script>
 
 </body>
 </html>
