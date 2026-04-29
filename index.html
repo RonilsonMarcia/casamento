@@ -3,7 +3,6 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Ronilson & Márcia</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cinzel:wght@400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
@@ -12,15 +11,32 @@
 
 :root{
   --gold:#c9a24a;
+  --dark:#3f4d63;
   --blue:#4f5f78;
 }
 
-/* RESET */
 *{margin:0;padding:0;box-sizing:border-box}
 
 body{
   font-family:'Montserrat',sans-serif;
   background:linear-gradient(135deg,#e6edf5,#fff,#f7f1e8);
+  overflow-x:hidden;
+}
+
+/* ===== FUNDO PREMIUM ===== */
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  background-image:radial-gradient(circle, rgba(201,162,74,.22) 1px, transparent 1px);
+  background-size:40px 40px;
+  animation:bgMove 25s linear infinite;
+  z-index:-1;
+}
+
+@keyframes bgMove{
+  from{background-position:0 0}
+  to{background-position:200px 200px}
 }
 
 /* ===== BOTÕES ===== */
@@ -28,125 +44,179 @@ body{
   display:inline-flex;
   align-items:center;
   justify-content:center;
-  padding:14px 28px;
+  width:230px;
+  height:48px;
+  margin:8px;
   border-radius:30px;
   background:linear-gradient(135deg,#4f5f78,#3f4d63);
   color:#f4d27a;
-  border:none;
+  border:1px solid rgba(244,210,122,.7);
   cursor:pointer;
   font-weight:bold;
+  transition:.3s;
+  text-decoration:none;
 }
 
-/* ===== PÁGINAS ===== */
-.pagina{
+.btn:hover, button:hover{
+  transform:scale(1.05);
+  box-shadow:0 10px 25px rgba(0,0,0,.25);
+}
+
+/* ===== ENVELOPE ===== */
+#tela-envelope{
+  height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.convite{
+  max-width:380px;
+  width:100%;
+  background:#fff;
+  border-radius:25px;
+  overflow:hidden;
+  box-shadow:0 20px 60px rgba(0,0,0,.3);
+}
+
+.topo{text-align:center;padding:25px}
+.img-monograma{width:90px}
+
+.envelope{
+  height:220px;
+  background:#4f5f78;
+  position:relative;
+  cursor:pointer;
+}
+
+.tampa{
+  position:absolute;
+  width:100%;
+  height:100%;
+  background:#2c3b52;
+  clip-path:polygon(0 0,100% 0,50% 100%);
+  transition:1s;
+}
+
+.envelope.aberto .tampa{
+  transform:rotateX(180deg);
+}
+
+.texto{
+  position:absolute;
+  bottom:20px;
+  width:100%;
+  text-align:center;
+  color:#fff;
+}
+
+.nomes-preview{
+  font-family:'Alex Brush';
+  text-align:center;
+  font-size:32px;
+  color:var(--gold);
+  padding:20px;
+}
+
+/* ===== HERO CINEMA PREMIUM ===== */
+.hero{
   min-height:100vh;
   display:flex;
   align-items:center;
   justify-content:center;
-  padding:40px 20px;
+  position:relative;
+  padding:20px;
   text-align:center;
 }
 
-.card,.box{
-  background:#fff;
-  padding:40px;
-  border-radius:30px;
+/* fundo escuro elegante */
+.hero-bg{
+  position:absolute;
+  inset:0;
+  background:linear-gradient(135deg,#0f172a,#1e293b);
+  z-index:0;
+}
+
+/* CARD IGREJA CINEMA */
+.igreja-card{
+  position:absolute;
+  width:92%;
+  max-width:520px;
+  height:340px;
+  background:url("fotoigreja.jpeg") center/cover no-repeat;
+  border-radius:28px;
+  box-shadow:0 40px 100px rgba(0,0,0,.65);
+  border:2px solid rgba(201,162,74,.35);
+  z-index:1;
+  transform:translateY(-60px);
+}
+
+/* overlay cinematográfico */
+.igreja-card::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(to top, rgba(0,0,0,.8), rgba(0,0,0,.1));
+  border-radius:28px;
+}
+
+/* luz dourada */
+.hero::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:radial-gradient(circle at center, rgba(201,162,74,.18), transparent 60%);
+  z-index:1;
+}
+
+/* CONTEÚDO */
+.hero-content{
+  position:relative;
+  z-index:2;
+  color:#fff;
   max-width:900px;
-  width:100%;
+}
+
+/* NOMES */
+.nomes{
+  font-family:'Alex Brush';
+  font-size:clamp(50px,9vw,100px);
+  color:#f4d27a;
+}
+
+/* DATA */
+.dia{font-size:90px;color:#f4d27a;font-weight:bold}
+.mes{font-family:'Cinzel';font-size:22px}
+.hora{margin-bottom:15px}
+
+/* SEÇÕES */
+section{
+  padding:50px 20px;
+  text-align:center;
+}
+
+.box{
+  max-width:650px;
+  margin:auto;
+  background:#fff;
+  padding:25px;
+  border-radius:20px;
   box-shadow:0 10px 30px rgba(0,0,0,.1);
 }
 
-/* ===== PRIMEIRA PÁGINA GRANDE ===== */
-.pagina-principal{
-  min-height:100vh;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-}
-
-.hero-card{
-  width:min(95vw,1200px);
-  min-height:80vh;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-}
-
-.nomes{
-  font-family:'Alex Brush';
-  font-size:clamp(70px,10vw,150px);
-  color:var(--gold);
-}
-
-.subtitulo{
-  margin:20px 0;
-  font-size:clamp(18px,2vw,30px);
-}
-
-.dia{font-size:clamp(100px,14vw,180px);color:#8a6424}
-.mes{font-size:clamp(30px,4vw,60px)}
-.ano{font-size:clamp(22px,3vw,40px)}
-.hora{margin-top:10px;font-size:clamp(16px,2vw,26px)}
-
-/* ===== FOTO ESTILO CONVITE ===== */
-.foto-casal{
-  position:relative;
-  width:100%;
-  max-width:420px;
-  border-radius:30px;
-  overflow:hidden;
-  box-shadow:0 20px 60px rgba(0,0,0,.25);
-}
-
-.foto-casal img{
-  width:100%;
-  display:block;
-}
-
-/* DEGRADÊ */
-.overlay{
-  position:absolute;
-  bottom:0;
-  left:0;
-  right:0;
-  height:45%;
-  background:linear-gradient(to bottom, transparent, #fff 75%);
-}
-
-/* TEXTO */
-.texto-foto{
-  position:absolute;
-  bottom:20px;
-  left:10px;
-  right:10px;
-}
-
-.frase{
-  font-family:'Cinzel';
-  font-size:clamp(14px,2.5vw,20px);
-}
-
-.assinatura{
-  font-family:'Alex Brush';
-  font-size:clamp(40px,7vw,60px);
-  color:var(--gold);
-}
-
 /* INPUT */
-input, textarea{
+.input-campo{
   width:100%;
   padding:12px;
-  margin-top:10px;
   border-radius:10px;
   border:1px solid #ccc;
+  margin-top:10px;
 }
 
-textarea{height:120px}
-
-/* RESPONSIVO */
+/* MOBILE */
 @media(max-width:600px){
   .btn,button{width:100%}
+  .igreja-card{height:260px}
 }
 
 </style>
@@ -154,17 +224,40 @@ textarea{height:120px}
 
 <body>
 
-<!-- PÁGINA 1 -->
-<section class="pagina-principal">
-  <div class="card hero-card">
+<audio id="musica" loop>
+  <source src="amor.mp3">
+</audio>
+
+<!-- ENVELOPE -->
+<div id="tela-envelope">
+  <div class="convite">
+    <div class="topo">
+      <img src="rm1.png" class="img-monograma">
+    </div>
+
+    <div class="envelope" onclick="abrir()" id="env">
+      <div class="tampa"></div>
+      <div class="texto">Clique para abrir</div>
+    </div>
+
+    <div class="nomes-preview">Ronilson & Márcia</div>
+  </div>
+</div>
+
+<!-- SITE -->
+<div id="site">
+
+<div class="hero">
+
+  <div class="hero-bg"></div>
+  <div class="igreja-card"></div>
+
+  <div class="hero-content">
 
     <h1 class="nomes">Ronilson & Márcia</h1>
 
-    <div class="subtitulo">Convidam para celebrar o seu casamento</div>
-
     <div class="dia">30</div>
-    <div class="mes">Outubro</div>
-    <div class="ano">2026</div>
+    <div class="mes">Outubro 2026</div>
     <div class="hora">às 19 horas</div>
 
     <button onclick="confirmar()">Confirmar Presença</button>
@@ -173,143 +266,72 @@ textarea{height:120px}
       <a class="btn" href="#cerimonia">Cerimônia</a>
       <a class="btn" href="#recepcao">Recepção</a>
       <a class="btn" href="#presentes">Presentes</a>
-      <a class="btn" href="#presenca">Confirmação</a>
+      <a class="btn" href="#presenca">Senhas</a>
     </div>
 
   </div>
-</section>
+</div>
 
-<!-- PÁGINA 2 FOTO -->
-<section class="pagina">
-  <div class="foto-casal">
-
-    <img src="fotoigreja.jpeg">
-
-    <div class="overlay"></div>
-
-    <div class="texto-foto">
-      <p class="frase">As muitas águas não podem apagar o amor.</p>
-      <h2 class="assinatura">Ronilson & Márcia</h2>
-    </div>
-
-  </div>
-</section>
-
-<!-- CERIMÔNIA -->
-<section id="cerimonia" class="pagina">
-  <div class="box">
-    <h2>Cerimônia</h2>
-    <p>Capela Nossa Senhora do Perpétuo Socorro</p>
-
-    <a class="btn" target="_blank"
-    href="https://maps.app.goo.gl/iXigGFA4DZK2rKfg9">
-    Ver Local
-    </a>
-  </div>
-</section>
-
-<!-- RECEPÇÃO -->
-<section id="recepcao" class="pagina">
-  <div class="box">
-    <h2>Recepção</h2>
-    <p>Innovare Festas e Eventos</p>
-
-    <a class="btn" target="_blank"
-    href="https://maps.app.goo.gl/HCoaKwvwQARE5mwz9">
-    Abrir localização
-    </a>
-  </div>
-</section>
-
-<!-- PRESENTES -->
-<section id="presentes" class="pagina">
+<section id="presentes">
   <div class="box">
     <h2>Lista de Presentes</h2>
 
-    <button onclick="window.open('https://www.bemol.com.br/lp/marcia%26ronilson')">
-      Lista Bemol
-    </button>
+    <button onclick="window.open('https://www.bemol.com.br/lp/marcia%26ronilson')">Lista Bemol</button>
+    <button onclick="window.open('https://www.dinamicautil.com.br/index.php?route=listapresente/edit&id_lista=60034')">Lista Dinâmica</button>
 
-    <button onclick="window.open('https://www.dinamicautil.com.br/index.php?route=listapresente/edit&id_lista=60034')">
-      Lista Dinâmica
-    </button>
-
-    <button onclick="window.open('https://wa.me/5592984236693')">
-      PIX
-    </button>
+    <p><strong>PIX:</strong></p>
+    <p style="color:#c9a24a;font-size:22px;font-weight:bold;">92984236693</p>
   </div>
 </section>
 
-<!-- CONFIRMAÇÃO -->
-<section id="presenca" class="pagina">
+<section id="presenca">
   <div class="box">
-    <h2>Confirmar Presença</h2>
+    <h2>Consultar Senhas</h2>
 
-    <input id="busca" placeholder="Digite nome ou telefone">
+    <input id="busca" class="input-campo" placeholder="Digite nome ou telefone">
 
-    <button onclick="consultar()">Consultar</button>
+    <button onclick="consultar()">Consultar e enviar WhatsApp</button>
 
-    <textarea id="resultado"></textarea>
+    <textarea id="resultado" style="width:100%;height:120px;margin-top:10px"></textarea>
+
   </div>
 </section>
+
+</div>
 
 <script>
 
-/* CONFIRMAR */
+function abrir(){
+  document.getElementById("env").classList.add("aberto");
+  setTimeout(()=>{
+    document.getElementById("tela-envelope").style.display="none";
+    document.getElementById("site").style.display="block";
+  },1000);
+}
+
 function confirmar(){
   window.open("https://wa.me/5592984236693");
 }
 
-/* NORMALIZAR */
-function normalizar(txt){
-  return txt.toLowerCase()
-    .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g,"");
-}
-
-/* LISTA COMPLETA */
-const convidados = [
-{nome:"Elena",tel:"92988415301"},
-{nome:"Raimundo",tel:"92999825332"},
-{nome:"Ronald",tel:"92984501066"},
-{nome:"Ângela",tel:"92984088432"},
-{nome:"William",tel:"92981270904"},
-{nome:"Ana Rita",tel:"92993471741"},
-{nome:"Edvaldo",tel:"92993293049"},
-{nome:"Maria",tel:"92984752375"},
-{nome:"Júnior",tel:"92999767612"},
-{nome:"Margareth e Brenda",tel:"92991284550"},
-{nome:"Anilson",tel:"92993704465"},
-{nome:"Vânia, Vitor e Rosana",tel:"92991772318"},
-{nome:"Mariângela e Jessica",tel:""},
-{nome:"Renilson e Ane",tel:""},
-{nome:"Mônica e Sandro",tel:"92994730568"},
-{nome:"Dorlean e Cleide",tel:"92991248952"},
-{nome:"Luany e Fábio",tel:"92992412919"},
-{nome:"Raiany e esposo",tel:"92991149954"},
-{nome:"Ilana e esposo",tel:"92993056808"},
-{nome:"Silmara",tel:"92986293661"},
-{nome:"Ivana e filha",tel:"92991361649"},
-{nome:"Erick e Débora",tel:"92982533114"},
-{nome:"Maria Manfredo e esposo",tel:"92991953961"},
-{nome:"Fabian e esposa",tel:"92981212395"},
-{nome:"José Francisco e esposa",tel:"92988362416"},
-{nome:"Edevaldo e esposa",tel:"92988115257"},
-{nome:"Juan e esposa",tel:"92982385626"},
-{nome:"Roberto",tel:""},
-{nome:"Clodoaldo e esposa",tel:"92981710375"}
+const convidados=[
+  {nome:"elena",tel:"92988415301"},
+  {nome:"raimundo",tel:"92999825332"},
+  {nome:"ronald",tel:"92984501066"},
+  {nome:"angela",tel:"92984088432"},
+  {nome:"william",tel:"92981270904"}
 ];
 
-/* CONSULTA */
 function consultar(){
-  const v = normalizar(document.getElementById("busca").value);
+  let v=document.getElementById("busca").value.toLowerCase();
+  let r=convidados.find(c=>v.includes(c.nome)||v.includes(c.tel));
 
-  const r = convidados.filter(c =>
-    normalizar(c.nome).includes(v) || c.tel.includes(v)
-  );
+  let msg=r?
+  `Confirmo presença: ${r.nome}`:
+  "Não encontrado";
 
-  document.getElementById("resultado").value =
-    r.length ? "Confirmado ✅" : "Não encontrado ❌";
+  document.getElementById("resultado").value=msg;
+
+  window.open("https://wa.me/5592984236693?text="+encodeURIComponent(msg));
 }
 
 </script>
