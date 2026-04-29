@@ -3,27 +3,114 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Ronilson & Márcia</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cinzel:wght@400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
+
+/* ===== CORES ===== */
 :root{
   --gold:#c9a24a;
   --gold-light:#f4d27a;
-  --gold-dark:#8a6424;
   --dark:#3f4d63;
   --blue:#4f5f78;
+  --cream:#fffaf2;
 }
 
+/* RESET */
 *{margin:0;padding:0;box-sizing:border-box}
+
 body{
   font-family:'Montserrat',sans-serif;
   background:linear-gradient(135deg,#d6dde6,#f7f1e8,#ffffff);
-  color:var(--dark);
 }
 
-/* CARD */
+/* ===== TELA ENVELOPE ===== */
+
+#tela-envelope{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+}
+
+.convite{
+  width:100%;
+  max-width:380px;
+  background:#fff;
+  border-radius:25px;
+  overflow:hidden;
+  box-shadow:0 20px 50px rgba(0,0,0,.3);
+}
+
+/* TOPO */
+.topo{
+  text-align:center;
+  padding:25px 20px;
+}
+
+.img-monograma{
+  width:90px;
+  display:block;
+  margin:auto;
+}
+
+.titulo{
+  font-family:'Cinzel',serif;
+  font-size:12px;
+  letter-spacing:2px;
+  margin-top:10px;
+}
+
+/* ENVELOPE */
+.envelope{
+  position:relative;
+  height:220px;
+  background:linear-gradient(135deg,#4f5f78,#3f4d63);
+  cursor:pointer;
+}
+
+.tampa{
+  position:absolute;
+  width:100%;
+  height:100%;
+  background:#2c3b52;
+  clip-path:polygon(0 0, 100% 0, 50% 100%);
+  transition:1s;
+}
+
+.envelope.aberto .tampa{
+  transform:rotateX(180deg);
+}
+
+.texto{
+  position:absolute;
+  bottom:20px;
+  width:100%;
+  text-align:center;
+  color:#fff;
+  font-size:13px;
+}
+
+/* NOMES */
+.nomes-preview{
+  text-align:center;
+  padding:20px;
+  font-family:'Alex Brush',cursive;
+  font-size:32px;
+  color:var(--gold);
+}
+
+/* ===== SITE COMPLETO ===== */
+
+#site{
+  display:none;
+}
+
+/* HERO */
 .hero{
   min-height:100vh;
   display:flex;
@@ -33,127 +120,121 @@ body{
 }
 
 .card{
-  max-width:1000px;
   width:100%;
-  background:#fff;
+  max-width:1000px;
+  background:linear-gradient(180deg,#ffffff,#fff8ec);
   padding:30px;
   border-radius:30px;
-  box-shadow:0 20px 60px rgba(0,0,0,.2);
+  box-shadow:0 20px 60px rgba(63,77,99,.25);
   text-align:center;
-}
-
-/* IMAGEM AJUSTADA */
-.logo1{
-  width:100%;
-  max-width:350px;
-  height:220px;
-  object-fit:cover;
-  object-position:center;
-  border-radius:20px;
-  box-shadow:0 10px 30px rgba(0,0,0,0.2);
-  margin-bottom:20px;
-}
-
-.logo2{
-  width:250px;
-  margin-top:10px;
+  border:1px solid rgba(201,162,74,.45);
 }
 
 /* NOMES */
 .nomes{
   font-family:'Alex Brush',cursive;
-  font-size:60px;
-  margin:10px 0;
+  font-size:clamp(40px,8vw,80px);
   background:linear-gradient(45deg,#8a6424,#c9a24a,#f4d27a);
   -webkit-background-clip:text;
   -webkit-text-fill-color:transparent;
 }
 
-/* DATA ESTILO CASAMENTO */
-.data-casamento{
-  margin:25px 0;
-}
-
-.dia{
-  font-family:'Cinzel',serif;
-  font-size:80px;
-  font-weight:bold;
-  background:linear-gradient(45deg,#8a6424,#c9a24a,#f4d27a);
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
-}
-
-.mes-ano{
-  font-family:'Cinzel',serif;
-  font-size:18px;
-  letter-spacing:2px;
-  color:var(--gold-dark);
-}
-
-.hora{
-  margin-top:5px;
-  font-style:italic;
-}
-
-/* BOTÕES */
-.btn{
-  display:block;
-  margin:10px auto;
-  padding:12px 20px;
+/* BOTÃO */
+button{
+  margin-top:15px;
+  padding:14px;
+  border-radius:30px;
   background:linear-gradient(135deg,#4f5f78,#3f4d63);
   color:#f4d27a;
-  border-radius:25px;
-  text-decoration:none;
-  width:80%;
-  max-width:300px;
+  border:none;
+  cursor:pointer;
+  width:100%;
 }
 
 /* RESPONSIVO */
 @media(min-width:768px){
   .card{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    align-items:center;
-    text-align:left;
+    padding:50px;
   }
-
-  .left{text-align:center}
+  button{
+    width:auto;
+    padding:12px 30px;
+  }
 }
+
 </style>
 </head>
 
 <body>
 
-<div class="hero">
-  <div class="card">
+<!-- ===== ENVELOPE ===== -->
+<div id="tela-envelope">
 
-    <div class="left">
-      <img src="fotoigreja.jpeg" class="logo1">
-      <img src="rm1.png" class="logo2">
+  <div class="convite">
+
+    <div class="topo">
+      <img src="rm1.png" class="img-monograma">
+      <div class="titulo">CONVITE ESPECIAL DE CASAMENTO</div>
     </div>
 
-    <div class="right">
-      <h1 class="nomes">Ronilson & Márcia</h1>
+    <div class="envelope" onclick="abrir()" id="env">
+      <div class="tampa"></div>
+      <div class="texto">CLIQUE NO ENVELOPE</div>
+    </div>
 
-      <p>
-        Com alegria no coração, convidamos você para celebrar conosco este momento especial.
-      </p>
-
-      <!-- NOVA DATA -->
-      <div class="data-casamento">
-        <div class="dia">30</div>
-        <div class="mes-ano">OUTUBRO • 2026</div>
-        <div class="hora">às 19h</div>
-      </div>
-
-      <a class="btn" href="#">Cerimônia</a>
-      <a class="btn" href="#">Recepção</a>
-      <a class="btn" href="#">Lista de Presentes</a>
-
+    <div class="nomes-preview">
+      Ronilson & Márcia
     </div>
 
   </div>
+
 </div>
+
+<!-- ===== SITE COMPLETO ===== -->
+<div id="site">
+
+  <div class="hero">
+    <div class="card">
+
+      <img src="rm1.png" style="width:180px; margin-bottom:20px;">
+
+      <h1 class="nomes">Ronilson & Márcia</h1>
+
+      <p style="margin:15px 0;">
+        Com alegria no coração, convidamos você para celebrar conosco 💛
+      </p>
+
+      <div style="font-family:'Cinzel'; color:#8a6424; font-weight:bold;">
+        30 de Outubro de 2026 • 19h
+      </div>
+
+      <button onclick="confirmar()">Confirmar Presença</button>
+
+    </div>
+  </div>
+
+</div>
+
+<script>
+
+function abrir(){
+  document.getElementById("env").classList.add("aberto");
+
+  setTimeout(()=>{
+    document.getElementById("tela-envelope").style.display="none";
+    document.getElementById("site").style.display="block";
+  },1000);
+}
+
+function confirmar(){
+  const msg = encodeURIComponent(
+`💛 Confirmo minha presença no casamento de Ronilson & Márcia`
+  );
+
+  window.open("https://wa.me/5592984236693?text="+msg);
+}
+
+</script>
 
 </body>
 </html>
