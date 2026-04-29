@@ -3,134 +3,27 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Ronilson & Márcia</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cinzel:wght@400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
-
-/* ===== VARIÁVEIS ===== */
 :root{
   --gold:#c9a24a;
+  --gold-light:#f4d27a;
+  --gold-dark:#8a6424;
   --dark:#3f4d63;
   --blue:#4f5f78;
 }
 
-/* RESET */
 *{margin:0;padding:0;box-sizing:border-box}
-
 body{
   font-family:'Montserrat',sans-serif;
-  background:linear-gradient(135deg,#e6edf5,#fff,#f7f1e8);
-  overflow-x:hidden;
+  background:linear-gradient(135deg,#d6dde6,#f7f1e8,#ffffff);
+  color:var(--dark);
 }
 
-/* ===== FUNDO PREMIUM (PARTÍCULAS) ===== */
-body::before{
-  content:"";
-  position:fixed;
-  inset:0;
-  background-image:radial-gradient(circle, rgba(201,162,74,.25) 1px, transparent 1px);
-  background-size:40px 40px;
-  animation:bgMove 20s linear infinite;
-  z-index:-1;
-}
-
-@keyframes bgMove{
-  from{background-position:0 0}
-  to{background-position:200px 200px}
-}
-
-/* ===== BOTÕES ===== */
-.btn, button{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  width:230px;
-  height:48px;
-  margin:8px;
-  border-radius:30px;
-  background:linear-gradient(135deg,#4f5f78,#3f4d63);
-  color:#f4d27a;
-  border:1px solid rgba(244,210,122,.7);
-  cursor:pointer;
-  font-weight:bold;
-  transition:.3s;
-}
-
-.btn:hover, button:hover{
-  transform:scale(1.05);
-  box-shadow:0 10px 25px rgba(0,0,0,.25);
-}
-
-/* ===== ENVELOPE ===== */
-#tela-envelope{
-  height:100vh;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-}
-
-.convite{
-  max-width:380px;
-  width:100%;
-  background:#fff;
-  border-radius:25px;
-  overflow:hidden;
-  box-shadow:0 20px 60px rgba(0,0,0,.3);
-  animation:fadeUp 1s;
-}
-
-@keyframes fadeUp{
-  from{opacity:0; transform:translateY(40px)}
-  to{opacity:1}
-}
-
-.topo{text-align:center;padding:25px}
-
-.img-monograma{width:90px}
-
-.envelope{
-  height:220px;
-  background:#4f5f78;
-  position:relative;
-  cursor:pointer;
-}
-
-.tampa{
-  position:absolute;
-  width:100%;
-  height:100%;
-  background:#2c3b52;
-  clip-path:polygon(0 0,100% 0,50% 100%);
-  transition:1s;
-}
-
-.envelope.aberto .tampa{
-  transform:rotateX(180deg);
-}
-
-.texto{
-  position:absolute;
-  bottom:20px;
-  width:100%;
-  text-align:center;
-  color:#fff;
-}
-
-.nomes-preview{
-  font-family:'Alex Brush';
-  text-align:center;
-  font-size:32px;
-  color:var(--gold);
-  padding:20px;
-}
-
-/* ===== SITE ===== */
-#site{display:none}
-
-/* HERO */
+/* CARD */
 .hero{
   min-height:100vh;
   display:flex;
@@ -140,193 +33,127 @@ body::before{
 }
 
 .card{
-  max-width:900px;
+  max-width:1000px;
   width:100%;
   background:#fff;
-  padding:40px;
+  padding:30px;
   border-radius:30px;
-  text-align:center;
   box-shadow:0 20px 60px rgba(0,0,0,.2);
-  animation:fadeUp 1s;
-}
-
-.nomes{
-  font-family:'Alex Brush';
-  font-size:clamp(40px,8vw,80px);
-  color:var(--gold);
-}
-
-/* DATA PREMIUM */
-.dia{font-size:80px;font-weight:bold;color:#8a6424}
-.mes{font-family:'Cinzel';font-size:22px}
-.hora{font-size:16px}
-
-/* SEÇÕES */
-section{
-  padding:50px 20px;
   text-align:center;
 }
 
-.box{
-  max-width:600px;
-  margin:auto;
-  background:#fff;
-  padding:25px;
+/* IMAGEM AJUSTADA */
+.logo1{
+  width:100%;
+  max-width:350px;
+  height:220px;
+  object-fit:cover;
+  object-position:center;
   border-radius:20px;
-  box-shadow:0 10px 30px rgba(0,0,0,.1);
+  box-shadow:0 10px 30px rgba(0,0,0,0.2);
+  margin-bottom:20px;
 }
 
-/* INPUT */
-.input-campo{
-  width:100%;
-  padding:12px;
-  border-radius:10px;
-  border:1px solid #ccc;
+.logo2{
+  width:250px;
   margin-top:10px;
 }
 
-/* AUDIO */
-.audio{
-  position:fixed;
-  bottom:20px;
-  right:20px;
-  background:#4f5f78;
-  color:#fff;
-  padding:12px;
-  border-radius:50px;
-  cursor:pointer;
+/* NOMES */
+.nomes{
+  font-family:'Alex Brush',cursive;
+  font-size:60px;
+  margin:10px 0;
+  background:linear-gradient(45deg,#8a6424,#c9a24a,#f4d27a);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
 }
 
-/* MOBILE */
-@media(max-width:600px){
-  .btn,button{width:100%}
+/* DATA ESTILO CASAMENTO */
+.data-casamento{
+  margin:25px 0;
 }
 
+.dia{
+  font-family:'Cinzel',serif;
+  font-size:80px;
+  font-weight:bold;
+  background:linear-gradient(45deg,#8a6424,#c9a24a,#f4d27a);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+
+.mes-ano{
+  font-family:'Cinzel',serif;
+  font-size:18px;
+  letter-spacing:2px;
+  color:var(--gold-dark);
+}
+
+.hora{
+  margin-top:5px;
+  font-style:italic;
+}
+
+/* BOTÕES */
+.btn{
+  display:block;
+  margin:10px auto;
+  padding:12px 20px;
+  background:linear-gradient(135deg,#4f5f78,#3f4d63);
+  color:#f4d27a;
+  border-radius:25px;
+  text-decoration:none;
+  width:80%;
+  max-width:300px;
+}
+
+/* RESPONSIVO */
+@media(min-width:768px){
+  .card{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    align-items:center;
+    text-align:left;
+  }
+
+  .left{text-align:center}
+}
 </style>
 </head>
 
 <body>
 
-<audio id="musica" loop>
-  <source src="amor.mp3">
-</audio>
-
-<div class="audio" onclick="toggleMusic()">🎵</div>
-
-<!-- ENVELOPE -->
-<div id="tela-envelope">
-  <div class="convite">
-    <div class="topo">
-      <img src="rm1.png" class="img-monograma">
-    </div>
-
-    <div class="envelope" onclick="abrir()" id="env">
-      <div class="tampa"></div>
-      <div class="texto">Clique para abrir</div>
-    </div>
-
-    <div class="nomes-preview">Ronilson & Márcia</div>
-  </div>
-</div>
-
-<!-- SITE -->
-<div id="site">
-
 <div class="hero">
   <div class="card">
 
-    <img src="fotoigreja.jpeg" width="160">
+    <div class="left">
+      <img src="fotoigreja.jpeg" class="logo1">
+      <img src="rm1.png" class="logo2">
+    </div>
 
-    <h1 class="nomes">Ronilson & Márcia</h1>
+    <div class="right">
+      <h1 class="nomes">Ronilson & Márcia</h1>
 
-    <div class="dia">30</div>
-    <div class="mes">Outubro 2026</div>
-    <div class="hora">às 19 horas</div>
+      <p>
+        Com alegria no coração, convidamos você para celebrar conosco este momento especial.
+      </p>
 
-    <button onclick="confirmar()">Confirmar Presença</button>
+      <!-- NOVA DATA -->
+      <div class="data-casamento">
+        <div class="dia">30</div>
+        <div class="mes-ano">OUTUBRO • 2026</div>
+        <div class="hora">às 19h</div>
+      </div>
 
-    <div>
-      <a class="btn" href="#cerimonia">Cerimônia</a>
-      <a class="btn" href="#recepcao">Recepção</a>
-      <a class="btn" href="#presentes">Presentes</a>
-      <a class="btn" href="#presenca">Senhas</a>
+      <a class="btn" href="#">Cerimônia</a>
+      <a class="btn" href="#">Recepção</a>
+      <a class="btn" href="#">Lista de Presentes</a>
+
     </div>
 
   </div>
 </div>
 
-<section id="cerimonia">
-  <div class="box">
-    <h2>💒 Cerimônia</h2>
-    <p>Capela Nossa Senhora do Perpétuo Socorro</p>
-    <a class="btn" target="_blank" href="https://maps.app.goo.gl/6k88jM35cc1eeQFNA">Ver localização</a>
-  </div>
-</section>
-
-<section id="recepcao">
-  <div class="box">
-    <h2>🎉 Recepção</h2>
-    <p>Innovare Festas e Eventos</p>
-    <p>Av. Silves, 879 - Crespo</p>
-    <a class="btn" target="_blank" href="https://maps.app.goo.gl/dXFb7f6kUVwwfTLG7">Abrir localização</a>
-  </div>
-</section>
-
-<section id="presentes">
-  <div class="box">
-    <h2>🎁 Presentes</h2>
-    <button onclick="window.open('https://www.bemol.com.br/lp/marcia%26ronilson')">Lista Bemol</button>
-    <button onclick="window.open('https://www.dinamicautil.com.br/index.php?route=listapresente/edit&id_lista=60034')">Lista Dinâmica</button>
-  </div>
-</section>
-
-<section id="presenca">
-  <div class="box">
-    <h2>📋 Consultar Senhas</h2>
-
-    <input id="busca" class="input-campo" placeholder="Digite nome ou telefone">
-
-    <button onclick="consultar()">Consultar</button>
-
-    <textarea id="resultado" style="width:100%;height:120px;margin-top:10px"></textarea>
-
-  </div>
-</section>
-
-</div>
-
-<script>
-
-function abrir(){
-  document.getElementById("env").classList.add("aberto");
-  setTimeout(()=>{
-    document.getElementById("tela-envelope").style.display="none";
-    document.getElementById("site").style.display="block";
-  },1000);
-}
-
-function confirmar(){
-  window.open("https://wa.me/5592984236693");
-}
-
-function toggleMusic(){
-  const m=document.getElementById("musica");
-  m.paused?m.play():m.pause();
-}
-
-const convidados=[
-  {nome:"Ronilson",tel:"92 984236693"},
-  {nome:"Márcia",tel:"92999783464"}
-];
-
-function consultar(){
-  const v=document.getElementById("busca").value.toLowerCase();
-  const r=convidados.find(c=>c.nome===v||c.tel===v);
-  document.getElementById("resultado").value=r?"Confirmado ✅":"Não encontrado ❌";
-}
-
-</script>
-
 </body>
 </html>
-
