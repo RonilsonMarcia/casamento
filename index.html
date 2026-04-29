@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Ronilson & Márcia</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cinzel:wght@400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
@@ -10,20 +11,24 @@
 <style>
 :root{
   --gold:#c9a24a;
+  --gold-light:#f4d27a;
   --dark:#3f4d63;
   --blue:#4f5f78;
 }
 
 *{margin:0;padding:0;box-sizing:border-box}
 
+html{scroll-behavior:smooth}
+
 body{
   font-family:'Montserrat',sans-serif;
   background:linear-gradient(135deg,#d6dde6,#f7f1e8,#ffffff);
+  color:var(--dark);
 }
 
 /* ENVELOPE */
 #tela-envelope{
-  height:100vh;
+  min-height:100vh;
   display:flex;
   align-items:center;
   justify-content:center;
@@ -47,7 +52,6 @@ body{
   width:90px;
 }
 
-/* ENVELOPE ANIMADO */
 .envelope{
   position:relative;
   height:220px;
@@ -81,12 +85,6 @@ body{
 /* SITE */
 #site{
   display:none;
-  animation:fade 1s;
-}
-
-@keyframes fade{
-  from{opacity:0;transform:translateY(20px)}
-  to{opacity:1}
 }
 
 .pagina{
@@ -98,7 +96,33 @@ body{
   text-align:center;
 }
 
-/* FOTO */
+.card, .box{
+  max-width:900px;
+  width:100%;
+  background:#fff;
+  padding:30px;
+  border-radius:25px;
+  box-shadow:0 15px 40px rgba(0,0,0,.2);
+}
+
+.nomes{
+  font-family:'Alex Brush',cursive;
+  font-size:clamp(48px,8vw,90px);
+  background:linear-gradient(45deg,#8a6424,#c9a24a,#f4d27a);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+
+.frase{
+  margin:15px 0;
+}
+
+.data{
+  font-family:'Cinzel',serif;
+  margin:20px 0;
+}
+
+/* FOTO CONVITE */
 .foto-convite{
   position:relative;
   width:100%;
@@ -114,12 +138,19 @@ body{
   object-fit:cover;
 }
 
+/* FADE PREMIUM */
 .overlay{
   position:absolute;
   bottom:0;
   width:100%;
-  height:55%;
-  background:linear-gradient(to bottom, transparent, rgba(255,255,255,0.85), #fff);
+  height:60%;
+  background:linear-gradient(
+    to bottom,
+    rgba(255,255,255,0) 0%,
+    rgba(255,255,255,0.4) 40%,
+    rgba(255,255,255,0.8) 70%,
+    #ffffff 100%
+  );
 }
 
 .texto-foto{
@@ -129,7 +160,7 @@ body{
   right:10px;
 }
 
-.frase{
+.frase-biblica{
   font-size:14px;
   margin-bottom:8px;
 }
@@ -137,30 +168,19 @@ body{
 /* NOMES */
 .assinatura{
   font-family:'Alex Brush',cursive;
-  font-size:clamp(34px,6vw,60px);
-  background:linear-gradient(45deg,#8a6424,#c9a24a);
+  font-size:clamp(36px,7vw,64px);
+  background:linear-gradient(45deg,#8a6424,#c9a24a,#f4d27a);
   -webkit-background-clip:text;
   -webkit-text-fill-color:transparent;
   white-space:nowrap;
 }
 
-/* SEÇÕES */
-.box{
-  max-width:500px;
-  width:100%;
-  background:#fff;
-  padding:30px;
-  border-radius:20px;
-  box-shadow:0 10px 30px rgba(0,0,0,.2);
+.assinatura span{
+  margin:0 6px;
 }
 
-h2{
-  font-family:'Cinzel',serif;
-  color:#8a6424;
-  margin-bottom:15px;
-}
-
-.btn{
+/* BOTÕES */
+.btn, button{
   display:block;
   margin:10px auto;
   padding:12px;
@@ -168,14 +188,22 @@ h2{
   color:#fff;
   border-radius:25px;
   text-decoration:none;
+  border:none;
+  cursor:pointer;
 }
 
-/* RESPONSIVO */
-@media(max-width:400px){
-  .assinatura{
-    white-space:normal;
-  }
+h2{
+  font-family:'Cinzel',serif;
+  margin-bottom:10px;
 }
+
+input, textarea{
+  width:100%;
+  padding:10px;
+  margin-top:10px;
+  border-radius:10px;
+}
+
 </style>
 </head>
 
@@ -184,80 +212,77 @@ h2{
 <!-- ENVELOPE -->
 <div id="tela-envelope">
   <div class="convite">
-
     <div class="topo">
       <img src="rm1.png" class="img-monograma">
       <p>Convite de Casamento</p>
     </div>
 
-    <div class="envelope" id="env" onclick="abrir()">
+    <div class="envelope" onclick="abrir()" id="env">
       <div class="tampa"></div>
       <div class="texto">Clique para abrir</div>
     </div>
-
   </div>
 </div>
 
 <!-- SITE -->
 <div id="site">
 
-  <!-- FOTO -->
+  <!-- PRINCIPAL -->
+  <section class="pagina">
+    <div class="card">
+
+      <h1 class="nomes">Ronilson & Márcia</h1>
+
+      <p class="frase">
+        Com alegria no coração, convidamos você para celebrar conosco este momento especial.
+      </p>
+
+      <div class="data">
+        30 de Outubro de 2026<br>às 19h
+      </div>
+
+      <a class="btn" href="#cerimonia">Cerimônia</a>
+      <a class="btn" href="#recepcao">Recepção</a>
+      <a class="btn" href="#presentes">Lista de Presentes</a>
+    </div>
+  </section>
+
+  <!-- FOTO ESTILO CONVITE -->
   <section class="pagina">
     <div class="foto-convite">
+
       <img src="fotoigreja.jpeg">
 
       <div class="overlay"></div>
 
       <div class="texto-foto">
-        <div class="frase">
+        <p class="frase-biblica">
           As muitas águas não podem apagar o amor.
-        </div>
+        </p>
 
         <div class="assinatura">
-          Ronilson & Márcia
+          Ronilson <span>&</span> Márcia
         </div>
       </div>
+
     </div>
   </section>
 
   <!-- CERIMÔNIA -->
-  <section class="pagina">
+  <section id="cerimonia" class="pagina">
     <div class="box">
       <h2>Cerimônia</h2>
       <p>Capela Nossa Senhora do Perpétuo Socorro</p>
       <p>Av. Leonardo Malcher, 541 - Manaus</p>
-
-      <a class="btn" href="https://maps.app.goo.gl/iXigGFA4DZK2rKfg9" target="_blank">
-        Ver localização
-      </a>
     </div>
   </section>
 
   <!-- RECEPÇÃO -->
-  <section class="pagina">
+  <section id="recepcao" class="pagina">
     <div class="box">
       <h2>Recepção</h2>
       <p>Innovare Festas e Eventos</p>
       <p>Av. Silves, 879 - Manaus</p>
-
-      <a class="btn" href="https://maps.app.goo.gl/HCoaKwvwQARE5mwz9" target="_blank">
-        Abrir localização
-      </a>
-    </div>
-  </section>
-
-  <!-- PRESENTES -->
-  <section class="pagina">
-    <div class="box">
-      <h2>Lista de Presentes</h2>
-
-      <a class="btn" href="https://www.bemol.com.br/lp/marcia%26ronilson" target="_blank">
-        Lista Bemol
-      </a>
-
-      <a class="btn" href="https://www.dinamicautil.com.br/index.php?route=listapresente/edit&id_lista=60034" target="_blank">
-        Lista Dinâmica
-      </a>
     </div>
   </section>
 
@@ -270,7 +295,6 @@ function abrir(){
   setTimeout(()=>{
     document.getElementById("tela-envelope").style.display="none";
     document.getElementById("site").style.display="block";
-    window.scrollTo(0,0);
   },1000);
 }
 </script>
