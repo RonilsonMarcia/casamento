@@ -10,7 +10,6 @@
 <style>
 :root{
   --gold:#c9a24a;
-  --gold-light:#f4d27a;
   --dark:#3f4d63;
   --blue:#4f5f78;
 }
@@ -24,7 +23,7 @@ body{
 
 /* ENVELOPE */
 #tela-envelope{
-  min-height:100vh;
+  height:100vh;
   display:flex;
   align-items:center;
   justify-content:center;
@@ -48,25 +47,46 @@ body{
   width:90px;
 }
 
-.titulo{
-  font-size:12px;
-  letter-spacing:2px;
-  margin-top:10px;
+/* ENVELOPE ANIMADO */
+.envelope{
+  position:relative;
+  height:220px;
+  background:linear-gradient(135deg,#4f5f78,#3f4d63);
+  cursor:pointer;
+  perspective:1000px;
 }
 
-.envelope{
-  height:200px;
-  background:linear-gradient(135deg,#4f5f78,#3f4d63);
-  display:flex;
-  align-items:center;
-  justify-content:center;
+.tampa{
+  position:absolute;
+  width:100%;
+  height:100%;
+  background:#2c3b52;
+  clip-path:polygon(0 0, 100% 0, 50% 100%);
+  transform-origin:top;
+  transition:1s;
+}
+
+.envelope.aberto .tampa{
+  transform:rotateX(180deg);
+}
+
+.texto{
+  position:absolute;
+  bottom:20px;
+  width:100%;
+  text-align:center;
   color:#fff;
-  cursor:pointer;
 }
 
 /* SITE */
 #site{
   display:none;
+  animation:fade 1s;
+}
+
+@keyframes fade{
+  from{opacity:0;transform:translateY(20px)}
+  to{opacity:1}
 }
 
 .pagina{
@@ -75,9 +95,10 @@ body{
   align-items:center;
   justify-content:center;
   padding:40px 20px;
+  text-align:center;
 }
 
-/* FOTO ESTILO CONVITE */
+/* FOTO */
 .foto-convite{
   position:relative;
   width:100%;
@@ -93,38 +114,67 @@ body{
   object-fit:cover;
 }
 
-/* FADE */
 .overlay{
   position:absolute;
   bottom:0;
   width:100%;
   height:55%;
-  background:linear-gradient(to bottom, transparent, rgba(255,255,255,0.8), #fff);
+  background:linear-gradient(to bottom, transparent, rgba(255,255,255,0.85), #fff);
 }
 
-/* TEXTO SOBRE FOTO */
 .texto-foto{
   position:absolute;
-  bottom:30px;
-  left:15px;
-  right:15px;
-  text-align:center;
+  bottom:25px;
+  left:10px;
+  right:10px;
 }
 
 .frase{
   font-size:14px;
-  color:#444;
-  margin-bottom:10px;
+  margin-bottom:8px;
 }
 
 /* NOMES */
 .assinatura{
   font-family:'Alex Brush',cursive;
-  font-size:60px;
-  background:linear-gradient(45deg,#8a6424,#c9a24a,#f4d27a);
+  font-size:clamp(34px,6vw,60px);
+  background:linear-gradient(45deg,#8a6424,#c9a24a);
   -webkit-background-clip:text;
   -webkit-text-fill-color:transparent;
   white-space:nowrap;
+}
+
+/* SEÇÕES */
+.box{
+  max-width:500px;
+  width:100%;
+  background:#fff;
+  padding:30px;
+  border-radius:20px;
+  box-shadow:0 10px 30px rgba(0,0,0,.2);
+}
+
+h2{
+  font-family:'Cinzel',serif;
+  color:#8a6424;
+  margin-bottom:15px;
+}
+
+.btn{
+  display:block;
+  margin:10px auto;
+  padding:12px;
+  background:#4f5f78;
+  color:#fff;
+  border-radius:25px;
+  text-decoration:none;
+}
+
+/* RESPONSIVO */
+@media(max-width:400px){
+  .assinatura{
+    white-space:normal;
+  }
 }
 </style>
 </head>
@@ -137,11 +187,12 @@ body{
 
     <div class="topo">
       <img src="rm1.png" class="img-monograma">
-      <div class="titulo">CONVITE DE CASAMENTO</div>
+      <p>Convite de Casamento</p>
     </div>
 
-    <div class="envelope" onclick="abrir()">
-      Clique para abrir
+    <div class="envelope" id="env" onclick="abrir()">
+      <div class="tampa"></div>
+      <div class="texto">Clique para abrir</div>
     </div>
 
   </div>
@@ -150,10 +201,9 @@ body{
 <!-- SITE -->
 <div id="site">
 
-  <!-- SEGUNDA PÁGINA -->
+  <!-- FOTO -->
   <section class="pagina">
     <div class="foto-convite">
-
       <img src="fotoigreja.jpeg">
 
       <div class="overlay"></div>
@@ -167,7 +217,47 @@ body{
           Ronilson & Márcia
         </div>
       </div>
+    </div>
+  </section>
 
+  <!-- CERIMÔNIA -->
+  <section class="pagina">
+    <div class="box">
+      <h2>Cerimônia</h2>
+      <p>Capela Nossa Senhora do Perpétuo Socorro</p>
+      <p>Av. Leonardo Malcher, 541 - Manaus</p>
+
+      <a class="btn" href="https://maps.app.goo.gl/iXigGFA4DZK2rKfg9" target="_blank">
+        Ver localização
+      </a>
+    </div>
+  </section>
+
+  <!-- RECEPÇÃO -->
+  <section class="pagina">
+    <div class="box">
+      <h2>Recepção</h2>
+      <p>Innovare Festas e Eventos</p>
+      <p>Av. Silves, 879 - Manaus</p>
+
+      <a class="btn" href="https://maps.app.goo.gl/HCoaKwvwQARE5mwz9" target="_blank">
+        Abrir localização
+      </a>
+    </div>
+  </section>
+
+  <!-- PRESENTES -->
+  <section class="pagina">
+    <div class="box">
+      <h2>Lista de Presentes</h2>
+
+      <a class="btn" href="https://www.bemol.com.br/lp/marcia%26ronilson" target="_blank">
+        Lista Bemol
+      </a>
+
+      <a class="btn" href="https://www.dinamicautil.com.br/index.php?route=listapresente/edit&id_lista=60034" target="_blank">
+        Lista Dinâmica
+      </a>
     </div>
   </section>
 
@@ -175,8 +265,13 @@ body{
 
 <script>
 function abrir(){
-  document.getElementById("tela-envelope").style.display="none";
-  document.getElementById("site").style.display="block";
+  document.getElementById("env").classList.add("aberto");
+
+  setTimeout(()=>{
+    document.getElementById("tela-envelope").style.display="none";
+    document.getElementById("site").style.display="block";
+    window.scrollTo(0,0);
+  },1000);
 }
 </script>
 
