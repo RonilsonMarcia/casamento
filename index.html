@@ -3,7 +3,6 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Ronilson & Márcia</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cinzel:wght@400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
@@ -14,17 +13,13 @@
   --gold-light:#f4d27a;
   --dark:#3f4d63;
   --blue:#4f5f78;
-  --cream:#fffaf2;
 }
 
 *{margin:0;padding:0;box-sizing:border-box}
 
-html{scroll-behavior:smooth}
-
 body{
   font-family:'Montserrat',sans-serif;
   background:linear-gradient(135deg,#d6dde6,#f7f1e8,#ffffff);
-  color:var(--dark);
 }
 
 /* ENVELOPE */
@@ -33,7 +28,6 @@ body{
   display:flex;
   align-items:center;
   justify-content:center;
-  padding:20px;
 }
 
 .convite{
@@ -43,82 +37,36 @@ body{
   border-radius:25px;
   overflow:hidden;
   box-shadow:0 20px 50px rgba(0,0,0,.3);
-  animation:entrada .8s ease;
-}
-
-@keyframes entrada{
-  from{opacity:0;transform:translateY(30px)}
-  to{opacity:1;transform:translateY(0)}
 }
 
 .topo{
   text-align:center;
-  padding:25px 20px;
+  padding:25px;
 }
 
 .img-monograma{
   width:90px;
-  display:block;
-  margin:auto;
 }
 
 .titulo{
-  font-family:'Cinzel',serif;
   font-size:12px;
   letter-spacing:2px;
   margin-top:10px;
 }
 
 .envelope{
-  position:relative;
-  height:220px;
+  height:200px;
   background:linear-gradient(135deg,#4f5f78,#3f4d63);
-  cursor:pointer;
-  perspective:1000px;
-}
-
-.tampa{
-  position:absolute;
-  width:100%;
-  height:100%;
-  background:#2c3b52;
-  clip-path:polygon(0 0, 100% 0, 50% 100%);
-  transform-origin:top;
-  transition:1s ease;
-  z-index:2;
-}
-
-.envelope.aberto .tampa{
-  transform:rotateX(180deg);
-}
-
-.texto{
-  position:absolute;
-  bottom:20px;
-  width:100%;
-  text-align:center;
+  display:flex;
+  align-items:center;
+  justify-content:center;
   color:#fff;
-  font-size:13px;
-  letter-spacing:1px;
-}
-
-.nomes-preview{
-  text-align:center;
-  padding:20px;
-  font-family:'Alex Brush',cursive;
-  font-size:34px;
-  color:var(--gold);
+  cursor:pointer;
 }
 
 /* SITE */
 #site{
   display:none;
-  animation:subir .8s ease;
-}
-
-@keyframes subir{
-  from{opacity:0;transform:translateY(40px)}
-  to{opacity:1;transform:translateY(0)}
 }
 
 .pagina{
@@ -127,96 +75,6 @@ body{
   align-items:center;
   justify-content:center;
   padding:40px 20px;
-  text-align:center;
-}
-
-.card, .box{
-  width:100%;
-  max-width:1000px;
-  background:linear-gradient(180deg,#ffffff,#fff8ec);
-  padding:35px;
-  border-radius:30px;
-  box-shadow:0 20px 60px rgba(63,77,99,.25);
-  text-align:center;
-  border:1px solid rgba(201,162,74,.45);
-}
-
-.nomes{
-  font-family:'Alex Brush',cursive;
-  font-size:clamp(54px,8vw,100px);
-  background:linear-gradient(45deg,#8a6424,#c9a24a,#f4d27a);
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
-}
-
-.frase{
-  margin:15px 0;
-  font-size:clamp(16px,2vw,22px);
-}
-
-.data{
-  font-family:'Cinzel',serif;
-  color:#8a6424;
-  font-weight:bold;
-  margin:20px 0;
-  font-size:clamp(18px,2vw,26px);
-}
-
-.foto{
-  width:100%;
-  max-width:360px;
-  height:230px;
-  object-fit:cover;
-  border-radius:20px;
-  margin-bottom:20px;
-  box-shadow:0 12px 35px rgba(0,0,0,.22);
-}
-
-.logo{
-  width:180px;
-  max-width:80%;
-  margin-bottom:20px;
-}
-
-.btn, button{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  margin:8px;
-  padding:14px 26px;
-  border-radius:30px;
-  background:linear-gradient(135deg,#4f5f78,#3f4d63);
-  color:#f4d27a;
-  border:none;
-  cursor:pointer;
-  text-decoration:none;
-  font-weight:600;
-  min-width:220px;
-}
-
-.btn:hover, button:hover{
-  transform:scale(1.04);
-}
-
-h2{
-  font-family:'Cinzel',serif;
-  color:#8a6424;
-  margin-bottom:20px;
-}
-
-input, textarea{
-  width:100%;
-  max-width:420px;
-  padding:13px;
-  border-radius:12px;
-  border:1px solid #ccc;
-  margin-top:10px;
-  font-size:15px;
-}
-
-textarea{
-  height:120px;
-  resize:none;
 }
 
 /* FOTO ESTILO CONVITE */
@@ -224,61 +82,49 @@ textarea{
   position:relative;
   width:100%;
   max-width:430px;
-  border-radius:28px;
+  border-radius:30px;
   overflow:hidden;
-  box-shadow:0 20px 60px rgba(0,0,0,.25);
+  box-shadow:0 25px 70px rgba(0,0,0,.25);
 }
 
 .foto-convite img{
   width:100%;
-  display:block;
+  height:100%;
+  object-fit:cover;
 }
 
+/* FADE */
 .overlay{
   position:absolute;
   bottom:0;
   width:100%;
-  height:45%;
-  background:linear-gradient(to bottom, transparent, #fff 75%);
+  height:55%;
+  background:linear-gradient(to bottom, transparent, rgba(255,255,255,0.8), #fff);
 }
 
+/* TEXTO SOBRE FOTO */
 .texto-foto{
   position:absolute;
-  bottom:20px;
-  left:10px;
-  right:10px;
+  bottom:30px;
+  left:15px;
+  right:15px;
   text-align:center;
 }
 
+.frase{
+  font-size:14px;
+  color:#444;
+  margin-bottom:10px;
+}
+
+/* NOMES */
 .assinatura{
   font-family:'Alex Brush',cursive;
-  font-size:clamp(42px,7vw,64px);
-  color:var(--gold);
-}
-
-/* RESPONSIVO */
-@media(min-width:768px){
-  .card{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:30px;
-    align-items:center;
-    text-align:left;
-  }
-
-  .left{text-align:center}
-  .right{text-align:left}
-}
-
-@media(max-width:600px){
-  .btn, button{
-    width:100%;
-    min-width:0;
-  }
-
-  .card, .box{
-    padding:28px 20px;
-  }
+  font-size:60px;
+  background:linear-gradient(45deg,#8a6424,#c9a24a,#f4d27a);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  white-space:nowrap;
 }
 </style>
 </head>
@@ -290,16 +136,13 @@ textarea{
   <div class="convite">
 
     <div class="topo">
-      <img src="rm1.png" class="img-monograma" alt="Monograma">
-      <div class="titulo">CONVITE ESPECIAL DE CASAMENTO</div>
+      <img src="rm1.png" class="img-monograma">
+      <div class="titulo">CONVITE DE CASAMENTO</div>
     </div>
 
-    <div class="envelope" onclick="abrir()" id="env">
-      <div class="tampa"></div>
-      <div class="texto">CLIQUE NO ENVELOPE</div>
+    <div class="envelope" onclick="abrir()">
+      Clique para abrir
     </div>
-
-    <div class="nomes-preview">Ronilson & Márcia</div>
 
   </div>
 </div>
@@ -307,106 +150,24 @@ textarea{
 <!-- SITE -->
 <div id="site">
 
-  <!-- CONVITE PRINCIPAL -->
-  <section class="pagina">
-    <div class="card">
-
-      <div class="left">
-        <img src="fotoigreja.jpeg" class="foto" alt="Foto da igreja">
-        <img src="rm1.png" class="logo" alt="Monograma">
-      </div>
-
-      <div class="right">
-        <h1 class="nomes">Ronilson & Márcia</h1>
-
-        <p class="frase">
-          Com alegria no coração, convidamos você para celebrar conosco este momento especial.
-        </p>
-
-        <div class="data">
-          30 de Outubro de 2026<br>
-          às 19h
-        </div>
-
-        <a class="btn" href="#cerimonia">Cerimônia</a>
-        <a class="btn" href="#recepcao">Recepção</a>
-        <a class="btn" href="#presentes">Lista de Presentes</a>
-        <a class="btn" href="#presenca">Confirmar Presença</a>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- FOTO ESTILO CONVITE -->
+  <!-- SEGUNDA PÁGINA -->
   <section class="pagina">
     <div class="foto-convite">
-      <img src="fotoigreja.jpeg" alt="Foto da igreja">
+
+      <img src="fotoigreja.jpeg">
+
       <div class="overlay"></div>
 
       <div class="texto-foto">
-        <p>As muitas águas não podem apagar o amor.</p>
-        <div class="assinatura">Ronilson & Márcia</div>
+        <div class="frase">
+          As muitas águas não podem apagar o amor.
+        </div>
+
+        <div class="assinatura">
+          Ronilson & Márcia
+        </div>
       </div>
-    </div>
-  </section>
 
-  <!-- CERIMÔNIA -->
-  <section id="cerimonia" class="pagina">
-    <div class="box">
-      <h2>Cerimônia</h2>
-      <p>Capela Nossa Senhora do Perpétuo Socorro</p>
-      <p>Av. Leonardo Malcher, 541 - Aparecida, Manaus - AM</p>
-
-      <a class="btn" href="https://maps.app.goo.gl/iXigGFA4DZK2rKfg9" target="_blank">
-        Ver Local
-      </a>
-    </div>
-  </section>
-
-  <!-- RECEPÇÃO -->
-  <section id="recepcao" class="pagina">
-    <div class="box">
-      <h2>Recepção</h2>
-      <p>Innovare Festas e Eventos</p>
-      <p>Av. Silves, 879 - Crespo, Manaus - AM</p>
-
-      <a class="btn" href="https://maps.app.goo.gl/HCoaKwvwQARE5mwz9" target="_blank">
-        Abrir localização
-      </a>
-    </div>
-  </section>
-
-  <!-- PRESENTES -->
-  <section id="presentes" class="pagina">
-    <div class="box">
-      <h2>Lista de Presentes</h2>
-      <p>Sua presença será o nosso maior presente.</p>
-
-      <button onclick="window.open('https://www.bemol.com.br/lp/marcia%26ronilson','_blank')">
-        Lista Bemol
-      </button>
-
-      <button onclick="window.open('https://www.dinamicautil.com.br/index.php?route=listapresente/edit&id_lista=60034','_blank')">
-        Lista Dinâmica
-      </button>
-
-      <button onclick="window.open('https://wa.me/5592984236693','_blank')">
-        PIX
-      </button>
-    </div>
-  </section>
-
-  <!-- CONFIRMAÇÃO -->
-  <section id="presenca" class="pagina">
-    <div class="box">
-      <h2>Confirmação de Presença</h2>
-      <p>Consulte seu nome ou telefone na lista de convidados.</p>
-
-      <input id="busca" placeholder="Digite seu nome ou telefone">
-
-      <button onclick="consultar()">Consultar e confirmar</button>
-
-      <textarea id="resultado" readonly></textarea>
     </div>
   </section>
 
@@ -414,87 +175,8 @@ textarea{
 
 <script>
 function abrir(){
-  document.getElementById("env").classList.add("aberto");
-
-  setTimeout(()=>{
-    document.getElementById("tela-envelope").style.opacity="0";
-
-    setTimeout(()=>{
-      document.getElementById("tela-envelope").style.display="none";
-      document.getElementById("site").style.display="block";
-      window.scrollTo(0,0);
-    },400);
-
-  },900);
-}
-
-function normalizar(txt){
-  return txt.toLowerCase()
-    .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g,"")
-    .replace(/\s/g,"")
-    .replace(/[^\w]/g,"");
-}
-
-const convidados = [
-  {nome:"Elena",tel:"92988415301"},
-  {nome:"Raimundo",tel:"92999825332"},
-  {nome:"Ronald",tel:"92984501066"},
-  {nome:"Ângela",tel:"92984088432"},
-  {nome:"William",tel:"92981270904"},
-  {nome:"Ana Rita",tel:"92993471741"},
-  {nome:"Edvaldo",tel:"92993293049"},
-  {nome:"Maria",tel:"92984752375"},
-  {nome:"Júnior",tel:"92999767612"},
-  {nome:"Margareth e Brenda",tel:"92991284550"},
-  {nome:"Anilson",tel:"92993704465"},
-  {nome:"Vânia, Vitor e Rosana",tel:"92991772318"},
-  {nome:"Mariângela e Jessica",tel:""},
-  {nome:"Renilson e Ane",tel:""},
-  {nome:"Mônica e Sandro",tel:"92994730568"},
-  {nome:"Dorlean e Cleide",tel:"92991248952"},
-  {nome:"Luany e Fábio",tel:"92992412919"},
-  {nome:"Raiany e esposo",tel:"92991149954"},
-  {nome:"Ilana e esposo",tel:"92993056808"},
-  {nome:"Silmara",tel:"92986293661"},
-  {nome:"Ivana e filha",tel:"92991361649"},
-  {nome:"Erick e Débora",tel:"92982533114"},
-  {nome:"Maria Manfredo e esposo",tel:"92991953961"},
-  {nome:"Fabian e esposa",tel:"92981212395"},
-  {nome:"José Francisco e esposa",tel:"92988362416"},
-  {nome:"Edevaldo e esposa",tel:"92988115257"},
-  {nome:"Juan e esposa",tel:"92982385626"},
-  {nome:"Roberto",tel:""},
-  {nome:"Clodoaldo e esposa",tel:"92981710375"}
-];
-
-function consultar(){
-  const input = document.getElementById("busca").value;
-
-  if(!input.trim()){
-    document.getElementById("resultado").value = "Digite seu nome ou telefone.";
-    return;
-  }
-
-  const busca = normalizar(input);
-
-  const encontrados = convidados.filter(c =>
-    normalizar(c.nome).includes(busca) || c.tel.includes(busca)
-  );
-
-  if(encontrados.length > 0){
-    const pessoa = encontrados[0];
-
-    const msg = `Confirmo presença no casamento de Ronilson & Márcia.\nNome: ${pessoa.nome}`;
-
-    document.getElementById("resultado").value =
-      `Convidado encontrado.\n\nNome: ${pessoa.nome}\nStatus: presença confirmada.`;
-
-    window.open(`https://wa.me/5592984236693?text=${encodeURIComponent(msg)}`, "_blank");
-  }else{
-    document.getElementById("resultado").value =
-      "Nome não encontrado. Verifique se digitou corretamente.";
-  }
+  document.getElementById("tela-envelope").style.display="none";
+  document.getElementById("site").style.display="block";
 }
 </script>
 
